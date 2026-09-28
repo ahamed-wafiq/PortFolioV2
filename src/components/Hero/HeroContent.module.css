@@ -3,8 +3,8 @@
   z-index: 15;
   display: flex;
   flex: 1;
-  min-height: calc(100svh - 90px);
-  padding: clamp(0.75rem, 2vh, 1.8rem) var(--spacing-safe-x) clamp(10.5rem, 22vh, 15rem);
+  min-height: calc(100svh - 80px);
+  padding: clamp(0.5rem, 1.5vh, 1.4rem) var(--spacing-safe-x) clamp(9.5rem, 26svh, 13.5rem);
   gap: clamp(1.5rem, 3vw, 4rem);
   align-items: flex-start;
   justify-content: flex-start;

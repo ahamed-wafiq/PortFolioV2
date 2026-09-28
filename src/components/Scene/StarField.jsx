@@ -82,64 +82,7 @@ const WarpStarStream = ({
   );
 };
 
-// Fast warp streak space dust (whizzing close past the windshield)
-const WarpSpaceDust = ({ count = 300, speed = 32, reducedMotion }) => {
-  const pointsRef = useRef();
 
-  const { positions, speeds } = useMemo(() => {
-    const pos = new Float32Array(count * 3);
-    const spd = new Float32Array(count);
-
-    for (let i = 0; i < count; i++) {
-      const idx = i * 3;
-      pos[idx] = (Math.random() - 0.5) * 35;
-      pos[idx + 1] = (Math.random() - 0.5) * 22;
-      pos[idx + 2] = -70 + Math.random() * 70;
-      spd[i] = speed * (0.8 + Math.random() * 0.5);
-    }
-    return { positions: pos, speeds: spd };
-  }, [count, speed]);
-
-  useFrame((state, delta) => {
-    if (!pointsRef.current || reducedMotion) return;
-    const geo = pointsRef.current.geometry;
-    const posAttr = geo.attributes.position;
-    const array = posAttr.array;
-
-    for (let i = 0; i < count; i++) {
-      const zIdx = i * 3 + 2;
-      array[zIdx] += delta * speeds[i];
-
-      if (array[zIdx] > 1.5) {
-        array[zIdx] = -70;
-        array[i * 3] = (Math.random() - 0.5) * 35;
-        array[i * 3 + 1] = (Math.random() - 0.5) * 22;
-      }
-    }
-    posAttr.needsUpdate = true;
-  });
-
-  return (
-    <points ref={pointsRef}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach="attributes-position"
-          count={count}
-          array={positions}
-          itemSize={3}
-        />
-      </bufferGeometry>
-      <pointsMaterial
-        color="#ff8a1f"
-        size={0.09}
-        sizeAttenuation
-        transparent
-        opacity={0.85}
-        depthWrite={false}
-      />
-    </points>
-  );
-};
 
 // Deep static background stars with subtle parallax
 const DeepCosmicStars = ({ count = 800, reducedMotion }) => {
@@ -219,8 +162,6 @@ const StarField = ({ reducedMotion }) => {
         reducedMotion={reducedMotion}
       />
 
-      {/* Fast orange warp dust particles whizzing close to windshield */}
-      <WarpSpaceDust count={280} speed={34} reducedMotion={reducedMotion} />
     </group>
   );
 };

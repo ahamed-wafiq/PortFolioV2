@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import styles from './CockpitCanopy.module.css';
 
+/**
+ * CockpitCanopy
+ * Minecraft-inspired voxel windshield frame designed for a HUGE ~80%+ windshield view!
+ * Slim overhead beam with compact magma lanterns and slim A-pillars hugging the outer borders.
+ */
 const CockpitCanopy = () => {
   const [vibration, setVibration] = useState({ x: 0, y: 0 });
 
@@ -29,50 +34,109 @@ const CockpitCanopy = () => {
       }}
       aria-hidden="true"
     >
-      {/* Top Canopy Arch with 4 Overhead Glowing Amber Lamps */}
+      {/* ================================================================ */}
+      {/* SLIM OVERHEAD VOXEL CANOPY BEAM & MAGMA LANTERNS (~28px high)     */}
+      {/* ================================================================ */}
       <div className={styles.topCanopyBar}>
-        <div className={styles.topBezel}>
-          <div className={styles.overheadLamp} />
-          <div className={styles.overheadLamp} />
-          <div className={styles.overheadLamp} />
-          <div className={styles.overheadLamp} />
+        <div className={styles.topBlockStructure}>
+          <div className={styles.topWingBlockLeft} />
+
+          <div className={styles.topCenterConsole}>
+            <div className={styles.magmaLantern}>
+              <div className={styles.lanternCore} />
+            </div>
+            <div className={styles.magmaLantern}>
+              <div className={styles.lanternCore} />
+            </div>
+            <div className={styles.magmaLantern}>
+              <div className={styles.lanternCore} />
+            </div>
+            <div className={styles.magmaLantern}>
+              <div className={styles.lanternCore} />
+            </div>
+          </div>
+
+          <div className={styles.topWingBlockRight} />
         </div>
       </div>
 
-      {/* Left Angled A-Pillar with Segmented Orange Status Lights */}
-      <div className={styles.leftPillar}>
-        <div className={styles.pillarLight} />
-        <div className={styles.pillarLight} />
-        <div className={styles.pillarLight} />
+      {/* ================================================================ */}
+      {/* SLIM LEFT VOXEL A-PILLAR (Hugging Left Viewport Edge)            */}
+      {/* ================================================================ */}
+      <div className={styles.leftVoxelPillar}>
+        {[1, 2, 3].map((id) => (
+          <div key={`left-voxel-${id}`} className={styles.pillarVoxelBlock}>
+            <div className={styles.voxelLightCore} />
+          </div>
+        ))}
       </div>
 
-      {/* Right Angled A-Pillar with Segmented Orange Status Lights */}
-      <div className={styles.rightPillar}>
-        <div className={styles.pillarLight} />
-        <div className={styles.pillarLight} />
-        <div className={styles.pillarLight} />
+      {/* ================================================================ */}
+      {/* SLIM RIGHT VOXEL A-PILLAR (Hugging Right Viewport Edge)          */}
+      {/* ================================================================ */}
+      <div className={styles.rightVoxelPillar}>
+        {[1, 2, 3].map((id) => (
+          <div key={`right-voxel-${id}`} className={styles.pillarVoxelBlock}>
+            <div className={styles.voxelLightCore} />
+          </div>
+        ))}
       </div>
 
-      {/* SVG Windshield Chamfered Corner Bezels */}
-      <svg className={styles.windshieldBezelSvg} preserveAspectRatio="none" viewBox="0 0 100 100">
-        {/* Top-Left Chamfer Corner */}
-        <polygon points="0,0 20,0 0,26" fill="#3a2a20" />
-        <polygon points="0,0 18,0 0,23" fill="#251b14" />
-        <line x1="20" y1="0" x2="0" y2="26" stroke="#ea580c" strokeWidth="0.8" />
+      {/* ================================================================ */}
+      {/* COMPACT STEPPED CORNER BLOCKS (TOP-LEFT)                         */}
+      {/* ================================================================ */}
+      <div className={styles.steppedCornerTL}>
+        <div
+          className={styles.cornerStepBlock}
+          style={{ top: 0, left: 0, width: 56, height: 18 }}
+        />
+        <div
+          className={styles.cornerStepBlock}
+          style={{ top: 18, left: 0, width: 34, height: 18 }}
+        />
+        <div
+          className={styles.cornerStepBlock}
+          style={{ top: 36, left: 0, width: 18, height: 20 }}
+        />
+      </div>
 
-        {/* Top-Right Chamfer Corner */}
-        <polygon points="100,0 80,0 100,26" fill="#3a2a20" />
-        <polygon points="100,0 82,0 100,23" fill="#251b14" />
-        <line x1="80" y1="0" x2="100" y2="26" stroke="#ea580c" strokeWidth="0.8" />
+      {/* ================================================================ */}
+      {/* COMPACT STEPPED CORNER BLOCKS (TOP-RIGHT)                        */}
+      {/* ================================================================ */}
+      <div className={styles.steppedCornerTR}>
+        <div
+          className={styles.cornerStepBlockTR}
+          style={{ top: 0, right: 0, width: 56, height: 18 }}
+        />
+        <div
+          className={styles.cornerStepBlockTR}
+          style={{ top: 18, right: 0, width: 34, height: 18 }}
+        />
+        <div
+          className={styles.cornerStepBlockTR}
+          style={{ top: 36, right: 0, width: 18, height: 20 }}
+        />
+      </div>
 
-        {/* Bottom-Left Chamfer Corner */}
-        <polygon points="0,100 18,100 0,76" fill="#3a2a20" />
-        <line x1="18" y1="100" x2="0" y2="76" stroke="#ea580c" strokeWidth="0.8" />
+      {/* ================================================================ */}
+      {/* COMPACT CORNER FOUNDATION BLOCKS (BOTTOM-LEFT)                   */}
+      {/* ================================================================ */}
+      <div className={styles.steppedCornerBL}>
+        <div
+          className={styles.cornerStepBlockBL}
+          style={{ bottom: 0, left: 0, width: 44, height: 22 }}
+        />
+      </div>
 
-        {/* Bottom-Right Chamfer Corner */}
-        <polygon points="100,100 82,100 100,76" fill="#3a2a20" />
-        <line x1="82" y1="100" x2="100" y2="76" stroke="#ea580c" strokeWidth="0.8" />
-      </svg>
+      {/* ================================================================ */}
+      {/* COMPACT CORNER FOUNDATION BLOCKS (BOTTOM-RIGHT)                  */}
+      {/* ================================================================ */}
+      <div className={styles.steppedCornerBR}>
+        <div
+          className={styles.cornerStepBlockBR}
+          style={{ bottom: 0, right: 0, width: 44, height: 22 }}
+        />
+      </div>
     </div>
   );
 };

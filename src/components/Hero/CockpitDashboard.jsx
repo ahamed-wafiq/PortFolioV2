@@ -1,9 +1,13 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './CockpitDashboard.module.css';
 
+/**
+ * CockpitDashboard
+ * Balanced Minecraft-style voxel flight dashboard occupying approximately 25% of hero height,
+ * perfectly balancing the 75% huge cockpit windshield and space vista above!
+ */
 const CockpitDashboard = () => {
   const radarSweepRef = useRef();
-  const voxelCubeRef = useRef();
 
   // Radar sweep animation
   useEffect(() => {
@@ -20,135 +24,146 @@ const CockpitDashboard = () => {
     return () => cancelAnimationFrame(animId);
   }, []);
 
+  const diagnosticRows = [
+    { label: 'THRUST', pips: 7, total: 8 },
+    { label: 'SHIELD', pips: 8, total: 8 },
+    { label: 'O2 LEV', pips: 7, total: 8 },
+    { label: 'WARP', pips: 6, total: 8 },
+  ];
+
+  const graphColumns = [3, 5, 7, 9, 6, 8, 10, 7, 9, 10];
+
   return (
     <div className={styles.dashboardContainer} aria-hidden="true">
-      {/* Top Console Ridge Seam with Glowing Orange Strip */}
+      {/* ================================================================ */}
+      {/* TOP CONSOLE BLOCK RIDGE & STEPPED CRENELLATIONS                  */}
+      {/* ================================================================ */}
       <div className={styles.consoleRidge}>
+        <div className={styles.ridgeBlockTeeth}>
+          {Array.from({ length: 24 }).map((_, i) => (
+            <div key={`tooth-${i}`} className={styles.toothBlock} />
+          ))}
+        </div>
         <div className={styles.ridgeGlowStrip} />
       </div>
 
-      {/* Main Multi-Screen Cockpit Console */}
+      {/* ================================================================ */}
+      {/* BALANCED VOXEL CONSOLE BODY (Occupying the 25% Dashboard tier)   */}
+      {/* ================================================================ */}
       <div className={styles.consoleBody}>
-        {/* === LEFT MFD: SPACESHIP BLUEPRINT & HULL DIAGNOSTICS === */}
-        <div className={styles.screenMfd}>
-          <div className={styles.mfdHeader}>
-            <span>VESSEL HULL STATUS</span>
-            <span className={styles.mfdLiveBadge}>LIVE</span>
+        {/* === LEFT: VOXEL SHIP SCHEMATIC & DIAGNOSTIC METERS === */}
+        <div className={styles.screenMfdLeft}>
+          <div className={styles.shipSchematic}>
+            <svg viewBox="0 0 100 120" className={styles.voxelShipSvg}>
+              <rect x="36" y="20" width="28" height="50" fill="#2b1e16" stroke="#ea580c" strokeWidth="2" />
+              <rect x="40" y="24" width="20" height="16" fill="#fde68a" opacity="0.85" />
+              <rect x="36" y="44" width="28" height="6" fill="#ea580c" />
+              <rect x="18" y="48" width="18" height="26" fill="#1e1828" stroke="#3b82f6" strokeWidth="1.5" />
+              <rect x="64" y="48" width="18" height="26" fill="#1e1828" stroke="#3b82f6" strokeWidth="1.5" />
+              <rect x="34" y="70" width="8" height="8" fill="#ea580c" stroke="#f97316" strokeWidth="1" />
+              <rect x="46" y="70" width="8" height="8" fill="#ea580c" stroke="#f97316" strokeWidth="1" />
+              <rect x="58" y="70" width="8" height="8" fill="#ea580c" stroke="#f97316" strokeWidth="1" />
+              <rect x="36" y="78" width="4" height="14" fill="#ffb84d" />
+              <rect x="48" y="78" width="4" height="18" fill="#ffedd5" />
+              <rect x="60" y="78" width="4" height="14" fill="#ffb84d" />
+            </svg>
           </div>
 
-          <div className={styles.mfdContentRow}>
-            {/* Spaceship Silhouette SVG */}
-            <div className={styles.shipSchematic}>
-              <svg viewBox="0 0 100 120" className={styles.shipSvg}>
-                {/* Hull outline */}
-                <polygon
-                  points="50,10 70,55 90,80 80,95 62,88 50,96 38,88 20,95 10,80 30,55"
-                  fill="rgba(234, 88, 12, 0.25)"
-                  stroke="#ea580c"
-                  strokeWidth="2.5"
-                />
-                {/* Cockpit canopy */}
-                <polygon points="50,25 60,50 40,50" fill="#ffb84d" opacity="0.8" />
-                {/* Wing thruster trails */}
-                <line x1="28" y1="95" x2="28" y2="115" stroke="#ff8a1f" strokeWidth="3" />
-                <line x1="72" y1="95" x2="72" y2="115" stroke="#ff8a1f" strokeWidth="3" />
-                <line x1="50" y1="96" x2="50" y2="118" stroke="#ffb84d" strokeWidth="3" />
-              </svg>
-            </div>
-
-            {/* Diagnostic Bars */}
-            <div className={styles.diagBars}>
-              {[
-                { label: 'THRUST', val: '94%' },
-                { label: 'SHIELD', val: '98%' },
-                { label: 'O2 LEV', val: '96%' },
-                { label: 'REACTOR', val: '88%' },
-                { label: 'WARP', val: '85%' },
-              ].map((item, i) => (
-                <div key={i} className={styles.diagRow}>
-                  <div className={styles.diagLabel}>
-                    <span>{item.label}</span>
-                    <span>{item.val}</span>
-                  </div>
-                  <div className={styles.diagTrack}>
-                    <div className={styles.diagFill} style={{ width: item.val }} />
-                  </div>
+          <div className={styles.diagBars}>
+            {diagnosticRows.map((row) => (
+              <div key={row.label} className={styles.diagRow}>
+                <span className={styles.diagLabel}>{row.label}</span>
+                <div className={styles.diagTrack}>
+                  {Array.from({ length: row.total }).map((_, pipIdx) => (
+                    <div
+                      key={pipIdx}
+                      className={`${styles.diagPip} ${pipIdx < row.pips ? styles.diagPipActive : ''}`}
+                    />
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        {/* === CENTER MFD: FLIGHT RADAR & COMPASS VECTOR === */}
+        {/* === CENTER: ELEVATED SQUARE RADAR TERMINAL === */}
         <div className={styles.centerRadarScreen}>
-          <div className={styles.radarBezel}>
-            <div className={styles.radarDisplay}>
-              {/* Radar Concentric Rings */}
-              <div className={`${styles.radarRing} ${styles.ring1}`} />
-              <div className={`${styles.radarRing} ${styles.ring2}`} />
-              <div className={`${styles.radarRing} ${styles.ring3}`} />
-
-              {/* Crosshairs */}
-              <div className={styles.radarCrossH} />
-              <div className={styles.radarCrossV} />
-
-              {/* Rotating Sweep Beam */}
-              <div ref={radarSweepRef} className={styles.radarSweep} />
-
-              {/* Ship Vector Icon (Center Arrow) */}
-              <div className={styles.shipVectorIcon}>
-                <svg viewBox="0 0 24 24" width="24" height="24">
-                  <polygon points="12,2 20,20 12,15 4,20" fill="#ffb84d" stroke="#ea580c" strokeWidth="1" />
-                </svg>
-              </div>
-
-              {/* Radar Readouts */}
-              <div className={styles.radarHeaderTag}>NAV // SYS_READY</div>
-              <div className={styles.radarSpeedTag}>WARP 0.85c</div>
-              <div className={styles.radarTargetTag}>TARGET: LOCKED</div>
-            </div>
+          <div className={styles.radarDisplay}>
+            <div className={`${styles.voxelRadarRing} ${styles.ring1}`} />
+            <div className={`${styles.voxelRadarRing} ${styles.ring2}`} />
+            <div className={`${styles.voxelRadarRing} ${styles.ring3}`} />
+            <div className={styles.radarCrossH} />
+            <div className={styles.radarCrossV} />
+            <div ref={radarSweepRef} className={styles.radarSweep} />
+            <div className={styles.voxelShipVector} />
+            <span className={styles.radarHeaderTag}>NAV // SYS</span>
+            <span className={styles.radarSpeedTag}>WARP 0.85c</span>
           </div>
         </div>
 
-        {/* === RIGHT MFD: TELEMETRY & ROTATING VOXEL CUBE === */}
-        <div className={styles.screenMfd}>
-          <div className={styles.mfdHeader}>
-            <span>MISSION TELEMETRY</span>
-            <span className={styles.mfdLiveBadge}>OK</span>
+        {/* === RIGHT: TELEMETRY & 3D ROTATING VOXEL CUBE === */}
+        <div className={styles.screenMfdRight}>
+          <div className={styles.barGraphContainer}>
+            {graphColumns.map((blocks, colIdx) => (
+              <div key={colIdx} className={styles.voxelColBlock}>
+                {Array.from({ length: blocks }).map((_, pIdx) => (
+                  <div key={pIdx} className={styles.voxelSubPip} />
+                ))}
+              </div>
+            ))}
           </div>
 
-          <div className={styles.mfdContentRow}>
-            {/* Telemetry Bar Chart */}
-            <div className={styles.barGraphContainer}>
-              {[35, 55, 78, 92, 70, 85, 96, 68, 88, 100].map((h, i) => (
-                <div key={i} className={styles.telemetryBar} style={{ height: `${h}%` }} />
-              ))}
+          <div className={styles.cubeContainer}>
+            <div className={styles.rotatingVoxelCube}>
+              <div className={`${styles.cubeFace} ${styles.faceFront}`} />
+              <div className={`${styles.cubeFace} ${styles.faceBack}`} />
+              <div className={`${styles.cubeFace} ${styles.faceRight}`} />
+              <div className={`${styles.cubeFace} ${styles.faceLeft}`} />
+              <div className={`${styles.cubeFace} ${styles.faceTop}`} />
+              <div className={`${styles.cubeFace} ${styles.faceBottom}`} />
             </div>
-
-            {/* Rotating Voxel Cube Display */}
-            <div className={styles.cubeContainer}>
-              <div ref={voxelCubeRef} className={styles.rotatingVoxelCube}>
-                <div className={`${styles.cubeFace} ${styles.faceFront}`} />
-                <div className={`${styles.cubeFace} ${styles.faceBack}`} />
-                <div className={`${styles.cubeFace} ${styles.faceRight}`} />
-                <div className={`${styles.cubeFace} ${styles.faceLeft}`} />
-                <div className={`${styles.cubeFace} ${styles.faceTop}`} />
-                <div className={`${styles.cubeFace} ${styles.faceBottom}`} />
-              </div>
-              <span className={styles.cubeLabel}>CORE ID: 0x4F</span>
-            </div>
+            <span className={styles.cubeLabel}>CORE: 0x4F</span>
           </div>
         </div>
       </div>
 
-      {/* Console Amber Status Switches & Lamps along Bottom */}
+      {/* ================================================================ */}
+      {/* INTEGRATED BOTTOM CONTROL SWITCHES                               */}
+      {/* ================================================================ */}
       <div className={styles.consoleSwitchBar}>
-        {[-0.6, -0.3, 0.0, 0.3, 0.6, 1.2, 1.5, 1.8].map((_, i) => (
-          <div key={i} className={styles.switchLamp} />
-        ))}
+        <div className={styles.voxelVentGrille}>
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={`vent-l-${i}`} className={styles.ventSlat} />
+          ))}
+        </div>
+
+        <div className={styles.voxelControlButton}>
+          <div className={styles.voxelLedIndicator} />
+          <span>SYS</span>
+        </div>
+
+        <div className={styles.voxelControlButton}>
+          <div className={styles.voxelLedIndicator} style={{ background: '#22c55e', borderColor: '#86efac' }} />
+          <span>WARP</span>
+        </div>
+
+        <div className={styles.voxelControlButton}>
+          <div className={styles.voxelLedIndicator} />
+          <span>RADAR</span>
+        </div>
+
+        <div className={styles.voxelControlButton}>
+          <div className={styles.voxelLedIndicator} style={{ background: '#38bdf8', borderColor: '#bae6fd' }} />
+          <span>SHIELD</span>
+        </div>
+
+        <div className={styles.voxelVentGrille}>
+          {Array.from({ length: 6 }).map((_, i) => (
+            <div key={`vent-r-${i}`} className={styles.ventSlat} />
+          ))}
+        </div>
       </div>
 
-      {/* Engine Thruster Ambient Underglow */}
       <div className={styles.thrusterGlow} />
     </div>
   );
