@@ -1,0 +1,164 @@
+.cockpitOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 8;
+  overflow: hidden;
+}
+
+/* === CENTER WINDSHIELD TARGETING HUD RETICLE (MATCHING FIRST IMAGE) === */
+.centerReticle {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: reticleTracking 8s ease-in-out infinite alternate;
+}
+
+@keyframes reticleTracking {
+  0% { transform: translate(-50%, -50%) translate(0px, 0px); }
+  30% { transform: translate(-50%, -50%) translate(6px, -4px); }
+  70% { transform: translate(-50%, -50%) translate(-5px, 5px); }
+  100% { transform: translate(-50%, -50%) translate(3px, 2px); }
+}
+
+.reticleCrossH {
+  position: absolute;
+  left: -14px;
+  right: -14px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #ff8a1f 30%, #ff8a1f 70%, transparent);
+  opacity: 0.85;
+}
+
+.reticleCrossV {
+  position: absolute;
+  top: -14px;
+  bottom: -14px;
+  width: 1.5px;
+  background: linear-gradient(180deg, transparent, #ff8a1f 30%, #ff8a1f 70%, transparent);
+  opacity: 0.85;
+}
+
+.reticleOuterBox {
+  position: absolute;
+  inset: 12px;
+}
+
+.reticleCornerTL, .reticleCornerTR, .reticleCornerBL, .reticleCornerBR {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: #ffb84d;
+  border-style: solid;
+  border-width: 0;
+  opacity: 0.9;
+}
+
+.reticleCornerTL {
+  top: 0;
+  left: 0;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.reticleCornerTR {
+  top: 0;
+  right: 0;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.reticleCornerBL {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.reticleCornerBR {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+.reticleCircle {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  border: 1.5px dashed rgba(249, 115, 22, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: reticleSpin 20s linear infinite;
+}
+
+@keyframes reticleSpin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.reticleCenterDot {
+  width: 5px;
+  height: 5px;
+  background: #ffb84d;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ff8a1f;
+}
+
+/* === DASHBOARD SCREEN LIGHT PULSES === */
+.dashboardLightsPulse {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+  right: 10%;
+  height: 25%;
+  background: radial-gradient(
+    ellipse 50% 60% at 50% 90%,
+    rgba(255, 138, 31, 0.14) 0%,
+    transparent 70%
+  );
+  animation: dashPulse 3s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes dashPulse {
+  0% { opacity: 0.6; filter: brightness(0.95); }
+  100% { opacity: 1; filter: brightness(1.2); }
+}
+
+/* === ENGINE THRUSTER UNDERGLOW === */
+.thrusterUnderglow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 70% 80% at 50% 100%,
+    rgba(234, 88, 12, 0.18) 0%,
+    rgba(255, 138, 31, 0.08) 45%,
+    transparent 80%
+  );
+  animation: thrusterCycle 3.5s ease-in-out infinite alternate;
+}
+
+@keyframes thrusterCycle {
+  0% { opacity: 0.6; transform: scaleY(0.95); }
+  100% { opacity: 0.95; transform: scaleY(1.06); }
+}
+
+@media (max-width: 820px) {
+  .centerReticle {
+    display: none;
+  }
+}

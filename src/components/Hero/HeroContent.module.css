@@ -1,0 +1,247 @@
+.contentWrapper {
+  position: relative;
+  z-index: 15;
+  display: flex;
+  flex: 1;
+  min-height: calc(100svh - 90px);
+  padding: clamp(0.75rem, 2vh, 1.8rem) var(--spacing-safe-x) clamp(10.5rem, 22vh, 15rem);
+  gap: clamp(1.5rem, 3vw, 4rem);
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.leftColumn {
+  flex: 0 1 min(54vw, 46rem);
+  max-width: min(54vw, 46rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-self: flex-start;
+  margin-top: clamp(0.25rem, 1.5vh, 1rem);
+}
+
+.rightColumn {
+  flex: 1;
+  min-height: 35svh;
+  pointer-events: none;
+}
+
+/* === EYEBROW: >> HI, I'M (MATCHING FIRST IMAGE) === */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-pixel), monospace;
+  font-size: clamp(1rem, 1.25vw, 1.35rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #ea580c;
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8), 0 0 10px rgba(234, 88, 12, 0.6);
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+
+.chevron {
+  color: #ff8a1f;
+  font-weight: 800;
+}
+
+/* === NAME CONTAINER & CORNER BRACKETS === */
+.nameContainer {
+  position: relative;
+  display: inline-block;
+  padding: 0.45rem 1.4rem 0.45rem 0.6rem;
+  margin-bottom: 0.75rem;
+  width: fit-content;
+}
+
+/* Orange pixel corner brackets framing the name (Matching First Image) */
+.bracketTL, .bracketTR, .bracketBL, .bracketBR {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-color: #ea580c;
+  border-style: solid;
+  border-width: 0;
+  opacity: 0.95;
+  filter: drop-shadow(0 0 6px rgba(234, 88, 12, 0.8));
+}
+
+.bracketTL {
+  top: 0;
+  left: 0;
+  border-top-width: 3.5px;
+  border-left-width: 3.5px;
+}
+
+.bracketTR {
+  top: 0;
+  right: 0;
+  border-top-width: 3.5px;
+  border-right-width: 3.5px;
+}
+
+.bracketBL {
+  bottom: 0;
+  left: 0;
+  border-bottom-width: 3.5px;
+  border-left-width: 3.5px;
+}
+
+.bracketBR {
+  bottom: 0;
+  right: 0;
+  border-bottom-width: 3.5px;
+  border-right-width: 3.5px;
+}
+
+/* Chunky Pixel Heading: AHAMED WAFIQ (Matching First Image) */
+.nameHeading {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-pixel), monospace;
+  font-size: clamp(2.8rem, 5vw, 5.2rem);
+  line-height: 0.95;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #fff0d0; /* Cream / off-white text */
+  text-shadow:
+    3px 3px 0px #1a0e07,
+    5px 5px 0px #ea580c,
+    0 0 25px rgba(234, 88, 12, 0.4);
+  text-transform: uppercase;
+}
+
+.nameWord {
+  display: block;
+}
+
+/* === ROLE BADGE: [ AI/ML ENGINEER • MERN STACK DEVELOPER ] (MATCHING FIRST IMAGE) === */
+.roleBadge {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 0.32rem 1.05rem;
+  background: rgba(18, 14, 12, 0.92);
+  border: 2px solid #ea580c;
+  border-radius: 999px;
+  box-shadow:
+    2px 2px 0px rgba(0, 0, 0, 0.6),
+    0 0 12px rgba(234, 88, 12, 0.35);
+  margin-bottom: 0.85rem;
+}
+
+.badgeText {
+  font-family: var(--font-pixel), var(--font-tech), monospace;
+  font-size: clamp(0.7rem, 0.82vw, 0.82rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #ffffff; /* Crisp white text matching first image */
+  text-transform: uppercase;
+}
+
+/* === DESCRIPTION: SIMPLE & CLEAN (MATCHING FIRST IMAGE) === */
+.description {
+  font-family: var(--font-family);
+  font-size: clamp(0.9rem, 1.05vw, 1.08rem);
+  line-height: 1.5;
+  color: #faebd7; /* Cream/off-white text */
+  max-width: 32rem;
+  margin-bottom: 1.25rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* === BUTTONS: ORANGE "VIEW PROJECTS" + CREAM "GET IN TOUCH" (MATCHING FIRST IMAGE) === */
+.ctaGroup {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  padding: 0.78rem 1.65rem;
+  font-family: var(--font-pixel), var(--font-tech), monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-radius: 999px; /* Rounded-angular chamfered pill matching first image */
+  cursor: pointer;
+  transition: all 180ms ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+/* Left Button: Solid Orange with White Text (Matching First Image) */
+.btnPrimary {
+  background: #ea580c;
+  color: #ffffff;
+  border: 2px solid #ff8a1f;
+  box-shadow:
+    3px 3px 0px #7c2d12,
+    0 0 16px rgba(234, 88, 12, 0.6);
+}
+
+.btnPrimary:hover {
+  background: #f97316;
+  transform: translateY(-2px);
+  box-shadow:
+    3px 3px 0px #7c2d12,
+    0 0 24px rgba(249, 115, 22, 0.85);
+}
+
+.btnPrimary:active {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 0px #7c2d12;
+}
+
+/* Right Button: Cream with Dark Text (Matching First Image) */
+.btnSecondary {
+  background: #fae4c9; /* Warm cream buff matching first image */
+  color: #2a1b12; /* Dark brown text matching first image */
+  border: 2px solid #ea580c; /* Orange border */
+  box-shadow:
+    3px 3px 0px rgba(42, 27, 18, 0.4),
+    0 0 12px rgba(234, 88, 12, 0.25);
+}
+
+.btnSecondary:hover {
+  background: #fff0d0;
+  color: #ea580c;
+  transform: translateY(-2px);
+  box-shadow:
+    3px 3px 0px rgba(42, 27, 18, 0.5),
+    0 0 20px rgba(249, 115, 22, 0.55);
+}
+
+.btnSecondary:active {
+  transform: translateY(1px);
+  box-shadow: 1px 1px 0px rgba(42, 27, 18, 0.4);
+}
+
+.btnArrow {
+  font-size: 1.05rem;
+  transition: transform 180ms ease;
+}
+
+.btn:hover .btnArrow {
+  transform: translateX(4px);
+}
+
+@media (max-width: 900px) {
+  .contentWrapper {
+    padding-top: 5.5rem;
+  }
+  .leftColumn {
+    max-width: 100%;
+    flex-basis: 100%;
+  }
+  .rightColumn {
+    display: none;
+  }
+}

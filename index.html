@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ahamed Wafiq | AI/ML Engineer & MERN Stack Developer</title>
+    <link rel="stylesheet" href="/src/index.css" />
+    <style>
+      /* Fallback styling for when JavaScript is disabled */
+      .no-js-cockpit {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        background:
+          radial-gradient(circle at 65% 35%, rgba(234, 88, 12, 0.35) 0%, transparent 45%),
+          radial-gradient(circle at 25% 65%, rgba(154, 52, 18, 0.2) 0%, transparent 50%),
+          linear-gradient(180deg, #1a0803 0%, #0d0502 60%, #050201 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .no-js-nav {
+        position: relative;
+        z-index: 20;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 2.5rem;
+      }
+      .no-js-nav-capsule {
+        display: inline-flex;
+        align-items: center;
+        gap: 1rem;
+        background: #fae4c9;
+        color: #2a1b12;
+        padding: 0.45rem 1.25rem;
+        border-radius: 999px;
+        font-family: 'Pixelify Sans', monospace;
+        font-weight: 700;
+        font-size: 0.85rem;
+      }
+      .no-js-content {
+        position: relative;
+        z-index: 15;
+        padding: 0 4rem;
+        max-width: 48rem;
+      }
+      .no-js-name {
+        font-family: 'Pixelify Sans', monospace;
+        font-size: 3.8rem;
+        line-height: 0.95;
+        color: #fff0d0;
+        text-shadow: 3px 3px 0px #1a0e07, 5px 5px 0px #ea580c;
+        margin: 0.6rem 0;
+      }
+      .no-js-badge {
+        display: inline-block;
+        padding: 0.3rem 1rem;
+        background: #120e0c;
+        border: 2px solid #ea580c;
+        border-radius: 999px;
+        color: #ffffff;
+        font-family: 'Pixelify Sans', monospace;
+        font-size: 0.75rem;
+        margin-bottom: 0.75rem;
+      }
+      .no-js-desc {
+        color: #faebd7;
+        font-size: 1.05rem;
+        margin-bottom: 1.25rem;
+      }
+      .no-js-buttons {
+        display: flex;
+        gap: 1rem;
+      }
+      .no-js-btn-primary {
+        background: #ea580c;
+        color: #ffffff;
+        padding: 0.75rem 1.6rem;
+        border-radius: 999px;
+        font-family: 'Pixelify Sans', monospace;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .no-js-btn-secondary {
+        background: #fae4c9;
+        color: #2a1b12;
+        border: 2px solid #ea580c;
+        padding: 0.75rem 1.6rem;
+        border-radius: 999px;
+        font-family: 'Pixelify Sans', monospace;
+        font-weight: 700;
+        text-decoration: none;
+      }
+      .no-js-canopy-top {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 44px;
+        display: flex;
+        justify-content: center;
+        z-index: 12;
+      }
+      .no-js-top-bezel {
+        display: flex;
+        gap: 3rem;
+        padding: 6px 3rem;
+        background: #251b14;
+        border-bottom: 2px solid #ea580c;
+        border-radius: 0 0 16px 16px;
+      }
+      .no-js-lamp {
+        width: 36px;
+        height: 10px;
+        background: #ffb84d;
+        border-radius: 2px;
+      }
+      .no-js-pillar-left {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 32px;
+        background: linear-gradient(90deg, #3a2a20, #241a13);
+        border-right: 2px solid #ea580c;
+        z-index: 12;
+      }
+      .no-js-pillar-right {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 32px;
+        background: linear-gradient(-90deg, #3a2a20, #241a13);
+        border-left: 2px solid #ea580c;
+        z-index: 12;
+      }
+      .no-js-dashboard {
+        position: relative;
+        z-index: 12;
+        width: 100%;
+        background: linear-gradient(180deg, #201712, #0d0907);
+        border-top: 2px solid #ea580c;
+        padding: 0.6rem 2rem 0.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1.35fr 1fr;
+        gap: 1.5rem;
+      }
+      .no-js-mfd {
+        background: #080a0f;
+        border: 1.5px solid #ea580c;
+        border-radius: 8px;
+        padding: 0.5rem;
+        min-height: 105px;
+        color: #ffb84d;
+        font-family: 'Pixelify Sans', monospace;
+        font-size: 0.65rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root">
+      <!-- Fallback Static Structure for No-JavaScript Environment -->
+      <div class="no-js-cockpit">
+        <div class="no-js-canopy-top">
+          <div class="no-js-top-bezel">
+            <div class="no-js-lamp"></div>
+            <div class="no-js-lamp"></div>
+            <div class="no-js-lamp"></div>
+            <div class="no-js-lamp"></div>
+          </div>
+        </div>
+        <div class="no-js-pillar-left"></div>
+        <div class="no-js-pillar-right"></div>
+
+        <header class="no-js-nav">
+          <div class="no-js-nav-capsule">
+            <span>⬡ Ahamed Wafiq</span>
+            <span>HOME</span>
+            <span>ABOUT</span>
+            <span>PROJECTS</span>
+            <span>SKILLS</span>
+            <span>CONTACT</span>
+          </div>
+          <div style="color: #ffb84d; font-family: 'Pixelify Sans', monospace; font-size: 0.75rem;">
+            DESTINATION: A BRIGHTER TOMORROW
+          </div>
+        </header>
+
+        <div class="no-js-content">
+          <div style="color: #ea580c; font-family: 'Pixelify Sans', monospace; font-weight: 700; font-size: 1.1rem;">
+            &gt;&gt; HI, I'M
+          </div>
+          <h1 class="no-js-name">AHAMED<br />WAFIQ</h1>
+          <div class="no-js-badge">AI/ML ENGINEER • MERN STACK DEVELOPER</div>
+          <p class="no-js-desc">Building intelligent systems and modern web experiences.</p>
+          <div class="no-js-buttons">
+            <a href="#work" class="no-js-btn-primary">VIEW PROJECTS →</a>
+            <a href="#contact" class="no-js-btn-secondary">GET IN TOUCH →</a>
+          </div>
+        </div>
+
+        <footer class="no-js-dashboard">
+          <div class="no-js-mfd">
+            <div>VESSEL HULL STATUS // 98%</div>
+            <div style="margin-top: 8px; color: #ff8a1f;">THRUST: 94% | WARP: 85% | SHIELD: 98%</div>
+          </div>
+          <div class="no-js-mfd" style="text-align: center;">
+            <div>FLIGHT RADAR // SYS_READY</div>
+            <div style="margin-top: 10px; color: #ffb84d;">WARP 0.85c • VECTOR LOCKED</div>
+          </div>
+          <div class="no-js-mfd">
+            <div>MISSION TELEMETRY // OK</div>
+            <div style="margin-top: 8px; color: #ff8a1f;">CORE ID: 0x4F • ORBIT STABLE</div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

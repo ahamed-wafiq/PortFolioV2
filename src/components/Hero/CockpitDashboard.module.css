@@ -1,0 +1,363 @@
+.dashboardContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 12;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* === TOP CONSOLE RIDGE SEAM === */
+.consoleRidge {
+  width: 96%;
+  max-width: 1400px;
+  height: 14px;
+  background: linear-gradient(180deg, #3d2d22 0%, #251b14 100%);
+  border-top: 2px solid #ea580c;
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 -4px 18px rgba(0, 0, 0, 0.8);
+}
+
+.ridgeGlowStrip {
+  width: 92%;
+  height: 3px;
+  background: #ffb84d;
+  box-shadow: 0 0 10px #ff8a1f, 0 0 20px rgba(234, 88, 12, 0.8);
+  border-radius: 2px;
+}
+
+/* === MAIN CONSOLE BODY WITH 3 MFDS === */
+.consoleBody {
+  width: 100%;
+  max-width: 1460px;
+  background: linear-gradient(180deg, #201712 0%, #150f0c 60%, #0d0907 100%);
+  border-top: 1.5px solid rgba(234, 88, 12, 0.5);
+  padding: 0.65rem 1.5rem 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1.35fr 1fr;
+  gap: clamp(0.75rem, 2vw, 1.75rem);
+  align-items: center;
+  box-shadow: inset 0 6px 20px rgba(0, 0, 0, 0.9);
+}
+
+/* === MULTI-FUNCTION DISPLAY (MFD) SCREENS === */
+.screenMfd {
+  background: #080a0f;
+  border: 1.5px solid #ea580c;
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  box-shadow:
+    inset 0 0 12px rgba(234, 88, 12, 0.2),
+    0 0 10px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-height: 110px;
+}
+
+.mfdHeader {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: #ffb84d;
+  border-bottom: 1px dashed rgba(234, 88, 12, 0.35);
+  padding-bottom: 0.25rem;
+}
+
+.mfdLiveBadge {
+  background: #ea580c;
+  color: #ffffff;
+  padding: 0 4px;
+  border-radius: 2px;
+  font-weight: 700;
+}
+
+.mfdContentRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  flex: 1;
+}
+
+/* Spaceship Silhouette */
+.shipSchematic {
+  width: 55px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shipSvg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 4px #ff8a1f);
+}
+
+/* Diagnostic Progress Bars */
+.diagBars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  flex: 1;
+}
+
+.diagRow {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.diagLabel {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-tech), monospace;
+  font-size: 0.58rem;
+  color: #ff8a1f;
+}
+
+.diagTrack {
+  width: 100%;
+  height: 5px;
+  background: #1a130e;
+  border: 1px solid rgba(234, 88, 12, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.diagFill {
+  height: 100%;
+  background: linear-gradient(90deg, #ea580c 0%, #ffb84d 100%);
+  box-shadow: 0 0 6px #ff8a1f;
+}
+
+/* === CENTER MFD: CIRCULAR FLIGHT RADAR === */
+.centerRadarScreen {
+  background: #080a0f;
+  border: 2px solid #ea580c;
+  border-radius: 10px;
+  padding: 0.5rem;
+  box-shadow:
+    inset 0 0 16px rgba(234, 88, 12, 0.3),
+    0 0 16px rgba(234, 88, 12, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 125px;
+}
+
+.radarBezel {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  height: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radarDisplay {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Radar Rings */
+.radarRing {
+  position: absolute;
+  border: 1px solid rgba(234, 88, 12, 0.7);
+  border-radius: 50%;
+}
+
+.ring1 { width: 35px; height: 35px; }
+.ring2 { width: 68px; height: 68px; }
+.ring3 { width: 98px; height: 98px; border-style: dashed; }
+
+.radarCrossH {
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: rgba(234, 88, 12, 0.6);
+}
+
+.radarCrossV {
+  position: absolute;
+  height: 100%;
+  width: 1px;
+  background: rgba(234, 88, 12, 0.6);
+}
+
+/* Radar Sweep Beam */
+.radarSweep {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(90deg, #ffb84d, transparent);
+  transform-origin: 0 0;
+  box-shadow: 0 0 6px #ff8a1f;
+}
+
+.shipVectorIcon {
+  position: absolute;
+  z-index: 5;
+  filter: drop-shadow(0 0 4px #ff8a1f);
+}
+
+/* Radar HUD tags */
+.radarHeaderTag, .radarSpeedTag, .radarTargetTag {
+  position: absolute;
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.58rem;
+  color: #ffb84d;
+  white-space: nowrap;
+}
+
+.radarHeaderTag {
+  top: 2px;
+  left: -85px;
+}
+
+.radarSpeedTag {
+  bottom: 2px;
+  left: -85px;
+}
+
+.radarTargetTag {
+  top: 2px;
+  right: -85px;
+}
+
+/* === RIGHT MFD: TELEMETRY BAR CHART & 3D VOXEL CUBE === */
+.barGraphContainer {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 60px;
+  flex: 1;
+  padding: 2px 0;
+}
+
+.telemetryBar {
+  flex: 1;
+  background: linear-gradient(180deg, #ffb84d 0%, #ea580c 100%);
+  box-shadow: 0 0 4px rgba(234, 88, 12, 0.6);
+  border-radius: 1px;
+}
+
+/* CSS 3D Voxel Cube */
+.cubeContainer {
+  width: 60px;
+  height: 65px;
+  perspective: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.rotatingVoxelCube {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  transform-style: preserve-3d;
+  animation: spinCube 10s infinite linear;
+}
+
+@keyframes spinCube {
+  from { transform: rotateX(20deg) rotateY(0deg); }
+  to { transform: rotateX(20deg) rotateY(360deg); }
+}
+
+.cubeFace {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  border: 1.5px solid #ffb84d;
+  background: rgba(234, 88, 12, 0.2);
+  box-shadow: 0 0 4px rgba(255, 184, 77, 0.5);
+}
+
+.faceFront  { transform: translateZ(14px); }
+.faceBack   { transform: rotateY(180deg) translateZ(14px); }
+.faceRight  { transform: rotateY(90deg) translateZ(14px); }
+.faceLeft   { transform: rotateY(-90deg) translateZ(14px); }
+.faceTop    { transform: rotateX(90deg) translateZ(14px); }
+.faceBottom { transform: rotateX(-90deg) translateZ(14px); }
+
+.cubeLabel {
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.52rem;
+  color: #ffb84d;
+}
+
+/* === CONSOLE SWITCH BAR === */
+.consoleSwitchBar {
+  width: 100%;
+  max-width: 1460px;
+  background: #110d0a;
+  padding: 4px 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  border-top: 1px solid rgba(234, 88, 12, 0.25);
+}
+
+.switchLamp {
+  width: 18px;
+  height: 6px;
+  background: #ffb84d;
+  border-radius: 1px;
+  box-shadow: 0 0 8px #ff8a1f;
+  animation: switchPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes switchPulse {
+  0% { opacity: 0.7; }
+  100% { opacity: 1; box-shadow: 0 0 12px #ff8a1f; }
+}
+
+/* === THRUSTER GLOW === */
+.thrusterGlow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: radial-gradient(
+    ellipse 60% 80% at 50% 100%,
+    rgba(234, 88, 12, 0.2) 0%,
+    transparent 75%
+  );
+  pointer-events: none;
+  animation: engineFlicker 3s ease-in-out infinite alternate;
+}
+
+@keyframes engineFlicker {
+  0% { opacity: 0.65; }
+  100% { opacity: 0.95; }
+}
+
+@media (max-width: 900px) {
+  .consoleBody {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .screenMfd {
+    display: none;
+  }
+}
