@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Sections.module.css';
+import TechnologyCore from './TechCore/TechnologyCore';
 
 const AboutSection = () => {
   return (
@@ -64,58 +65,8 @@ const AboutSection = () => {
           </div>
         </div>
 
-        {/* Right Column: Flight Telemetry & System Diagnostics Card */}
-        <div className={`${styles.hudCard} ${styles.flightTelemetryCard}`}>
-          <div className={styles.cardCornerTL} />
-          <div className={styles.cardCornerTR} />
-          <div className={styles.cardCornerBL} />
-          <div className={styles.cardCornerBR} />
-
-          <div className={styles.cardTelemetry}>
-            <span>SYSTEM READOUTS</span>
-            <span>DIAGNOSTIC: 100%</span>
-          </div>
-
-          <div className={styles.metricBlock}>
-            <div className={styles.metricHeader}>
-              <span>CORE ARCHITECTURE (MERN)</span>
-              <span>95%</span>
-            </div>
-            <div className={styles.progressBarTrack}>
-              <div className={styles.progressBarFill} style={{ width: '95%' }} />
-            </div>
-          </div>
-
-          <div className={styles.metricBlock}>
-            <div className={styles.metricHeader}>
-              <span>MACHINE LEARNING &amp; AI</span>
-              <span>88%</span>
-            </div>
-            <div className={styles.progressBarTrack}>
-              <div className={styles.progressBarFill} style={{ width: '88%' }} />
-            </div>
-          </div>
-
-          <div className={styles.metricBlock}>
-            <div className={styles.metricHeader}>
-              <span>3D GRAPHICS &amp; THREE.JS</span>
-              <span>85%</span>
-            </div>
-            <div className={styles.progressBarTrack}>
-              <div className={styles.progressBarFill} style={{ width: '85%' }} />
-            </div>
-          </div>
-
-          <div className={styles.metricBlock}>
-            <div className={styles.metricHeader}>
-              <span>PROBLEM SOLVING &amp; ALGORITHMS</span>
-              <span>92%</span>
-            </div>
-            <div className={styles.progressBarTrack}>
-              <div className={styles.progressBarFill} style={{ width: '92%' }} />
-            </div>
-          </div>
-        </div>
+        {/* Right Column: Interactive 3D Technology Core Panel */}
+        <TechnologyCore />
       </div>
     </section>
   );

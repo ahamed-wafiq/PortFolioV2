@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './CockpitDashboard.module.css';
+import voxelSpacecraftImg from '../../assets/voxel_spacecraft.png';
 
 /**
  * CockpitDashboard
@@ -54,19 +55,11 @@ const CockpitDashboard = () => {
         {/* === LEFT: VOXEL SHIP SCHEMATIC & DIAGNOSTIC METERS === */}
         <div className={styles.screenMfdLeft}>
           <div className={styles.shipSchematic}>
-            <svg viewBox="0 0 100 120" className={styles.voxelShipSvg}>
-              <rect x="36" y="20" width="28" height="50" fill="#2b1e16" stroke="#ea580c" strokeWidth="2" />
-              <rect x="40" y="24" width="20" height="16" fill="#fde68a" opacity="0.85" />
-              <rect x="36" y="44" width="28" height="6" fill="#ea580c" />
-              <rect x="18" y="48" width="18" height="26" fill="#1e1828" stroke="#3b82f6" strokeWidth="1.5" />
-              <rect x="64" y="48" width="18" height="26" fill="#1e1828" stroke="#3b82f6" strokeWidth="1.5" />
-              <rect x="34" y="70" width="8" height="8" fill="#ea580c" stroke="#f97316" strokeWidth="1" />
-              <rect x="46" y="70" width="8" height="8" fill="#ea580c" stroke="#f97316" strokeWidth="1" />
-              <rect x="58" y="70" width="8" height="8" fill="#ea580c" stroke="#f97316" strokeWidth="1" />
-              <rect x="36" y="78" width="4" height="14" fill="#ffb84d" />
-              <rect x="48" y="78" width="4" height="18" fill="#ffedd5" />
-              <rect x="60" y="78" width="4" height="14" fill="#ffb84d" />
-            </svg>
+            <img
+              src={voxelSpacecraftImg}
+              alt="Spacecraft Schematic"
+              className={styles.schematicSpacecraftImg}
+            />
           </div>
 
           <div className={styles.diagBars}>
@@ -95,7 +88,13 @@ const CockpitDashboard = () => {
             <div className={styles.radarCrossH} />
             <div className={styles.radarCrossV} />
             <div ref={radarSweepRef} className={styles.radarSweep} />
-            <div className={styles.voxelShipVector} />
+            <div className={styles.radarShipVector}>
+              <img
+                src={voxelSpacecraftImg}
+                alt="Nav Vessel Vector"
+                className={styles.radarShipImg}
+              />
+            </div>
             <span className={styles.radarHeaderTag}>NAV // SYS</span>
             <span className={styles.radarSpeedTag}>WARP 0.85c</span>
           </div>

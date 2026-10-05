@@ -1,0 +1,317 @@
+/* === TECHNOLOGY CORE HUD PANEL === */
+.techCoreCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(11, 13, 18, 0.94);
+  border: 1.5px solid rgba(249, 115, 22, 0.4);
+  border-radius: 12px;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.7),
+    inset 0 0 15px rgba(249, 115, 22, 0.06);
+  transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1);
+  backdrop-filter: blur(8px);
+  min-height: 480px;
+  overflow: hidden;
+}
+
+.techCoreCard:hover {
+  border-color: #f97316;
+  box-shadow:
+    0 0 24px rgba(249, 115, 22, 0.45),
+    0 14px 40px rgba(0, 0, 0, 0.85),
+    inset 0 0 20px rgba(249, 115, 22, 0.12);
+  transform: translateY(-4px);
+}
+
+/* Corner bracket tech accents */
+.cardCornerTL, .cardCornerTR, .cardCornerBL, .cardCornerBR {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: #ff8a1f;
+  border-style: solid;
+  border-width: 0;
+  opacity: 0.75;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.cardCornerTL {
+  top: 4px;
+  left: 4px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.cardCornerTR {
+  top: 4px;
+  right: 4px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.cardCornerBL {
+  bottom: 4px;
+  left: 4px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.cardCornerBR {
+  bottom: 4px;
+  right: 4px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+/* Card Header Telemetry Tag */
+.cardTelemetry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: #ffb84d;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed rgba(249, 115, 22, 0.25);
+  position: relative;
+  z-index: 5;
+}
+
+.telemetryTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffb84d;
+}
+
+.telemetryStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #ff8a1f;
+  font-size: 0.65rem;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  background: #ffb84d;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ff8a1f;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* Central 3D Core Viewport */
+.viewportContainer {
+  position: relative;
+  width: 100%;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.25rem 0;
+}
+
+.canvasWrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+/* Ambient Radial Glow Behind 3D Core */
+.coreRadialGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.14) 0%, rgba(255, 138, 31, 0.05) 50%, transparent 75%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle SVG Circuit & Orbital Track Lines */
+.orbitalSvgOverlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.45;
+}
+
+/* Orbital Technology Nodes Overlay */
+.techNodesNetwork {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.techNodeAnchor {
+  position: absolute;
+  pointer-events: auto;
+  transform: translate(-50%, -50%);
+}
+
+/* Individual Tech Node Badge */
+.nodeBadge {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.65rem;
+  background: rgba(8, 10, 16, 0.88);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  border-radius: 4px;
+  color: #ffb84d;
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 180ms ease-out;
+  backdrop-filter: blur(4px);
+  user-select: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.nodeMarker {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  background: #f97316;
+  border-radius: 1px;
+  box-shadow: 0 0 5px #f97316;
+  transition: all 180ms ease-out;
+}
+
+.nodeBadge:hover, .nodeBadgeActive {
+  background: rgba(22, 14, 8, 0.95);
+  border-color: #ff8a1f;
+  color: #fff0d0;
+  box-shadow:
+    0 0 14px rgba(249, 115, 22, 0.65),
+    inset 0 0 8px rgba(249, 115, 22, 0.2);
+  transform: scale(1.05);
+}
+
+.nodeBadge:hover .nodeMarker, .nodeBadgeActive .nodeMarker {
+  background: #ffb84d;
+  box-shadow: 0 0 8px #ffb84d;
+  transform: scale(1.4);
+}
+
+/* Technical Tooltip */
+.techTooltip {
+  position: absolute;
+  min-width: 170px;
+  max-width: 220px;
+  padding: 0.45rem 0.65rem;
+  background: rgba(6, 8, 12, 0.96);
+  border: 1px solid #ff8a1f;
+  border-radius: 4px;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.9),
+    0 0 12px rgba(249, 115, 22, 0.3);
+  pointer-events: none;
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4px);
+  transition: opacity 180ms ease-out, transform 180ms ease-out, visibility 180ms ease-out;
+}
+
+.techNodeAnchor:hover .techTooltip,
+.techNodeAnchor:focus-within .techTooltip,
+.techTooltipVisible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.tooltipCategory {
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  color: #ff8a1f;
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.tooltipDetails {
+  font-family: var(--font-tech), monospace;
+  font-size: 0.72rem;
+  line-height: 1.35;
+  color: #fff0d0;
+  font-weight: 500;
+}
+
+/* Bottom of Panel */
+.panelFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  padding-top: 0.75rem;
+  margin-top: 0.5rem;
+  border-top: 1px dashed rgba(249, 115, 22, 0.25);
+  position: relative;
+  z-index: 5;
+}
+
+.footerDisciplines {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: #ffb84d;
+  text-transform: uppercase;
+}
+
+.footerBullet {
+  color: #ff8a1f;
+  font-size: 0.85rem;
+  line-height: 1;
+  text-shadow: 0 0 6px rgba(255, 138, 31, 0.7);
+}
+
+.footerTelemetry {
+  font-family: var(--font-tech), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: #8e7a64;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .viewportContainer {
+    height: 300px;
+  }
+  .nodeBadge {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.58rem;
+  }
+  .footerDisciplines {
+    font-size: 0.62rem;
+    gap: 0.5rem;
+  }
+}
