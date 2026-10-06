@@ -127,43 +127,6 @@ const CockpitDashboard = ({ isVisible = true }) => {
         </div>
       </div>
 
-      {/* ================================================================ */}
-      {/* INTEGRATED BOTTOM CONTROL SWITCHES                               */}
-      {/* ================================================================ */}
-      <div className={styles.consoleSwitchBar}>
-        <div className={styles.voxelVentGrille}>
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={`vent-l-${i}`} className={styles.ventSlat} />
-          ))}
-        </div>
-
-        <div className={styles.voxelControlButton}>
-          <div className={styles.voxelLedIndicator} />
-          <span>SYS</span>
-        </div>
-
-        <div className={styles.voxelControlButton}>
-          <div className={styles.voxelLedIndicator} style={{ background: '#22c55e', borderColor: '#86efac' }} />
-          <span>WARP</span>
-        </div>
-
-        <div className={styles.voxelControlButton}>
-          <div className={styles.voxelLedIndicator} />
-          <span>RADAR</span>
-        </div>
-
-        <div className={styles.voxelControlButton}>
-          <div className={styles.voxelLedIndicator} style={{ background: '#38bdf8', borderColor: '#bae6fd' }} />
-          <span>SHIELD</span>
-        </div>
-
-        <div className={styles.voxelVentGrille}>
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={`vent-r-${i}`} className={styles.ventSlat} />
-          ))}
-        </div>
-      </div>
-
       <div className={styles.thrusterGlow} />
     </div>
   );

@@ -56,8 +56,6 @@ const TECH_NODES = [
 export default function TechnologyCore() {
   const [hoveredTech, setHoveredTech] = useState(null);
 
-  const activeNode = TECH_NODES.find((n) => n.id === hoveredTech);
-
   return (
     <div className={styles.techCoreCard}>
       {/* Corner Bracket Accents */}
@@ -206,15 +204,6 @@ export default function TechnologyCore() {
           <span>FULL STACK</span>
           <span className={styles.footerBullet}>&bull;</span>
           <span>3D WEB</span>
-        </div>
-        <div className={styles.footerTelemetry}>
-          {activeNode ? (
-            <span style={{ color: '#ffb84d' }}>
-              [{activeNode.label}]: {activeNode.details}
-            </span>
-          ) : (
-            'MODULAR TELEMETRY // 6 SUB-NODES CONNECTED'
-          )}
         </div>
       </div>
     </div>
