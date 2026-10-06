@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styles from './Sections.module.css';
+import HudRailFrame from './HudRailFrame/HudRailFrame';
 
 const ContactSection = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -29,21 +30,11 @@ const ContactSection = () => {
       </div>
 
       <div className={styles.contactGrid}>
-        {/* Left Column: Direct Comms Dossier */}
-        <div className={styles.hudCard}>
-          <div className={styles.cardCornerTL} />
-          <div className={styles.cardCornerTR} />
-          <div className={styles.cardCornerBL} />
-          <div className={styles.cardCornerBR} />
-
-          <div className={styles.cardTelemetry}>
-            <span>COMM FREQUENCY: DIRECT</span>
-            <div className={styles.telemetryStatus}>
-              <span className={styles.statusDot} />
-              <span>SIGNAL 100%</span>
-            </div>
-          </div>
-
+        {/* Left Column: Direct Comms Dossier with Blender 3D HUD Rail Frame */}
+        <HudRailFrame
+          telemetryTitle="COMM FREQUENCY: DIRECT"
+          telemetryStatus="SIGNAL 100%"
+        >
           <div className={styles.commsInfo}>
             <div className={styles.commsItem}>
               <div className={styles.commsIcon}>@</div>
@@ -89,19 +80,13 @@ const ContactSection = () => {
               </div>
             </div>
           </div>
-        </div>
+        </HudRailFrame>
 
-        {/* Right Column: Transmission Form Panel */}
-        <div className={styles.hudCard}>
-          <div className={styles.cardCornerTL} />
-          <div className={styles.cardCornerTR} />
-          <div className={styles.cardCornerBL} />
-          <div className={styles.cardCornerBR} />
-
-          <div className={styles.cardTelemetry}>
-            <span>DISPATCH CONSOLE</span>
-            <span>ENCRYPT: SHA-256</span>
-          </div>
+        {/* Right Column: Transmission Form Panel with Blender 3D HUD Rail Frame */}
+        <HudRailFrame
+          telemetryTitle="DISPATCH CONSOLE"
+          telemetryStatus="ENCRYPT: SHA-256"
+        >
 
           {transmitted ? (
             <div style={{ padding: '2rem 0', textAlign: 'center' }}>
@@ -163,7 +148,7 @@ const ContactSection = () => {
               </button>
             </form>
           )}
-        </div>
+        </HudRailFrame>
       </div>
     </section>
   );
