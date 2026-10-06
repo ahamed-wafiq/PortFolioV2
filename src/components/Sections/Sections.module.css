@@ -321,8 +321,20 @@
 /* === SKILLS SECTION LAYOUT === */
 .skillsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: 1fr;
   gap: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+@media (min-width: 680px) {
+  .skillsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1040px) {
+  .skillsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 .skillsGroupTitle {

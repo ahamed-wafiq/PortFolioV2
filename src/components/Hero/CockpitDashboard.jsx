@@ -7,11 +7,12 @@ import voxelSpacecraftImg from '../../assets/voxel_spacecraft.png';
  * Balanced Minecraft-style voxel flight dashboard occupying approximately 25% of hero height,
  * perfectly balancing the 75% huge cockpit windshield and space vista above!
  */
-const CockpitDashboard = () => {
+const CockpitDashboard = ({ isVisible = true }) => {
   const radarSweepRef = useRef();
 
-  // Radar sweep animation
+  // Radar sweep animation - only active when cockpit is in view
   useEffect(() => {
+    if (!isVisible) return undefined;
     let angle = 0;
     let animId;
     const animate = () => {
@@ -23,7 +24,7 @@ const CockpitDashboard = () => {
     };
     animId = requestAnimationFrame(animate);
     return () => cancelAnimationFrame(animId);
-  }, []);
+  }, [isVisible]);
 
   const diagnosticRows = [
     { label: 'THRUST', pips: 7, total: 8 },

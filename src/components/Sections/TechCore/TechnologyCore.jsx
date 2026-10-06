@@ -110,22 +110,38 @@ export default function TechnologyCore() {
             strokeWidth="0.3"
           />
 
-          {/* Circuit Radiating Connections to Nodes */}
+          {/* Circuit Radiating Connections to Nodes (starts outside central 3D core) */}
           {TECH_NODES.map((node) => {
             const isHovered = hoveredTech === node.id;
             const x = parseFloat(node.pos.left);
             const y = parseFloat(node.pos.top);
+            const angle = Math.atan2(y - 50, x - 50);
+            const coreRadius = 26; // Keeps central 3D core clear of 2D line clutter
+            const startX = 50 + Math.cos(angle) * coreRadius;
+            const startY = 50 + Math.sin(angle) * coreRadius;
+
             return (
-              <line
-                key={node.id}
-                x1="50"
-                y1="50"
-                x2={x}
-                y2={y}
-                stroke={isHovered ? '#ff8a1f' : 'rgba(249, 115, 22, 0.22)'}
-                strokeWidth={isHovered ? '0.7' : '0.35'}
-                strokeDasharray={isHovered ? 'none' : '1.5 1.5'}
-              />
+              <g key={node.id}>
+                <line
+                  x1={startX}
+                  y1={startY}
+                  x2={x}
+                  y2={y}
+                  stroke={isHovered ? '#ff9e3b' : 'rgba(249, 115, 22, 0.28)'}
+                  strokeWidth={isHovered ? '0.75' : '0.35'}
+                  strokeDasharray={isHovered ? 'none' : '1.5 2'}
+                />
+                {/* Node Target Reticle on hover */}
+                {isHovered && (
+                  <circle
+                    cx={startX}
+                    cy={startY}
+                    r="1.2"
+                    fill="#ffb84d"
+                    opacity="0.9"
+                  />
+                )}
+              </g>
             );
           })}
         </svg>

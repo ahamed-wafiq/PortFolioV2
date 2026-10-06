@@ -24,12 +24,12 @@ function useReducedMotionPreference() {
   return reducedMotion;
 }
 
-function SceneMotion({ reducedMotion }) {
+function SceneMotion({ reducedMotion, isVisible }) {
   const { camera } = useThree();
   const pointer = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
-    if (reducedMotion) return undefined;
+    if (reducedMotion || !isVisible) return undefined;
 
     const handlePointerMove = (event) => {
       pointer.current.x = (event.clientX / window.innerWidth - 0.5) * 2;
@@ -38,9 +38,10 @@ function SceneMotion({ reducedMotion }) {
 
     window.addEventListener('mousemove', handlePointerMove, { passive: true });
     return () => window.removeEventListener('mousemove', handlePointerMove);
-  }, [reducedMotion]);
+  }, [reducedMotion, isVisible]);
 
   useFrame((state) => {
+    if (!isVisible) return;
     const elapsed = state.clock.elapsedTime;
     const mx = reducedMotion ? 0 : pointer.current.x;
     const my = reducedMotion ? 0 : pointer.current.y;
@@ -82,12 +83,13 @@ function SceneMotion({ reducedMotion }) {
   return null;
 }
 
-function SpaceSceneCanvas() {
+function SpaceSceneCanvas({ isVisible }) {
   const reducedMotion = useReducedMotionPreference();
 
   return (
     <Canvas
       className={styles.canvas}
+      frameloop={isVisible ? 'always' : 'never'}
       camera={{ position: [0, 0.05, 0], fov: 66, near: 0.05, far: 200 }}
       gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
       dpr={[1, 1.5]}
@@ -97,7 +99,7 @@ function SpaceSceneCanvas() {
         gl.toneMappingExposure = 1.25;
       }}
     >
-      <SceneMotion reducedMotion={reducedMotion} />
+      <SceneMotion reducedMotion={reducedMotion} isVisible={isVisible} />
       <Suspense fallback={null}>
         <SpaceEnvironment reducedMotion={reducedMotion} />
         <StarField reducedMotion={reducedMotion} />
@@ -107,10 +109,10 @@ function SpaceSceneCanvas() {
   );
 }
 
-const SpaceScene = () => {
+const SpaceScene = ({ isVisible = true }) => {
   return (
     <div className={styles.sceneRoot} aria-hidden="true">
-      <SpaceSceneCanvas />
+      <SpaceSceneCanvas isVisible={isVisible} />
     </div>
   );
 };

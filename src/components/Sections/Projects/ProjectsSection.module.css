@@ -257,6 +257,32 @@
   box-shadow: 0 0 12px rgba(249, 115, 22, 0.4);
 }
 
+.btnRepo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-tech), monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 0.65rem 1.15rem;
+  border-radius: 6px;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  color: #ffedd5;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 200ms ease;
+  text-transform: uppercase;
+}
+
+.btnRepo:hover {
+  border-color: #f97316;
+  color: #ffffff;
+  background: rgba(249, 115, 22, 0.2);
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.35);
+}
+
 /* === SUPPORTING PROJECTS GRID (2 MODULES) === */
 .supportingGrid {
   display: grid;
@@ -391,8 +417,65 @@
 }
 
 .previewWindowFeatured .windowBody {
-  height: 260px;
+  height: 280px;
 }
+
+/* Screenshot Preview Styles */
+.previewImageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #05070c;
+}
+
+.previewImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1), filter 300ms ease;
+  filter: contrast(1.05) brightness(0.92);
+}
+
+.previewWindow:hover .previewImage {
+  transform: scale(1.04);
+  filter: contrast(1.08) brightness(1.02);
+}
+
+.previewImageGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(5, 7, 12, 0.1) 0%,
+    transparent 35%,
+    rgba(5, 7, 12, 0.45) 75%,
+    rgba(5, 7, 12, 0.85) 100%
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
+.imageCornerTL,
+.imageCornerTR,
+.imageCornerBL,
+.imageCornerBR {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: rgba(249, 115, 22, 0.8);
+  border-style: solid;
+  border-width: 0;
+  pointer-events: none;
+  z-index: 4;
+}
+
+.imageCornerTL { top: 8px; left: 8px; border-top-width: 2px; border-left-width: 2px; }
+.imageCornerTR { top: 8px; right: 8px; border-top-width: 2px; border-right-width: 2px; }
+.imageCornerBL { bottom: 8px; left: 8px; border-bottom-width: 2px; border-left-width: 2px; }
+.imageCornerBR { bottom: 8px; right: 8px; border-bottom-width: 2px; border-right-width: 2px; }
 
 /* Subtle Scanline Texture */
 .scanlineOverlay {
@@ -810,6 +893,10 @@
 
 .modalPreviewContainer {
   width: 100%;
+}
+
+.modalPreviewContainer .windowBody {
+  height: clamp(240px, 32vw, 360px);
 }
 
 .modalSectionsGrid {

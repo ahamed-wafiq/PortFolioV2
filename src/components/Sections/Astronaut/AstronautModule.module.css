@@ -1,0 +1,307 @@
+/* Astronaut EVA Cockpit HUD Card */
+.astronautCard {
+  position: relative;
+  background: rgba(14, 18, 25, 0.75);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  border-radius: 12px;
+  padding: 1.5rem;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 0 20px rgba(249, 115, 22, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  grid-column: span 2;
+}
+
+@media (max-width: 900px) {
+  .astronautCard {
+    grid-column: span 1;
+  }
+}
+
+.astronautCard:hover {
+  border-color: rgba(249, 115, 22, 0.65);
+  box-shadow: 0 12px 35px rgba(249, 115, 22, 0.12), inset 0 0 25px rgba(249, 115, 22, 0.08);
+}
+
+/* Corner bracket accents */
+.cardCornerTL,
+.cardCornerTR,
+.cardCornerBL,
+.cardCornerBR {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: #f97316;
+  border-style: solid;
+  pointer-events: none;
+}
+
+.cardCornerTL {
+  top: 4px;
+  left: 4px;
+  border-top-width: 2px;
+  border-left-width: 2px;
+}
+
+.cardCornerTR {
+  top: 4px;
+  right: 4px;
+  border-top-width: 2px;
+  border-right-width: 2px;
+}
+
+.cardCornerBL {
+  bottom: 4px;
+  left: 4px;
+  border-bottom-width: 2px;
+  border-left-width: 2px;
+}
+
+.cardCornerBR {
+  bottom: 4px;
+  right: 4px;
+  border-bottom-width: 2px;
+  border-right-width: 2px;
+}
+
+/* Card Header Telemetry */
+.cardTelemetry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: #ffb84d;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed rgba(249, 115, 22, 0.25);
+}
+
+.telemetryStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #ff8a1f;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  background: #ffb84d;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #ff8a1f;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+/* Two-column layout inside Astronaut Card */
+.innerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  flex: 1;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .innerGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 3D Viewport Area */
+.canvasWrapper {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  background: radial-gradient(circle at center, rgba(249, 115, 22, 0.08) 0%, rgba(5, 7, 11, 0.6) 75%);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.canvasWrapper:active {
+  cursor: grabbing;
+}
+
+/* Reticle / Radar circles overlay */
+.radarOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: 
+    radial-gradient(circle at center, transparent 40%, rgba(249, 115, 22, 0.03) 70%),
+    linear-gradient(rgba(249, 115, 22, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(249, 115, 22, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px, 20px 20px;
+}
+
+.viewportBadge {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(14, 18, 25, 0.85);
+  border: 1px solid rgba(249, 115, 22, 0.4);
+  border-radius: 4px;
+  padding: 0.2rem 0.6rem;
+  font-family: var(--font-tech), monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  color: #ffb84d;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Telemetry & Controls Content Column */
+.detailsCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.moduleTitle {
+  font-family: var(--font-pixel), var(--font-display), monospace;
+  font-size: 1.1rem;
+  color: #fff0d0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.titleIcon {
+  color: #f97316;
+}
+
+.moduleDesc {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #c8aa82;
+  margin: 0;
+}
+
+/* Telemetry Gauges */
+.telemetryBars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.gaugeRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.gaugeLabels {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-tech), monospace;
+  font-size: 0.72rem;
+}
+
+.gaugeName {
+  color: #ffb84d;
+}
+
+.gaugeValue {
+  color: #fff0d0;
+  font-weight: 600;
+}
+
+.gaugeTrack {
+  width: 100%;
+  height: 6px;
+  background: rgba(249, 115, 22, 0.12);
+  border-radius: 3px;
+  overflow: hidden;
+  border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.gaugeFill {
+  height: 100%;
+  background: linear-gradient(90deg, #f97316, #ffb84d);
+  border-radius: 3px;
+  box-shadow: 0 0 8px rgba(249, 115, 22, 0.6);
+  transition: width 0.5s ease;
+}
+
+/* Status Chips */
+.statusChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.chip {
+  font-family: var(--font-tech), monospace;
+  font-size: 0.68rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 4px;
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.3);
+  color: #ffedd5;
+}
+
+.chipActive {
+  background: rgba(0, 229, 255, 0.12);
+  border-color: rgba(0, 229, 255, 0.5);
+  color: #00e5ff;
+}
+
+/* Cockpit Action Buttons */
+.controlsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.25rem;
+}
+
+.cockpitBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-tech), monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.45rem 0.75rem;
+  border-radius: 6px;
+  background: rgba(249, 115, 22, 0.15);
+  border: 1px solid #f97316;
+  color: #fff0d0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cockpitBtn:hover {
+  background: #f97316;
+  color: #05070b;
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.8);
+  transform: translateY(-1px);
+}
+
+.cockpitBtn:active {
+  transform: translateY(0);
+}
+
+.thrusterBtnActive {
+  background: #ff5500 !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 16px #ff5500 !important;
+  animation: thrusterPulseAnim 0.3s ease infinite alternate;
+}
+
+@keyframes thrusterPulseAnim {
+  0% { box-shadow: 0 0 8px #ff5500; }
+  100% { box-shadow: 0 0 22px #ff8800; }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Sections.module.css';
+import AstronautModule from './Astronaut/AstronautModule';
 
 const skillCategories = [
   {
@@ -94,6 +95,7 @@ const SkillsSection = () => {
             </div>
           </div>
         ))}
+        <AstronautModule />
       </div>
     </section>
   );

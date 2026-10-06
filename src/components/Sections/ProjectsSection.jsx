@@ -7,69 +7,75 @@ import ProjectModal from './Projects/ProjectModal';
 const projectsData = [
   {
     id: 'PRJ-01',
-    code: 'MODULE // PRJ-01',
-    category: 'MACHINE LEARNING',
-    type: 'TYPE: MACHINE LEARNING',
-    status: 'STATUS: COMPLETED',
-    title: 'AI Neural Vision Classifier',
-    desc: 'Deep learning image classification engine with real-time inference and GPU acceleration.',
-    tags: ['Python', 'PyTorch', 'Computer Vision', 'FastAPI', 'React'],
-    windowTitle: 'GUI // NEURAL_VISION_INSPECTOR.PY',
-    windowStatus: '[CUDA_ACCEL: ACTIVE]',
-    problem: 'Classifying high-frequency multi-spectral image streams under variable lighting conditions with minimal latency and high inference confidence.',
-    solution: 'Engineered a convolutional neural pipeline leveraging PyTorch and OpenCV, paired with an asynchronous FastAPI inference server and interactive inspection overlay.',
+    code: 'MODULE // SIGHT_ASSIST_AI',
+    category: 'COMPUTER VISION & AI',
+    type: 'TYPE: AI VISION SYSTEM',
+    status: 'STATUS: PRODUCTION READY',
+    title: 'SightAssist: AI Vision for Visually Impaired',
+    desc: 'Real-time computer vision assistant utilizing YOLO object detection, spatial orientation, distance estimation, and voice audio guidance to empower independent navigation.',
+    tags: ['Python', 'FastAPI', 'YOLO', 'React', 'Computer Vision', 'Web Speech API', 'WebRTC'],
+    windowTitle: 'GUI // SIGHT_ASSIST_VISION.AI',
+    windowStatus: '[YOLO_V8: REALTIME_60FPS]',
+    image: '/projects/sightassist-preview.png',
+    problem: 'Visually impaired individuals face dangerous obstacles, moving hazards, and spatial navigation barriers in unfamiliar indoor and outdoor environments without hands-free real-time auditory assistance.',
+    solution: 'Architected a client-side WebRTC frame processor paired with an asynchronous FastAPI microservice running YOLO object detection. Computes spatial vectors (Left/Center/Right), estimates proximity, and delivers synthesized voice cues with anti-spam cooldowns.',
     keyFeatures: [
-      'Real-time tensor batch processing with CUDA acceleration',
-      'Asynchronous FastAPI serving high-throughput prediction streams',
-      'Confidence scoring and real-time bounding box inspection',
-      'Responsive React frontend with live telemetry visualization',
+      'Sub-second YOLO object, obstacle, and hazard detection from live camera streams',
+      'Spatial orientation engine identifying relative direction (Left, Center, Right)',
+      'Proximity and distance estimation (Very Near, Near, Medium, Far)',
+      'Hands-free spoken navigational cues powered by Web Speech API with smart cooldowns',
+      'Privacy-first architecture: in-memory frame processing with zero permanent storage',
     ],
-    github: 'https://github.com/ahamedwafiq',
-    demo: '#contact',
+    github: 'https://github.com/ahamed-wafiq/SightAssist',
+    demo: 'https://sight-assist-three.vercel.app',
   },
   {
     id: 'PRJ-02',
-    code: 'MODULE // PRJ-02',
-    category: 'FULL STACK',
-    type: 'TYPE: FULL STACK',
+    code: 'MODULE // KRISHIMITRA_AGRI',
+    category: 'SMART AGRICULTURE & AI',
+    type: 'TYPE: AI AGRO-PLATFORM',
     status: 'STATUS: DEPLOYED',
-    title: 'Full-Stack MERN Cloud Platform',
-    desc: 'Scalable distributed web platform with automated JWT security, MongoDB aggregation caching, and real-time WebSockets.',
-    tags: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.io'],
-    windowTitle: 'GUI // MERN_DISTRIBUTED_CLOUD.DASH',
-    windowStatus: '[SOCKET_IO: CONNECTED]',
-    problem: 'Managing distributed multi-tenant state synchronization and high-frequency data streams without race conditions or memory bottlenecks.',
-    solution: 'Architected decoupled microservices with Express and Node.js, combined with MongoDB indexing, automated JWT token rotation, and Socket.io channels.',
+    title: 'KrishiMitra: AI Smart Agriculture Engine',
+    desc: 'Intelligent agricultural platform providing deep learning leaf disease diagnosis, meteorological yield prediction, live mandi market commodity prices, and multilingual voice assistance.',
+    tags: ['React 19', 'TailwindCSS', 'Machine Learning', 'Vite', 'Recharts', 'i18n', 'Node.js'],
+    windowTitle: 'GUI // KRISHIMITRA_AGRI_CORE.OS',
+    windowStatus: '[AI_AGRO_ENGINE: ACTIVE]',
+    image: '/projects/krishimitra-preview.png',
+    problem: 'Smallholder farmers frequently lose crop yields to late-diagnosed plant diseases, volatile mandi market middlemen prices, and lack of localized multilingual scientific advisory services.',
+    solution: 'Engineered an integrated agro-intelligence suite featuring CNN-driven image classification for instant leaf disease diagnosis, predictive crop yield modeling, live Mandi commodity tracking with interactive Recharts, and regional voice guidance.',
     keyFeatures: [
-      'Bi-directional event streaming with sub-25ms round-trip latency',
-      'MongoDB aggregation pipelines with indexed query optimization',
-      'Secure role-based authentication and session refresh mechanisms',
-      'Responsive reactive interface with fluid data table filtering',
+      'Automated crop leaf disease classification with localized treatment recommendations',
+      'Predictive crop yield modeling factoring historical soil, weather, and rainfall parameters',
+      'Real-time Mandi commodity price charts and market trend forecasting via Recharts',
+      'Multilingual voice assistant with full internationalization (i18n) for regional languages',
+      'Offline-resilient reactive UI built on React 19 and TailwindCSS for rural mobile connectivity',
     ],
-    github: 'https://github.com/ahamedwafiq',
-    demo: '#contact',
+    github: 'https://github.com/ahamed-wafiq/smart_farming',
+    demo: 'https://smart-farming-lac.vercel.app',
   },
   {
     id: 'PRJ-03',
-    code: 'MODULE // PRJ-03',
-    category: '3D WEB',
-    type: 'TYPE: 3D WEB',
-    status: 'STATUS: EXPERIMENTAL',
-    title: '3D Celestial Interactive Simulation',
-    desc: 'Hardware-accelerated WebGL astronomical orbital simulation utilizing Three.js and custom procedural GLSL shaders.',
-    tags: ['Three.js', 'React Three Fiber', 'GLSL', 'WebGL', 'Framer Motion'],
-    windowTitle: 'GUI // WEBGL_ORBIT_RENDERER.3D',
-    windowStatus: '[SHADERS: GLSL_ACTIVE]',
-    problem: 'Rendering multi-body celestial physics and realistic planetary atmospheres in real time across low-power mobile and desktop browsers.',
-    solution: 'Developed custom GLSL vertex and fragment shaders for atmospheric scattering, integrated with React Three Fiber and procedural particle systems.',
+    code: 'MODULE // GEMINI_ARCHITECT',
+    category: 'GENERATIVE AI & CLOUD',
+    type: 'TYPE: AI SYSTEM STUDIO',
+    status: 'STATUS: LIVE DEPLOYED',
+    title: 'Gemini Architect 3.0: AI Cloud Studio',
+    desc: 'Generative AI workspace that transforms natural language system specifications into interactive cloud architectures, schema graphs, and scaffolded production codebases.',
+    tags: ['Google Gemini API', 'React 19', 'TypeScript', 'TailwindCSS', 'System Architecture', 'Vite'],
+    windowTitle: 'GUI // GEMINI_ARCHITECT_STUDIO.AI',
+    windowStatus: '[GEMINI_API: CONNECTED]',
+    image: '/projects/gemini-architect-preview.png',
+    problem: 'Architecting distributed cloud systems, database schemas, and microservice topologies requires fragmented diagramming tools, manual boilerplate authoring, and slow specification iterations.',
+    solution: 'Constructed an intelligent architectural canvas leveraging Google Gemini LLMs to synthesize end-to-end system topology graphs, API contract schemas, and scaffolded component boilerplate from natural language prompts in real time.',
     keyFeatures: [
-      'Custom procedural GLSL shader passes for planetary atmosphere glow',
-      'Multi-vector orbital mechanics with pilot-controlled camera parallax',
-      'High-performance asset instancing minimizing draw calls',
-      'Full mobile touch orbital controls and responsive viewport scaling',
+      'Natural language to distributed cloud architecture synthesis powered by Google Gemini',
+      'Multi-node interactive architectural graph visualization with dynamic relationship links',
+      'Automated full-stack code scaffolding, API contracts, and database schema generation',
+      'Instant live parameter tweaking, node re-architecting, and exportable system blueprints',
+      'High-speed reactive interface optimized for rapid prototyping and enterprise architecture',
     ],
-    github: 'https://github.com/ahamedwafiq',
-    demo: '#contact',
+    github: 'https://github.com/ahamed-wafiq/codex',
+    demo: 'https://gemini-architect-3-0.vercel.app',
   },
 ];
 
@@ -168,12 +174,24 @@ const ProjectsSection = () => {
                   className={styles.btnInspect}
                   onClick={() => setActiveModalProject(featuredProject)}
                 >
-                  <span>INSPECT CODE</span>
+                  <span>INSPECT DOSSIER</span>
                   <span>&rarr;</span>
                 </button>
-                <a href={featuredProject.demo} className={styles.btnLaunch}>
-                  <span>LIVE DEMO</span>
-                  <span>&rarr;</span>
+                <a
+                  href={featuredProject.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.btnLaunch}
+                >
+                  <span>LIVE DEMO ↗</span>
+                </a>
+                <a
+                  href={featuredProject.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.btnRepo}
+                >
+                  <span>GITHUB REPO ↗</span>
                 </a>
               </div>
             </div>
@@ -220,9 +238,7 @@ const ProjectsSection = () => {
                   </div>
                   <div className={styles.projectMetaItem}>
                     <span className={styles.projectMetaLabel}>STATUS:</span>
-                    <span className={styles.projectMetaValue}>
-                      {project.id === 'PRJ-02' ? 'DEPLOYED' : 'EXPERIMENTAL'}
-                    </span>
+                    <span className={styles.projectMetaValue}>{project.status}</span>
                   </div>
                 </div>
 
@@ -246,12 +262,24 @@ const ProjectsSection = () => {
                     className={styles.btnInspect}
                     onClick={() => setActiveModalProject(project)}
                   >
-                    <span>INSPECT</span>
+                    <span>DOSSIER</span>
                     <span>&rarr;</span>
                   </button>
-                  <a href={project.demo} className={styles.btnLaunch}>
-                    <span>LIVE DEMO</span>
-                    <span>&rarr;</span>
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.btnLaunch}
+                  >
+                    <span>LIVE DEMO ↗</span>
+                  </a>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.btnRepo}
+                  >
+                    <span>REPO ↗</span>
                   </a>
                 </div>
               </div>

@@ -129,14 +129,11 @@ export default function ProjectModal({ project, onClose }) {
             </a>
             <a
               href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
               className={styles.modalBtnSecondary}
-              onClick={() => {
-                if (project.demo.startsWith('#')) {
-                  onClose();
-                }
-              }}
             >
-              <span>LIVE DEMO</span>
+              <span>LAUNCH LIVE DEMO</span>
               <span>&rarr;</span>
             </a>
           </div>
