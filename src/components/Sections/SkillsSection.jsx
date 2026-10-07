@@ -69,7 +69,7 @@ const SkillsSection = () => {
             <div className={styles.cardCornerBR} />
 
             <div className={styles.cardTelemetry}>
-              <span>MATRIX_BUS // 0{idx + 1}</span>
+              <span>▓ MATRIX MODULE // 0{idx + 1} ▓</span>
               <span className={styles.telemetryStatus}>ONLINE</span>
             </div>
 

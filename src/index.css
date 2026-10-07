@@ -1,6 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@600;700&display=swap');
 
 :root {
+  /* Voxel Engineering Cockpit Block Tokens */
+  --block-dark-metal: #111217;
+  --block-charcoal: #202126;
+  --block-charcoal-light: #2c2e36;
+  --block-orange: #FF7A00;
+  --block-orange-dark: #C65300;
+  --block-copper: #b44a04;
+  --block-orange-emissive: #FF8A00;
+  --block-cream: #EDE8DF;
+  --block-gray: #2D3039;
+
   /* Reference Image Palette: Warm cream + orange + dark brown/black */
   --bg-deep: #05070B;
   --bg-surface: #0B0D12;
@@ -10,18 +21,18 @@
   --cream-nav: #fdecd2;
   --cream-card: #fae4c9;
 
-  --orange-primary: #ea580c;
-  --orange-bright: #f97316;
-  --orange-amber: #ff8a1f;
+  --orange-primary: #FF7A00;
+  --orange-bright: #ff8a1f;
+  --orange-amber: #ff9e3b;
   --orange-glow: #ffb84d;
-  --brown-dark: #2a1b12;
+  --brown-dark: #202126;
 
-  --border-orange: #ea580c;
-  --border-amber: #f97316;
+  --border-orange: #FF7A00;
+  --border-amber: #ff8a1f;
 
-  --text-primary: #fff0d0;
+  --text-primary: #EDE8DF;
   --text-cream: #fdecd2;
-  --text-dark: #2a1b12;
+  --text-dark: #111217;
   --text-secondary: #c8aa82;
   --text-muted: #8e7a64;
 

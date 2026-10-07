@@ -94,7 +94,7 @@ const HeroContent = () => {
         </motion.div>
       </div>
 
-      {/* Right Column: Kept transparent so the giant planet and space citadel are fully visible */}
+      {/* Right Column: Kept transparent so the giant planet and space vista are fully visible */}
       <div className={styles.rightColumn} aria-hidden="true" />
     </div>
   );

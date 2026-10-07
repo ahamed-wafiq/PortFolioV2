@@ -1,16 +1,22 @@
-/* === TECHNOLOGY CORE HUD PANEL === */
+/* === TECHNOLOGY CORE VOXEL HUD PANEL === */
 .techCoreCard {
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background: rgba(11, 13, 18, 0.94);
-  border: 1.5px solid rgba(249, 115, 22, 0.4);
-  border-radius: 12px;
-  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  background:
+    linear-gradient(180deg, rgba(32, 33, 38, 0.95) 0%, rgba(17, 18, 23, 0.98) 100%);
+  border: 3px solid #202126;
+  border-radius: 4px;
+  padding: clamp(1.4rem, 2.5vw, 2rem);
   box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.7),
-    inset 0 0 15px rgba(249, 115, 22, 0.06);
+    0 0 0 2px #111217,
+    0 0 0 4px #C65300,
+    0 0 0 6px #FF7A00,
+    0 12px 36px rgba(0, 0, 0, 0.88),
+    inset 0 2px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.8),
+    inset 0 0 24px rgba(255, 122, 0, 0.05);
   transition: all 260ms cubic-bezier(0.16, 1, 0.3, 1);
   backdrop-filter: blur(8px);
   min-height: 480px;
@@ -18,53 +24,68 @@
 }
 
 .techCoreCard:hover {
-  border-color: #f97316;
   box-shadow:
-    0 0 24px rgba(249, 115, 22, 0.45),
-    0 14px 40px rgba(0, 0, 0, 0.85),
-    inset 0 0 20px rgba(249, 115, 22, 0.12);
-  transform: translateY(-4px);
+    0 0 0 2px #111217,
+    0 0 0 4px #FF7A00,
+    0 0 0 7px #FFA033,
+    0 0 28px rgba(255, 122, 0, 0.4),
+    0 16px 44px rgba(0, 0, 0, 0.95),
+    inset 0 2px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.9);
+  transform: translateY(-3px);
 }
 
-/* Corner bracket tech accents */
+/* Chunky Voxel Corner Brackets */
 .cardCornerTL, .cardCornerTR, .cardCornerBL, .cardCornerBR {
   position: absolute;
-  width: 10px;
-  height: 10px;
-  border-color: #ff8a1f;
-  border-style: solid;
-  border-width: 0;
-  opacity: 0.75;
+  width: 14px;
+  height: 14px;
   pointer-events: none;
   z-index: 10;
 }
 
 .cardCornerTL {
-  top: 4px;
-  left: 4px;
-  border-top-width: 2px;
-  border-left-width: 2px;
+  top: -4px;
+  left: -4px;
+  background: #FF7A00;
+  box-shadow:
+    4px 0 0 #C65300,
+    0 4px 0 #C65300,
+    -2px -2px 0 #111217;
+  clip-path: polygon(0 0, 100% 0, 100% 40%, 40% 40%, 40% 100%, 0 100%);
 }
 
 .cardCornerTR {
-  top: 4px;
-  right: 4px;
-  border-top-width: 2px;
-  border-right-width: 2px;
+  top: -4px;
+  right: -4px;
+  background: #FF7A00;
+  box-shadow:
+    -4px 0 0 #C65300,
+    0 4px 0 #C65300,
+    2px -2px 0 #111217;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 60% 100%, 60% 40%, 0 40%);
 }
 
 .cardCornerBL {
-  bottom: 4px;
-  left: 4px;
-  border-bottom-width: 2px;
-  border-left-width: 2px;
+  bottom: -4px;
+  left: -4px;
+  background: #FF7A00;
+  box-shadow:
+    4px 0 0 #C65300,
+    0 -4px 0 #C65300,
+    -2px 2px 0 #111217;
+  clip-path: polygon(0 0, 40% 0, 40% 60%, 100% 60%, 100% 100%, 0 100%);
 }
 
 .cardCornerBR {
-  bottom: 4px;
-  right: 4px;
-  border-bottom-width: 2px;
-  border-right-width: 2px;
+  bottom: -4px;
+  right: -4px;
+  background: #FF7A00;
+  box-shadow:
+    -4px 0 0 #C65300,
+    0 -4px 0 #C65300,
+    2px 2px 0 #111217;
+  clip-path: polygon(60% 0, 100% 0, 100% 100%, 0 100%, 0 60%, 60% 60%);
 }
 
 /* Card Header Telemetry Tag */

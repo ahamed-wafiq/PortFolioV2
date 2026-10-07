@@ -67,11 +67,11 @@ export default function TechnologyCore() {
       {/* Header Telemetry */}
       <div className={styles.cardTelemetry}>
         <div className={styles.telemetryTitle}>
-          <span>SYSTEM // TECHNOLOGY CORE</span>
+          <span>▓ SYSTEM // TECH CORE MODULE ▓</span>
         </div>
         <div className={styles.telemetryStatus}>
           <span className={styles.statusDot} />
-          <span>● CORE ONLINE</span>
+          <span>ONLINE</span>
         </div>
       </div>
 

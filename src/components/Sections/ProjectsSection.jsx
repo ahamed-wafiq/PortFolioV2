@@ -144,7 +144,7 @@ const ProjectsSection = () => {
                 <h3 className={styles.featuredTitle}>{featuredProject.title}</h3>
               </div>
 
-              {/* Useful Metadata Badge (No Fake Metrics) */}
+              {/* Useful Metadata Badge */}
               <div className={styles.projectMetaRow}>
                 <div className={styles.projectMetaItem}>
                   <span className={styles.projectMetaLabel}>DISCIPLINE:</span>
@@ -153,6 +153,22 @@ const ProjectsSection = () => {
                 <div className={styles.projectMetaItem}>
                   <span className={styles.projectMetaLabel}>STATUS:</span>
                   <span className={styles.projectMetaValue}>COMPLETED</span>
+                </div>
+              </div>
+
+              {/* Block-Based Voxel Status Indicators (Unit 07 Style) */}
+              <div className={styles.voxelVitalsRow}>
+                <div className={styles.voxelVital}>
+                  <span className={styles.vitalLabel}>MODULE // PWR:</span>
+                  <span className={styles.vitalPips}>[██████]</span>
+                </div>
+                <div className={styles.voxelVital}>
+                  <span className={styles.vitalLabel}>ARMOR:</span>
+                  <span className={styles.vitalPips}>[█████░]</span>
+                </div>
+                <div className={styles.voxelVital}>
+                  <span className={styles.vitalLabel}>UNIT:</span>
+                  <span className={styles.vitalVal}>READY</span>
                 </div>
               </div>
 
@@ -231,7 +247,7 @@ const ProjectsSection = () => {
                 <h3 className={styles.supportingTitle}>{project.title}</h3>
 
                 {/* Verified Metadata */}
-                <div className={styles.projectMetaRow} style={{ marginBottom: '0.85rem' }}>
+                <div className={styles.projectMetaRow} style={{ marginBottom: '0.65rem' }}>
                   <div className={styles.projectMetaItem}>
                     <span className={styles.projectMetaLabel}>TYPE:</span>
                     <span className={styles.projectMetaValue}>{project.category}</span>
@@ -239,6 +255,18 @@ const ProjectsSection = () => {
                   <div className={styles.projectMetaItem}>
                     <span className={styles.projectMetaLabel}>STATUS:</span>
                     <span className={styles.projectMetaValue}>{project.status}</span>
+                  </div>
+                </div>
+
+                {/* Block-Based Voxel Status Indicators */}
+                <div className={styles.voxelVitalsRow}>
+                  <div className={styles.voxelVital}>
+                    <span className={styles.vitalLabel}>PWR:</span>
+                    <span className={styles.vitalPips}>[█████░]</span>
+                  </div>
+                  <div className={styles.voxelVital}>
+                    <span className={styles.vitalLabel}>MODULE:</span>
+                    <span className={styles.vitalVal}>ACTIVE</span>
                   </div>
                 </div>
 

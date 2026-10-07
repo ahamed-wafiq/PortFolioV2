@@ -26,10 +26,10 @@ const AboutSection = () => {
           <div className={styles.cardCornerBR} />
 
           <div className={styles.cardTelemetry}>
-            <span>DOSSIER: AHAMED WAFIQ</span>
+            <span>▓ ABOUT MODULE // AHAMED WAFIQ ▓</span>
             <div className={styles.telemetryStatus}>
               <span className={styles.statusDot} />
-              <span>ACTIVE STATUS</span>
+              <span>ONLINE</span>
             </div>
           </div>
 

@@ -41,7 +41,7 @@ const ContactSection = () => {
               <div>
                 <div className={styles.commsLabel}>PRIMARY EMAIL</div>
                 <div className={styles.commsValue}>
-                  <a href="mailto:ahamedwafiq@example.com">ahamedwafiq@example.com</a>
+                  <a href="mailto:wafiqahamed51@gmail.com">wafiqahamed51@gmail.com</a>
                 </div>
               </div>
             </div>
@@ -51,8 +51,8 @@ const ContactSection = () => {
               <div>
                 <div className={styles.commsLabel}>CODE REPOSITORY</div>
                 <div className={styles.commsValue}>
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-                    github.com/ahamedwafiq
+                  <a href="https://github.com/ahamed-wafiq" target="_blank" rel="noopener noreferrer">
+                    github.com/ahamed-wafiq
                   </a>
                 </div>
               </div>
