@@ -116,30 +116,30 @@ export default function ProjectPreviewWindow({ project, isFeatured = false, onIn
                 <div className={styles.mernTerminalBlock}>
                   <div className={styles.terminalLine}>
                     <span className={styles.termPrompt}>&gt;</span>
-                    <span className={styles.termCmd}>gemini-architect --generate-system</span>
+                    <span className={styles.termCmd}>learnai --rag-query "explain backpropagation"</span>
                   </div>
                   <div className={styles.terminalOutput}>
-                    <span className={styles.termSuccess}>[SYNTHESIS 200]</span> Cloud Topology Graph: Complete
+                    <span className={styles.termSuccess}>[FAISS RETRIEVAL]</span> 4 Chunks Indexed (Cosine: 0.94)
                   </div>
                   <div className={styles.terminalOutput}>
-                    <span className={styles.termSuccess}>[API CONTRACTS]</span> GraphQL + REST Schemas Generated
+                    <span className={styles.termSuccess}>[CITATION ANCHOR]</span> Neural_Networks.pdf &bull; Page 42 Verified
                   </div>
                   <div className={styles.terminalOutput}>
-                    <span className={styles.termMuted}>[LLM ENGINE]</span> Gemini 3.0 Pro &bull; Latency: 180ms
+                    <span className={styles.termMuted}>[STUDY COPILOT]</span> Gemini 3.5 Flash &bull; Latency: 140ms
                   </div>
                 </div>
                 <div className={styles.celestialTelemetry}>
                   <div className={styles.telemetryStat}>
-                    <span>MODEL</span>
-                    <span>GEMINI 3.0 PRO</span>
+                    <span>VECTOR STORE</span>
+                    <span>FAISS INDEX</span>
                   </div>
                   <div className={styles.telemetryStat}>
-                    <span>BLUEPRINT</span>
-                    <span>MULTI-TIER CLOUD</span>
+                    <span>DATABASE</span>
+                    <span>POSTGRESQL 16</span>
                   </div>
                   <div className={styles.telemetryStat}>
-                    <span>STATUS</span>
-                    <span>PRODUCTION READY</span>
+                    <span>RAG PIPELINE</span>
+                    <span>ACTIVE // GROUNDED</span>
                   </div>
                 </div>
               </div>
