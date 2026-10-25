@@ -134,7 +134,7 @@ const StarField = ({ reducedMotion }) => {
       {/* Deep celestial starfield background */}
       <DeepCosmicStars count={750} reducedMotion={reducedMotion} />
 
-      {/* Main forward-streaming starfield (warm cream & golden stars) */}
+      {/* Main forward-streaming starfield (bone ivory stars) */}
       <WarpStarStream
         count={850}
         speed={16}
@@ -142,23 +142,23 @@ const StarField = ({ reducedMotion }) => {
         zMax={1.5}
         spreadX={70}
         spreadY={45}
-        size={0.075}
-        color="#fff0d0"
-        opacity={0.9}
+        size={0.07}
+        color="#eae5d8"
+        opacity={0.85}
         reducedMotion={reducedMotion}
       />
 
-      {/* Amber glowing warp dust streaming forward */}
+      {/* Amber industrial warp dust streaming forward */}
       <WarpStarStream
-        count={420}
+        count={360}
         speed={22}
         zMin={-90}
         zMax={1.5}
         spreadX={55}
         spreadY={35}
-        size={0.085}
-        color="#ffb84d"
-        opacity={0.8}
+        size={0.075}
+        color="#d9651e"
+        opacity={0.55}
         reducedMotion={reducedMotion}
       />
 

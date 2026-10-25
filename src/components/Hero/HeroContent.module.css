@@ -26,7 +26,7 @@
   pointer-events: none;
 }
 
-/* === EYEBROW: >> HI, I'M (MATCHING FIRST IMAGE) === */
+/* === EYEBROW: >> HI, I'M === */
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -35,14 +35,14 @@
   font-size: clamp(1rem, 1.25vw, 1.35rem);
   font-weight: 700;
   letter-spacing: 0.12em;
-  color: #ea580c;
-  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8), 0 0 10px rgba(234, 88, 12, 0.6);
+  color: #d9651e;
+  text-shadow: 2px 2px 0px #0e1017;
   margin-bottom: 0.6rem;
   text-transform: uppercase;
 }
 
 .chevron {
-  color: #ff8a1f;
+  color: #e4762c;
   font-weight: 800;
 }
 
@@ -55,16 +55,16 @@
   width: fit-content;
 }
 
-/* Orange pixel corner brackets framing the name (Matching First Image) */
+/* Orange pixel corner brackets framing the name */
 .bracketTL, .bracketTR, .bracketBL, .bracketBR {
   position: absolute;
   width: 20px;
   height: 20px;
-  border-color: #ea580c;
+  border-color: #d9651e;
   border-style: solid;
   border-width: 0;
   opacity: 0.95;
-  filter: drop-shadow(0 0 6px rgba(234, 88, 12, 0.8));
+  filter: drop-shadow(2px 2px 0px #0e1017);
 }
 
 .bracketTL {
@@ -95,7 +95,7 @@
   border-right-width: 3.5px;
 }
 
-/* Chunky Pixel Heading: AHAMED WAFIQ (Matching First Image) */
+/* Chunky Pixel Heading: AHAMED WAFIQ (Matching Mecha Header) */
 .nameHeading {
   display: flex;
   flex-direction: column;
@@ -104,11 +104,10 @@
   line-height: 0.95;
   font-weight: 700;
   letter-spacing: 0.05em;
-  color: #fff0d0; /* Cream / off-white text */
+  color: #eae5d8; /* Bone / off-white text */
   text-shadow:
-    3px 3px 0px #1a0e07,
-    5px 5px 0px #ea580c,
-    0 0 25px rgba(234, 88, 12, 0.4);
+    3px 3px 0px #0c0e14,
+    5px 5px 0px #b24e12;
   text-transform: uppercase;
 }
 
@@ -116,18 +115,18 @@
   display: block;
 }
 
-/* === ROLE BADGE: [ AI/ML ENGINEER • MERN STACK DEVELOPER ] (MATCHING FIRST IMAGE) === */
+/* === ROLE BADGE: [ AI/ML ENGINEER • MERN STACK DEVELOPER ] === */
 .roleBadge {
   display: inline-flex;
   align-items: center;
   align-self: flex-start;
   padding: 0.32rem 1.05rem;
-  background: rgba(18, 14, 12, 0.92);
-  border: 2px solid #ea580c;
+  background: rgba(18, 20, 28, 0.95);
+  border: 2px solid #d9651e;
   border-radius: 999px;
   box-shadow:
-    2px 2px 0px rgba(0, 0, 0, 0.6),
-    0 0 12px rgba(234, 88, 12, 0.35);
+    2px 2px 0px #0c0e14,
+    0 0 0 1px #2b3144;
   margin-bottom: 0.85rem;
 }
 
@@ -136,22 +135,22 @@
   font-size: clamp(0.7rem, 0.82vw, 0.82rem);
   font-weight: 700;
   letter-spacing: 0.14em;
-  color: #ffffff; /* Crisp white text matching first image */
+  color: #eae5d8;
   text-transform: uppercase;
 }
 
-/* === DESCRIPTION: SIMPLE & CLEAN (MATCHING FIRST IMAGE) === */
+/* === DESCRIPTION: SIMPLE & CLEAN === */
 .description {
   font-family: var(--font-family);
   font-size: clamp(0.9rem, 1.05vw, 1.08rem);
   line-height: 1.5;
-  color: #faebd7; /* Cream/off-white text */
+  color: #9aa1b2; /* Clean muted slate */
   max-width: 32rem;
   margin-bottom: 1.25rem;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
 }
 
-/* === BUTTONS: ORANGE "VIEW PROJECTS" + CREAM "GET IN TOUCH" (MATCHING FIRST IMAGE) === */
+/* === BUTTONS: ORANGE "VIEW PROJECTS" + CREAM "GET IN TOUCH" === */
 .ctaGroup {
   display: flex;
   gap: 1.25rem;
@@ -170,58 +169,50 @@
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-radius: 999px; /* Rounded-angular chamfered pill matching first image */
+  border-radius: 999px;
   cursor: pointer;
   transition: all 180ms ease;
   white-space: nowrap;
   text-decoration: none;
 }
 
-/* Left Button: Solid Orange with White Text (Matching First Image) */
+/* Left Button: Solid Matte Orange with Bone Text */
 .btnPrimary {
-  background: #ea580c;
-  color: #ffffff;
-  border: 2px solid #ff8a1f;
-  box-shadow:
-    3px 3px 0px #7c2d12,
-    0 0 16px rgba(234, 88, 12, 0.6);
+  background: #d9651e;
+  color: #f2eee3;
+  border: 2px solid #b24e12;
+  box-shadow: 3px 3px 0px #0e1017;
 }
 
 .btnPrimary:hover {
-  background: #f97316;
+  background: #e4762c;
   transform: translateY(-2px);
-  box-shadow:
-    3px 3px 0px #7c2d12,
-    0 0 24px rgba(249, 115, 22, 0.85);
+  box-shadow: 3px 3px 0px #0e1017;
 }
 
 .btnPrimary:active {
   transform: translateY(1px);
-  box-shadow: 1px 1px 0px #7c2d12;
+  box-shadow: 1px 1px 0px #0e1017;
 }
 
-/* Right Button: Cream with Dark Text (Matching First Image) */
+/* Right Button: Bone Cream with Dark Slate Text */
 .btnSecondary {
-  background: #fae4c9; /* Warm cream buff matching first image */
-  color: #2a1b12; /* Dark brown text matching first image */
-  border: 2px solid #ea580c; /* Orange border */
-  box-shadow:
-    3px 3px 0px rgba(42, 27, 18, 0.4),
-    0 0 12px rgba(234, 88, 12, 0.25);
+  background: #eae5d8;
+  color: #11131a;
+  border: 2px solid #d9651e;
+  box-shadow: 3px 3px 0px #0e1017;
 }
 
 .btnSecondary:hover {
-  background: #fff0d0;
-  color: #ea580c;
+  background: #f2eee3;
+  color: #d9651e;
   transform: translateY(-2px);
-  box-shadow:
-    3px 3px 0px rgba(42, 27, 18, 0.5),
-    0 0 20px rgba(249, 115, 22, 0.55);
+  box-shadow: 3px 3px 0px #0e1017;
 }
 
 .btnSecondary:active {
   transform: translateY(1px);
-  box-shadow: 1px 1px 0px rgba(42, 27, 18, 0.4);
+  box-shadow: 1px 1px 0px #0e1017;
 }
 
 .btnArrow {

@@ -2,19 +2,18 @@
 .astronautCard {
   position: relative;
   background:
-    linear-gradient(180deg, rgba(32, 33, 38, 0.95) 0%, rgba(17, 18, 23, 0.98) 100%);
-  border: 3px solid #202126;
+    linear-gradient(180deg, #171a24 0%, #11131a 100%);
+  border: 3px solid #202532;
   border-radius: 4px;
   padding: 1.6rem;
   backdrop-filter: blur(12px);
   box-shadow:
-    0 0 0 2px #111217,
-    0 0 0 4px #C65300,
-    0 0 0 6px #FF7A00,
-    0 16px 44px rgba(0, 0, 0, 0.92),
-    inset 0 2px 0 rgba(255, 255, 255, 0.08),
-    inset 0 -2px 0 rgba(0, 0, 0, 0.8),
-    inset 0 0 24px rgba(255, 122, 0, 0.05);
+    0 0 0 2px #0e1017,
+    0 0 0 4px #b24e12,
+    0 0 0 6px #d9651e,
+    0 16px 44px rgba(0, 0, 0, 0.95),
+    inset 0 2px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -2px 0 #090b0f;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -30,13 +29,12 @@
 
 .astronautCard:hover {
   box-shadow:
-    0 0 0 2px #111217,
-    0 0 0 4px #FF7A00,
-    0 0 0 7px #FFA033,
-    0 0 32px rgba(255, 122, 0, 0.4),
+    0 0 0 2px #0e1017,
+    0 0 0 4px #d9651e,
+    0 0 0 7px #e4762c,
     0 20px 52px rgba(0, 0, 0, 0.98),
-    inset 0 2px 0 rgba(255, 255, 255, 0.12),
-    inset 0 -2px 0 rgba(0, 0, 0, 0.9);
+    inset 0 2px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -2px 0 #090b0f;
   transform: translateY(-3px);
 }
 
@@ -55,32 +53,32 @@
 .cardCornerTL {
   top: -4px;
   left: -4px;
-  background: #FF7A00;
-  box-shadow: 4px 0 0 #C65300, 0 4px 0 #C65300, -2px -2px 0 #111217;
+  background: #d9651e;
+  box-shadow: 4px 0 0 #b24e12, 0 4px 0 #b24e12, -2px -2px 0 #0e1017;
   clip-path: polygon(0 0, 100% 0, 100% 40%, 40% 40%, 40% 100%, 0 100%);
 }
 
 .cardCornerTR {
   top: -4px;
   right: -4px;
-  background: #FF7A00;
-  box-shadow: -4px 0 0 #C65300, 0 4px 0 #C65300, 2px -2px 0 #111217;
+  background: #d9651e;
+  box-shadow: -4px 0 0 #b24e12, 0 4px 0 #b24e12, 2px -2px 0 #0e1017;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 60% 100%, 60% 40%, 0 40%);
 }
 
 .cardCornerBL {
   bottom: -4px;
   left: -4px;
-  background: #FF7A00;
-  box-shadow: 4px 0 0 #C65300, 0 -4px 0 #C65300, -2px 2px 0 #111217;
+  background: #d9651e;
+  box-shadow: 4px 0 0 #b24e12, 0 -4px 0 #b24e12, -2px 2px 0 #0e1017;
   clip-path: polygon(0 0, 40% 0, 40% 60%, 100% 60%, 100% 100%, 0 100%);
 }
 
 .cardCornerBR {
   bottom: -4px;
   right: -4px;
-  background: #FF7A00;
-  box-shadow: -4px 0 0 #C65300, 0 -4px 0 #C65300, 2px 2px 0 #111217;
+  background: #d9651e;
+  box-shadow: -4px 0 0 #b24e12, 0 -4px 0 #b24e12, 2px 2px 0 #0e1017;
   clip-path: polygon(60% 0, 100% 0, 100% 100%, 0 100%, 0 60%, 60% 60%);
 }
 
@@ -92,35 +90,28 @@
   font-family: var(--font-pixel), monospace;
   font-size: 0.68rem;
   letter-spacing: 0.14em;
-  color: #EDE8DF;
+  color: #eae5d8;
   margin-bottom: 1.25rem;
   padding: 6px 12px;
-  background: #111217;
-  border-left: 4px solid #FF7A00;
-  border-right: 4px solid #C65300;
-  border-bottom: 2px solid #202126;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  background: #11131a;
+  border-left: 4px solid #d9651e;
+  border-right: 4px solid #b24e12;
+  border-bottom: 2px solid #202532;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 .telemetryStatus {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  color: #ff8a1f;
+  color: #d9651e;
 }
 
 .statusDot {
   width: 6px;
   height: 6px;
-  background: #ffb84d;
-  border-radius: 50%;
-  box-shadow: 0 0 8px #ff8a1f;
-  animation: pulseDot 2s infinite ease-in-out;
-}
-
-@keyframes pulseDot {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.8); }
+  background: #d9651e;
+  border-radius: 1px;
 }
 
 /* Two-column layout inside Astronaut Card */
@@ -143,9 +134,9 @@
   position: relative;
   width: 100%;
   height: 320px;
-  background: radial-gradient(circle at center, rgba(249, 115, 22, 0.08) 0%, rgba(5, 7, 11, 0.6) 75%);
-  border: 1px solid rgba(249, 115, 22, 0.2);
-  border-radius: 8px;
+  background: #0d0f15;
+  border: 1px solid #202532;
+  border-radius: 4px;
   overflow: hidden;
   cursor: grab;
 }
@@ -154,16 +145,15 @@
   cursor: grabbing;
 }
 
-/* Reticle / Radar circles overlay */
+/* Reticle / Radar overlay */
 .radarOverlay {
   position: absolute;
   inset: 0;
   pointer-events: none;
   background: 
-    radial-gradient(circle at center, transparent 40%, rgba(249, 115, 22, 0.03) 70%),
-    linear-gradient(rgba(249, 115, 22, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(249, 115, 22, 0.05) 1px, transparent 1px);
-  background-size: 100% 100%, 20px 20px, 20px 20px;
+    linear-gradient(rgba(217, 101, 30, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217, 101, 30, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
 .viewportBadge {
@@ -171,14 +161,14 @@
   bottom: 8px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(14, 18, 25, 0.85);
-  border: 1px solid rgba(249, 115, 22, 0.4);
-  border-radius: 4px;
+  background: #11131a;
+  border: 1px solid #d9651e;
+  border-radius: 2px;
   padding: 0.2rem 0.6rem;
   font-family: var(--font-tech), monospace;
   font-size: 0.62rem;
   letter-spacing: 0.08em;
-  color: #ffb84d;
+  color: #d9651e;
   white-space: nowrap;
   pointer-events: none;
 }
@@ -193,7 +183,7 @@
 .moduleTitle {
   font-family: var(--font-pixel), var(--font-display), monospace;
   font-size: 1.1rem;
-  color: #fff0d0;
+  color: #eae5d8;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -201,13 +191,13 @@
 }
 
 .titleIcon {
-  color: #f97316;
+  color: #d9651e;
 }
 
 .moduleDesc {
   font-size: 0.85rem;
   line-height: 1.5;
-  color: #c8aa82;
+  color: #9aa1b2;
   margin: 0;
 }
 
@@ -232,28 +222,27 @@
 }
 
 .gaugeName {
-  color: #ffb84d;
+  color: #d9651e;
 }
 
 .gaugeValue {
-  color: #fff0d0;
+  color: #eae5d8;
   font-weight: 600;
 }
 
 .gaugeTrack {
   width: 100%;
   height: 6px;
-  background: rgba(249, 115, 22, 0.12);
-  border-radius: 3px;
+  background: #0e1017;
+  border-radius: 1px;
   overflow: hidden;
-  border: 1px solid rgba(249, 115, 22, 0.2);
+  border: 1px solid #202532;
 }
 
 .gaugeFill {
   height: 100%;
-  background: linear-gradient(90deg, #f97316, #ffb84d);
-  border-radius: 3px;
-  box-shadow: 0 0 8px rgba(249, 115, 22, 0.6);
+  background: #d9651e;
+  border-radius: 1px;
   transition: width 0.5s ease;
 }
 
@@ -268,16 +257,16 @@
   font-family: var(--font-tech), monospace;
   font-size: 0.68rem;
   padding: 0.25rem 0.55rem;
-  border-radius: 4px;
-  background: rgba(249, 115, 22, 0.1);
-  border: 1px solid rgba(249, 115, 22, 0.3);
-  color: #ffedd5;
+  border-radius: 2px;
+  background: #11131a;
+  border: 1px solid #202532;
+  color: #9aa1b2;
 }
 
 .chipActive {
-  background: rgba(0, 229, 255, 0.12);
-  border-color: rgba(0, 229, 255, 0.5);
-  color: #00e5ff;
+  background: rgba(217, 101, 30, 0.18);
+  border-color: #d9651e;
+  color: #eae5d8;
 }
 
 /* Cockpit Action Buttons */
@@ -297,19 +286,18 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   padding: 0.45rem 0.75rem;
-  border-radius: 6px;
-  background: rgba(249, 115, 22, 0.15);
-  border: 1px solid #f97316;
-  color: #fff0d0;
+  border-radius: 4px;
+  background: #141720;
+  border: 1px solid #d9651e;
+  color: #eae5d8;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .cockpitBtn:hover {
-  background: #f97316;
-  color: #05070b;
-  box-shadow: 0 0 12px rgba(249, 115, 22, 0.8);
-  transform: translateY(-1px);
+  background: #d9651e;
+  color: #0e1017;
+  box-shadow: 2px 2px 0px #0e1017;
 }
 
 .cockpitBtn:active {
@@ -317,13 +305,7 @@
 }
 
 .thrusterBtnActive {
-  background: #ff5500 !important;
-  color: #ffffff !important;
-  box-shadow: 0 0 16px #ff5500 !important;
-  animation: thrusterPulseAnim 0.3s ease infinite alternate;
-}
-
-@keyframes thrusterPulseAnim {
-  0% { box-shadow: 0 0 8px #ff5500; }
-  100% { box-shadow: 0 0 22px #ff8800; }
+  background: #d9651e !important;
+  color: #f2eee3 !important;
+  box-shadow: 2px 2px 0px #0e1017 !important;
 }

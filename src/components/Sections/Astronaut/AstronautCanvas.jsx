@@ -30,13 +30,13 @@ function AstronautModel({ pointerRef, thrusterBurst, visorMode }) {
     return { model: cloned };
   }, [scene]);
 
-  // Handle Visor mode toggle (Apollo Gold vs. Holographic Cyan HUD)
+  // Handle Visor mode toggle (Matte Gold vs. Industrial Amber HUD)
   useEffect(() => {
     model.traverse((child) => {
       if (child.isMesh && child.material) {
         if (visorMode) {
-          child.material.emissive = new THREE.Color('#00e5ff');
-          child.material.emissiveIntensity = 0.45;
+          child.material.emissive = new THREE.Color('#d9651e');
+          child.material.emissiveIntensity = 0.35;
         } else {
           child.material.emissive = new THREE.Color('#000000');
           child.material.emissiveIntensity = 0.0;
@@ -85,7 +85,7 @@ function AstronautModel({ pointerRef, thrusterBurst, visorMode }) {
       <pointLight
         ref={thrusterLightRef}
         position={[0, 1.2, -0.45]}
-        color="#ff6600"
+        color="#d9651e"
         intensity={0.8}
         distance={2.5}
       />
@@ -136,20 +136,20 @@ export default function AstronautCanvas({ thrusterBurst, visorMode, autoRotate =
         gl={{ antialias: true, alpha: true, powerPreference: 'high-performance' }}
         style={{ pointerEvents: 'auto' }}
       >
-        {/* Soft Ambient Cosmic Environment Lighting */}
-        <ambientLight color="#ffffff" intensity={1.1} />
+        {/* Soft Ambient Environment Lighting */}
+        <ambientLight color="#ffffff" intensity={0.9} />
         
-        {/* Primary Sun / Cockpit Key Light with Warm Gold Shading */}
-        <directionalLight position={[3, 4, 3]} color="#ffbe3b" intensity={3.2} castShadow />
+        {/* Primary Sun / Cockpit Key Light with Warm Ceramic Shading */}
+        <directionalLight position={[3, 4, 3]} color="#eae5d8" intensity={2.6} castShadow />
 
-        {/* Cold Orbital Cyan Rim Light for Crisp Silhouette Separation */}
-        <directionalLight position={[-3, 2, -2]} color="#38bdf8" intensity={2.6} />
+        {/* Muted Slate Steel Rim Light for Crisp Mechanical Separation */}
+        <directionalLight position={[-3, 2, -2]} color="#758195" intensity={1.8} />
 
         {/* Soft Front Fill Light for Suit Fabric and Patch Textures */}
-        <directionalLight position={[0, 0, 3.5]} color="#ffffff" intensity={1.2} />
+        <directionalLight position={[0, 0, 3.5]} color="#ffffff" intensity={1.0} />
 
-        {/* Warm Ground/Thruster Bounce Light */}
-        <pointLight position={[0, -2, 1]} color="#ff7700" intensity={1.8} />
+        {/* Subtle Warm Industrial Ground Bounce Light */}
+        <pointLight position={[0, -2, 1]} color="#b24e12" intensity={1.2} />
 
         {/* 360 Interactive Orbit Controls Centered at [0, 0, 0] */}
         <OrbitControls
@@ -177,24 +177,24 @@ export default function AstronautCanvas({ thrusterBurst, visorMode, autoRotate =
           />
         </Float>
 
-        {/* Micro-thruster plasma sparks behind the astronaut */}
+        {/* Micro-thruster sparks behind the astronaut */}
         <Sparkles
-          count={22}
+          count={18}
           scale={[1.2, 1.2, 1.0]}
-          size={3.2}
-          speed={1.8}
-          color="#ff7700"
+          size={2.5}
+          speed={1.5}
+          color="#d9651e"
           position={[0, 0.1, -0.4]}
         />
 
-        {/* Cosmic Ambient Space Dust Particles */}
+        {/* Subtle Ambient Dust Particles */}
         <Sparkles
-          count={32}
+          count={26}
           scale={[3.2, 3.0, 3.2]}
-          size={1.6}
+          size={1.4}
           speed={0.4}
-          color="#ffd480"
-          opacity={0.6}
+          color="#cfc9bb"
+          opacity={0.5}
         />
       </Canvas>
     </div>

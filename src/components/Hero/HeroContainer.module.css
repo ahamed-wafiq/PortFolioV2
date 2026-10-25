@@ -6,9 +6,9 @@
   overflow: hidden;
   isolation: isolate;
   background:
-    radial-gradient(circle at 75% 35%, rgba(234, 88, 12, 0.22) 0%, transparent 45%),
-    radial-gradient(circle at 25% 65%, rgba(154, 52, 18, 0.15) 0%, transparent 50%),
-    linear-gradient(180deg, #1a0803 0%, #0d0502 60%, #050201 100%);
+    radial-gradient(circle at 75% 35%, rgba(217, 101, 30, 0.09) 0%, transparent 48%),
+    radial-gradient(circle at 25% 65%, rgba(178, 78, 18, 0.06) 0%, transparent 50%),
+    linear-gradient(180deg, #131620 0%, #0e1017 60%, #08090d 100%);
 }
 
 /* === LAYERS 1-4: 3D WEBGL SPACE VISTA CANVAS === */
@@ -19,15 +19,15 @@
   pointer-events: none;
 }
 
-/* Atmospheric warm cosmic haze */
+/* Atmospheric subtle industrial haze */
 .atmosphereHaze {
   position: absolute;
   inset: 0;
   z-index: 3;
   pointer-events: none;
   background:
-    radial-gradient(circle at 78% 38%, rgba(255, 174, 66, 0.15) 0%, transparent 35%),
-    radial-gradient(circle at 50% 98%, rgba(234, 88, 12, 0.18) 0%, transparent 45%);
+    radial-gradient(circle at 78% 38%, rgba(217, 101, 30, 0.05) 0%, transparent 35%),
+    radial-gradient(circle at 50% 98%, rgba(217, 101, 30, 0.07) 0%, transparent 45%);
 }
 
 /* === LAYER 8: INTERACTIVE UI OVERLAY (Navbar & Hero Typography) === */

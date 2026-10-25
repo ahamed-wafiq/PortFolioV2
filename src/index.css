@@ -1,40 +1,47 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Pixelify+Sans:wght@600;700&display=swap');
 
 :root {
-  /* Voxel Engineering Cockpit Block Tokens */
-  --block-dark-metal: #111217;
-  --block-charcoal: #202126;
-  --block-charcoal-light: #2c2e36;
-  --block-orange: #FF7A00;
-  --block-orange-dark: #C65300;
-  --block-copper: #b44a04;
-  --block-orange-emissive: #FF8A00;
-  --block-cream: #EDE8DF;
-  --block-gray: #2D3039;
+  /* Industrial Mecha / Voxel Armor Tokens (Matching Reference Image) */
+  --block-dark-metal: #0e1017;
+  --block-dark-slate: #12141c;
+  --block-charcoal: #171a24;
+  --block-charcoal-light: #202433;
+  --block-charcoal-border: #2b3144;
 
-  /* Reference Image Palette: Warm cream + orange + dark brown/black */
-  --bg-deep: #05070B;
-  --bg-surface: #0B0D12;
-  --bg-cockpit: #1b1612;
+  --block-orange: #d9651e;
+  --block-orange-dark: #b24e12;
+  --block-orange-deep: #7e3308;
+  --block-orange-highlight: #e4762c;
+  --block-orange-emissive: #d9651e;
 
-  --cream-light: #fff0d0;
-  --cream-nav: #fdecd2;
-  --cream-card: #fae4c9;
+  --block-cream: #eae5d8;
+  --block-cream-dim: #cfc9bb;
+  --block-gray: #303749;
 
-  --orange-primary: #FF7A00;
-  --orange-bright: #ff8a1f;
-  --orange-amber: #ff9e3b;
-  --orange-glow: #ffb84d;
-  --brown-dark: #202126;
+  /* Matte Deep Slate Charcoal Surfaces (No Mud-Brown, No Bright Neons) */
+  --bg-deep: #0c0e14;
+  --bg-surface: #12141c;
+  --bg-cockpit: #161923;
 
-  --border-orange: #FF7A00;
-  --border-amber: #ff8a1f;
+  --cream-light: #f2eee3;
+  --cream-nav: #eae5d8;
+  --cream-card: #dfd9cb;
 
-  --text-primary: #EDE8DF;
-  --text-cream: #fdecd2;
-  --text-dark: #111217;
-  --text-secondary: #c8aa82;
-  --text-muted: #8e7a64;
+  --orange-primary: #d9651e;
+  --orange-bright: #e4762c;
+  --orange-amber: #d9651e;
+  --orange-glow: #e4762c;
+  --brown-dark: #171a24;
+
+  --border-orange: #d9651e;
+  --border-amber: #b24e12;
+  --border-slate: #2b3144;
+
+  --text-primary: #eae5d8;
+  --text-cream: #f2eee3;
+  --text-dark: #0e1017;
+  --text-secondary: #9aa1b2;
+  --text-muted: #6b7385;
 
   --font-family: 'Inter', system-ui, -apple-system, sans-serif;
   --font-pixel: 'Pixelify Sans', monospace, sans-serif;
@@ -76,19 +83,18 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #0b0d12;
-  border-left: 1px solid rgba(234, 88, 12, 0.2);
+  background: #11131a;
+  border-left: 1px solid rgba(217, 101, 30, 0.2);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ea580c;
-  border: 1px solid #ff8a1f;
-  border-radius: 4px;
+  background: #d9651e;
+  border: 1px solid #b24e12;
+  border-radius: 2px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #f97316;
-  box-shadow: 0 0 10px #f97316;
+  background: #e4762c;
 }
 
 a {

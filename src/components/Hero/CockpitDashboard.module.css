@@ -42,41 +42,39 @@
   flex: 1;
   max-width: 44px;
   height: 5px;
-  background: #281c13;
-  border-top: 1.5px solid #452f20;
-  border-left: 1.5px solid #452f20;
-  border-right: 1.5px solid #120c08;
+  background: #181b24;
+  border-top: 1.5px solid #282f42;
+  border-left: 1.5px solid #282f42;
+  border-right: 1.5px solid #0d0f15;
 }
 
 .ridgeGlowStrip {
   width: 100%;
   height: 3px;
-  background: #ea580c;
-  box-shadow: 
-    0 0 10px #ff8a1f, 
-    0 0 20px rgba(234, 88, 12, 0.85);
+  background: #d9651e;
+  box-shadow: 0 1px 0px #b24e12;
 }
 
 /* ==========================================================================
-   MAIN VOXEL CONSOLE BODY (Scaled for 25% Dashboard Proportion)
+   MAIN VOXEL CONSOLE BODY
    ========================================================================== */
 
 .consoleBody {
   width: 100%;
   flex: 1;
-  background: #17100b;
+  background: #12141c;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   background-size: 8px 8px;
-  border-top: 3px solid #362217;
+  border-top: 3px solid #202532;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: clamp(12px, 2.5vw, 32px);
   padding: 6px clamp(16px, 3.5vw, 44px) 4px;
   box-shadow: 
-    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 2px 0 rgba(255, 255, 255, 0.06),
     0 -10px 28px rgba(0, 0, 0, 0.95);
   position: relative;
 }
@@ -89,10 +87,10 @@
   flex: 1;
   max-width: 360px;
   height: 100%;
-  background: #0d0805;
-  border: 3px solid #2b1d13;
+  background: #0d0f15;
+  border: 3px solid #202532;
   box-shadow: 
-    inset 1px 1px 0 rgba(255, 255, 255, 0.1),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.06),
     inset -1px -1px 0 #000,
     0 3px 12px rgba(0, 0, 0, 0.8);
   padding: 6px 12px;
@@ -118,7 +116,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 0 6px rgba(234, 88, 12, 0.45));
+  filter: drop-shadow(2px 2px 0px #0e1017);
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   display: block;
@@ -139,19 +137,19 @@
 
 .diagLabel {
   width: 52px;
-  font-family: 'Space Grotesk', 'Courier New', monospace;
+  font-family: var(--font-tech), monospace;
   font-size: 0.56rem;
   font-weight: 700;
   letter-spacing: 0.08em;
-  color: #ffedd5;
+  color: #eae5d8;
   flex-shrink: 0;
 }
 
 .diagTrack {
   flex: 1;
   height: 6px;
-  background: #140d08;
-  border: 1px solid #301d12;
+  background: #10131a;
+  border: 1px solid #202532;
   display: flex;
   gap: 2px;
   padding: 1px;
@@ -160,12 +158,11 @@
 .diagPip {
   flex: 1;
   height: 100%;
-  background: #22130a;
+  background: #181b24;
 }
 
 .diagPipActive {
-  background: #f97316;
-  box-shadow: 0 0 5px #ea580c;
+  background: #d9651e;
 }
 
 /* ==========================================================================
@@ -176,10 +173,10 @@
   flex: 0.85;
   max-width: 250px;
   height: 100%;
-  background: #0a0604;
-  border: 3px solid #3a2618;
+  background: #090b0f;
+  border: 3px solid #202532;
   box-shadow: 
-    inset 1px 1px 0 rgba(255, 255, 255, 0.12),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.06),
     inset -1px -1px 0 #000,
     0 -3px 12px rgba(0, 0, 0, 0.8);
   display: flex;
@@ -201,7 +198,7 @@
 
 .voxelRadarRing {
   position: absolute;
-  border: 1px solid rgba(255, 138, 31, 0.4);
+  border: 1px solid rgba(217, 101, 30, 0.35);
 }
 
 .ring1 {
@@ -226,7 +223,7 @@
   left: 8px;
   right: 8px;
   height: 1px;
-  background: rgba(255, 138, 31, 0.5);
+  background: rgba(217, 101, 30, 0.4);
 }
 
 .radarCrossV {
@@ -234,7 +231,7 @@
   top: 6px;
   bottom: 6px;
   width: 1px;
-  background: rgba(255, 138, 31, 0.5);
+  background: rgba(217, 101, 30, 0.4);
 }
 
 .radarSweep {
@@ -244,8 +241,8 @@
   background: conic-gradient(
     from 0deg,
     transparent 0deg,
-    rgba(255, 138, 31, 0.35) 60deg,
-    rgba(255, 184, 77, 0.75) 75deg,
+    rgba(217, 101, 30, 0.15) 60deg,
+    rgba(217, 101, 30, 0.35) 75deg,
     transparent 76deg
   );
   pointer-events: none;
@@ -266,7 +263,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 0 8px rgba(255, 138, 31, 0.85));
+  filter: drop-shadow(2px 2px 0px #0e1017);
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   display: block;
@@ -276,10 +273,10 @@
   position: absolute;
   top: 4px;
   left: 8px;
-  font-family: 'Space Grotesk', 'Courier New', monospace;
+  font-family: var(--font-tech), monospace;
   font-size: 0.52rem;
   font-weight: 700;
-  color: #ffedd5;
+  color: #eae5d8;
   letter-spacing: 0.08em;
 }
 
@@ -287,10 +284,10 @@
   position: absolute;
   bottom: 4px;
   right: 8px;
-  font-family: 'Space Grotesk', 'Courier New', monospace;
+  font-family: var(--font-tech), monospace;
   font-size: 0.54rem;
   font-weight: 700;
-  color: #f97316;
+  color: #d9651e;
   letter-spacing: 0.08em;
 }
 
@@ -302,10 +299,10 @@
   flex: 1;
   max-width: 360px;
   height: 100%;
-  background: #0d0805;
-  border: 3px solid #2b1d13;
+  background: #0d0f15;
+  border: 3px solid #202532;
   box-shadow: 
-    inset 1px 1px 0 rgba(255, 255, 255, 0.1),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.06),
     inset -1px -1px 0 #000,
     0 3px 12px rgba(0, 0, 0, 0.8);
   padding: 6px 12px;
@@ -322,8 +319,8 @@
   height: 48px;
   width: 95px;
   padding: 3px;
-  background: #080503;
-  border: 1.5px solid #22160f;
+  background: #090b0f;
+  border: 1.5px solid #1a1e2b;
 }
 
 .voxelColBlock {
@@ -337,8 +334,7 @@
 .voxelSubPip {
   width: 100%;
   height: 3.5px;
-  background: #f97316;
-  box-shadow: 0 0 3px #ea580c;
+  background: #d9651e;
 }
 
 /* Rotating 3D Voxel Cube */
@@ -366,9 +362,9 @@
   position: absolute;
   width: 34px;
   height: 34px;
-  background: rgba(30, 20, 14, 0.95);
-  border: 1.5px solid #ea580c;
-  box-shadow: inset 0 0 8px rgba(255, 138, 31, 0.4);
+  background: rgba(18, 20, 28, 0.95);
+  border: 1.5px solid #d9651e;
+  box-shadow: inset 0 0 4px rgba(217, 101, 30, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -378,8 +374,7 @@
   content: '';
   width: 12px;
   height: 12px;
-  background: #ffb84d;
-  box-shadow: 0 0 6px #f97316;
+  background: #d9651e;
 }
 
 .faceFront  { transform: translateZ(17px); }
@@ -390,10 +385,10 @@
 .faceBottom { transform: rotateX(-90deg) translateZ(17px); }
 
 .cubeLabel {
-  font-family: 'Space Grotesk', 'Courier New', monospace;
+  font-family: var(--font-tech), monospace;
   font-size: 0.56rem;
   font-weight: 700;
-  color: #ffedd5;
+  color: #eae5d8;
   letter-spacing: 0.08em;
 }
 
@@ -405,11 +400,9 @@
   height: 28px;
   background: radial-gradient(
     ellipse at center bottom,
-    rgba(234, 88, 12, 0.45) 0%,
-    rgba(249, 115, 22, 0.2) 45%,
-    transparent 80%
+    rgba(217, 101, 30, 0.15) 0%,
+    transparent 75%
   );
-  filter: blur(12px);
   pointer-events: none;
 }
 

@@ -30,72 +30,72 @@ function BlenderTechCore({ pointerRef, activeTech }) {
         child.castShadow = true;
         child.receiveShadow = true;
 
-        // Enhance materials with PBR glow & metallic responsiveness
+        // Enhance materials with PBR mecha industrial palette
         if (child.name === 'InnerCore') {
           child.material = new THREE.MeshStandardMaterial({
-            color: new THREE.Color('#ff4400'),
-            emissive: new THREE.Color('#ff5500'),
-            emissiveIntensity: 3.5,
-            roughness: 0.1,
-            metalness: 0.1,
+            color: new THREE.Color('#d9651e'),
+            emissive: new THREE.Color('#b24e12'),
+            emissiveIntensity: 2.0,
+            roughness: 0.2,
+            metalness: 0.2,
           });
         } else if (child.name === 'InnerWireCage') {
           child.material = new THREE.MeshStandardMaterial({
-            color: new THREE.Color('#ff7700'),
-            emissive: new THREE.Color('#ff8800'),
-            emissiveIntensity: 2.5,
+            color: new THREE.Color('#d9651e'),
+            emissive: new THREE.Color('#7e3308'),
+            emissiveIntensity: 1.2,
             wireframe: false,
           });
         } else if (child.name === 'OuterCage') {
           child.material = new THREE.MeshStandardMaterial({
-            color: new THREE.Color('#0d1118'),
-            roughness: 0.22,
-            metalness: 0.96,
+            color: new THREE.Color('#141722'),
+            roughness: 0.35,
+            metalness: 0.85,
           });
         } else if (child.name === 'EnergyShield') {
           child.material = new THREE.MeshPhysicalMaterial({
-            color: new THREE.Color('#ff9020'),
+            color: new THREE.Color('#d9651e'),
             transparent: true,
-            opacity: 0.2,
-            roughness: 0.1,
-            transmission: 0.6,
+            opacity: 0.12,
+            roughness: 0.2,
+            transmission: 0.4,
             depthWrite: false,
           });
         } else if (child.name === 'GimbalRingInner') {
           child.material = new THREE.MeshStandardMaterial({
-            color: new THREE.Color('#ff6600'),
-            emissive: new THREE.Color('#ff4400'),
-            emissiveIntensity: 1.8,
-            roughness: 0.15,
+            color: new THREE.Color('#d9651e'),
+            emissive: new THREE.Color('#b24e12'),
+            emissiveIntensity: 1.0,
+            roughness: 0.25,
             metalness: 0.85,
           });
         } else if (child.name === 'GimbalRingMid') {
           child.material = new THREE.MeshStandardMaterial({
-            color: new THREE.Color('#cca040'),
-            emissive: new THREE.Color('#664410'),
-            emissiveIntensity: 0.6,
-            roughness: 0.2,
-            metalness: 0.95,
+            color: new THREE.Color('#eae5d8'),
+            emissive: new THREE.Color('#383228'),
+            emissiveIntensity: 0.3,
+            roughness: 0.3,
+            metalness: 0.7,
           });
         } else if (child.name === 'GimbalRingOuter') {
           child.material = new THREE.MeshStandardMaterial({
-            color: new THREE.Color('#141822'),
-            emissive: new THREE.Color('#ff6600'),
-            emissiveIntensity: 0.4,
-            roughness: 0.25,
-            metalness: 0.92,
+            color: new THREE.Color('#1a1d28'),
+            emissive: new THREE.Color('#7e3308'),
+            emissiveIntensity: 0.2,
+            roughness: 0.35,
+            metalness: 0.9,
           });
         } else if (child.name.startsWith('SatelliteEmitter_')) {
           child.material = new THREE.MeshStandardMaterial({
-            color: new THREE.Color('#ffaa22'),
-            emissive: new THREE.Color('#ff7700'),
-            emissiveIntensity: 2.2,
+            color: new THREE.Color('#d9651e'),
+            emissive: new THREE.Color('#b24e12'),
+            emissiveIntensity: 1.5,
           });
         } else if (child.name.startsWith('Satellite_')) {
           child.material = new THREE.MeshStandardMaterial({
-            color: new THREE.Color('#0b0e14'),
-            roughness: 0.3,
-            metalness: 0.9,
+            color: new THREE.Color('#141722'),
+            roughness: 0.35,
+            metalness: 0.88,
           });
         }
       }
@@ -196,18 +196,18 @@ function BlenderTechCore({ pointerRef, activeTech }) {
       <primitive object={model} />
 
       {/* Internal High-Intensity Point Lights */}
-      <pointLight ref={pointLightRef} color="#ff8a1f" intensity={3.5} distance={7} decay={2} />
-      <pointLight color="#ff3300" intensity={2.0} distance={4} decay={2} />
-      <pointLight position={[0, 1.2, 0]} color="#ffb84d" intensity={1.2} distance={3} decay={2} />
+      <pointLight ref={pointLightRef} color="#d9651e" intensity={2.6} distance={6} decay={2} />
+      <pointLight color="#b24e12" intensity={1.6} distance={4} decay={2} />
+      <pointLight position={[0, 1.2, 0]} color="#eae5d8" intensity={1.0} distance={3} decay={2} />
 
       {/* Quantum Sparkles / Energy Dust */}
       <Sparkles
-        count={35}
+        count={28}
         scale={3.6}
-        size={2.2}
-        speed={0.35}
-        color="#ff9e3b"
-        opacity={0.55}
+        size={1.8}
+        speed={0.3}
+        color="#d9651e"
+        opacity={0.45}
       />
     </group>
   );

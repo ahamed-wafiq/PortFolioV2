@@ -8,38 +8,36 @@ function createWarmCosmicGalaxyTexture() {
   canvas.height = 1024;
   const ctx = canvas.getContext('2d');
 
-  // Deep warm cosmos base
+  // Deep cool slate cosmos base (matching mecha reference darks)
   const baseGrad = ctx.createLinearGradient(0, 0, 1024, 1024);
-  baseGrad.addColorStop(0, '#120603');
-  baseGrad.addColorStop(0.3, '#331005');
-  baseGrad.addColorStop(0.65, '#5c1e08');
-  baseGrad.addColorStop(1, '#1a0803');
+  baseGrad.addColorStop(0, '#0a0c12');
+  baseGrad.addColorStop(0.3, '#0e1118');
+  baseGrad.addColorStop(0.65, '#131620');
+  baseGrad.addColorStop(1, '#090a0f');
   ctx.fillStyle = baseGrad;
   ctx.fillRect(0, 0, 1024, 1024);
 
-  // Massive glowing amber nebula cluster (concentrated around planet side)
+  // Subtle matte industrial amber nebula dust (not oversaturated or bright)
   const g1 = ctx.createRadialGradient(720, 460, 40, 720, 460, 520);
-  g1.addColorStop(0, 'rgba(255, 174, 66, 0.75)');
-  g1.addColorStop(0.25, 'rgba(234, 88, 12, 0.55)');
-  g1.addColorStop(0.55, 'rgba(154, 52, 18, 0.3)');
-  g1.addColorStop(0.85, 'rgba(66, 22, 6, 0.15)');
+  g1.addColorStop(0, 'rgba(217, 101, 30, 0.22)');
+  g1.addColorStop(0.3, 'rgba(178, 78, 18, 0.14)');
+  g1.addColorStop(0.6, 'rgba(32, 38, 52, 0.25)');
   g1.addColorStop(1, 'rgba(0, 0, 0, 0)');
   ctx.fillStyle = g1;
   ctx.fillRect(0, 0, 1024, 1024);
 
-  // Secondary radiant golden cloud banks (bottom horizon)
+  // Secondary subtle slate-amber cloud bank
   const g2 = ctx.createRadialGradient(850, 680, 20, 850, 680, 420);
-  g2.addColorStop(0, 'rgba(255, 210, 148, 0.6)');
-  g2.addColorStop(0.35, 'rgba(255, 138, 31, 0.35)');
-  g2.addColorStop(0.7, 'rgba(180, 60, 10, 0.12)');
+  g2.addColorStop(0, 'rgba(217, 101, 30, 0.15)');
+  g2.addColorStop(0.4, 'rgba(25, 30, 42, 0.2)');
   g2.addColorStop(1, 'rgba(0, 0, 0, 0)');
   ctx.fillStyle = g2;
   ctx.fillRect(0, 0, 1024, 1024);
 
   // Left-side deep space dust cloud
   const g3 = ctx.createRadialGradient(220, 400, 30, 220, 400, 380);
-  g3.addColorStop(0, 'rgba(234, 88, 12, 0.25)');
-  g3.addColorStop(0.5, 'rgba(120, 40, 8, 0.1)');
+  g3.addColorStop(0, 'rgba(217, 101, 30, 0.08)');
+  g3.addColorStop(0.5, 'rgba(15, 18, 25, 0.3)');
   g3.addColorStop(1, 'rgba(0, 0, 0, 0)');
   ctx.fillStyle = g3;
   ctx.fillRect(0, 0, 1024, 1024);

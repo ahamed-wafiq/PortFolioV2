@@ -16,7 +16,7 @@ const PlanetSystem = ({ reducedMotion }) => {
       {/* ================================================================= */}
 
       {/* ================================================================= */}
-      {/* 1. STARBOARD MID: PRIMARY AMBER GAS GIANT (WITH TILTED RINGS) */}
+      {/* 1. STARBOARD MID: PRIMARY AMBER GAS GIANT (WITH VOXEL RING)       */}
       {/* ================================================================= */}
       <Planet
         type="gasGiant"
@@ -30,8 +30,8 @@ const PlanetSystem = ({ reducedMotion }) => {
         zStart={-140}
         zEnd={10}
         rotationSpeed={0.012}
-        atmosphereColor="#ff8a1f"
-        atmosphereOpacity={0.48}
+        atmosphereColor="#f97316"
+        atmosphereOpacity={0.28}
         atmosphereScale={1.08}
         hasRings
         ringsConfig={{
@@ -43,7 +43,7 @@ const PlanetSystem = ({ reducedMotion }) => {
       />
 
       {/* ================================================================= */}
-      {/* 2. PORT HIGH: VOLCANIC CRIMSON / LAVA PLANET                      */}
+      {/* 2. PORT HIGH: VOLCANIC NETHER FORTRESS PLANET                     */}
       {/* ================================================================= */}
       <Planet
         type="lava"
@@ -57,15 +57,15 @@ const PlanetSystem = ({ reducedMotion }) => {
         zStart={-140}
         zEnd={10}
         rotationSpeed={0.016}
-        emissiveColor="#b82000"
-        emissiveIntensity={0.35}
-        atmosphereColor="#ff5500"
-        atmosphereOpacity={0.35}
+        emissiveColor="#ff3d00"
+        emissiveIntensity={0.25}
+        atmosphereColor="#ef4444"
+        atmosphereOpacity={0.25}
         reducedMotion={reducedMotion}
       />
 
       {/* ================================================================= */}
-      {/* 3. STARBOARD LOW: GOLDEN DESERT TERRESTRIAL WORLD                 */}
+      {/* 3. STARBOARD LOW: GOLDEN DESERT SANDSTONE & CACTUS WORLD          */}
       {/* ================================================================= */}
       <Planet
         type="desert"
@@ -79,15 +79,15 @@ const PlanetSystem = ({ reducedMotion }) => {
         zStart={-140}
         zEnd={10}
         rotationSpeed={0.014}
-        emissiveColor="#573718"
-        emissiveIntensity={0.25}
-        atmosphereColor="#ffb84d"
-        atmosphereOpacity={0.3}
+        emissiveColor="#3d362c"
+        emissiveIntensity={0.15}
+        atmosphereColor="#fbbf24"
+        atmosphereOpacity={0.22}
         reducedMotion={reducedMotion}
       />
 
       {/* ================================================================= */}
-      {/* 4. PORT LOW: AZURE OCEANIC PLANET / MOON                          */}
+      {/* 4. PORT LOW: OVERWORLD SURVIVAL PLANET (CABIN, TREES, RIVER)      */}
       {/* ================================================================= */}
       <Planet
         type="oceanic"
@@ -101,15 +101,15 @@ const PlanetSystem = ({ reducedMotion }) => {
         zStart={-140}
         zEnd={10}
         rotationSpeed={0.018}
-        emissiveColor="#042038"
-        emissiveIntensity={0.2}
-        atmosphereColor="#38ada9"
-        atmosphereOpacity={0.38}
+        emissiveColor="#151b26"
+        emissiveIntensity={0.15}
+        atmosphereColor="#60a5fa"
+        atmosphereOpacity={0.25}
         reducedMotion={reducedMotion}
       />
 
       {/* ================================================================= */}
-      {/* 5. STARBOARD HIGH: CRATERED ROCKY MOON WORLD                      */}
+      {/* 5. STARBOARD HIGH: END / MOON WORLD (OBSIDIAN PILLARS & CRYSTALS) */}
       {/* ================================================================= */}
       <Planet
         type="moon"
@@ -123,14 +123,14 @@ const PlanetSystem = ({ reducedMotion }) => {
         zStart={-140}
         zEnd={10}
         rotationSpeed={0.022}
-        emissiveColor="#201c18"
-        atmosphereColor="#e0d6cb"
+        emissiveColor="#1a1816"
+        atmosphereColor="#c084fc"
         atmosphereOpacity={0.22}
         reducedMotion={reducedMotion}
       />
 
       {/* ================================================================= */}
-      {/* 6. PORT MID: EMERALD AURORA GAS GIANT                             */}
+      {/* 6. PORT MID: TROPICAL JUNGLE ISLAND (GIANT PALM TREES & CLOUDS)   */}
       {/* ================================================================= */}
       <Planet
         type="emerald"
@@ -144,10 +144,10 @@ const PlanetSystem = ({ reducedMotion }) => {
         zStart={-140}
         zEnd={10}
         rotationSpeed={0.016}
-        emissiveColor="#062e24"
-        emissiveIntensity={0.3}
-        atmosphereColor="#2ecc71"
-        atmosphereOpacity={0.36}
+        emissiveColor="#131c17"
+        emissiveIntensity={0.15}
+        atmosphereColor="#34d399"
+        atmosphereOpacity={0.24}
         reducedMotion={reducedMotion}
       />
 

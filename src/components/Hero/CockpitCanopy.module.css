@@ -34,13 +34,12 @@
   position: relative;
   display: flex;
   align-items: center;
-  background: #19120c;
-  border-bottom: 3px solid #ea580c;
+  background: #11141c;
+  border-bottom: 3px solid #d9651e;
   box-shadow: 
     0 4px 16px rgba(0, 0, 0, 0.9),
-    0 0 12px rgba(234, 88, 12, 0.35),
-    inset 0 2px 0 rgba(255, 255, 255, 0.12),
-    inset 0 -2px 0 rgba(0, 0, 0, 0.8);
+    inset 0 2px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -2px 0 #090b0f;
 }
 
 .topCenterConsole {
@@ -48,12 +47,12 @@
   align-items: center;
   gap: clamp(1rem, 3.5vw, 2.4rem);
   padding: 4px clamp(1.2rem, 4vw, 3rem) 5px;
-  background: #261b13;
-  border-left: 3px solid #100b08;
-  border-right: 3px solid #100b08;
-  border-bottom: 3px solid #f97316;
+  background: #181c26;
+  border-left: 3px solid #0e1017;
+  border-right: 3px solid #0e1017;
+  border-bottom: 3px solid #d9651e;
   box-shadow: 
-    inset 1px 1px 0 rgba(255, 255, 255, 0.1),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.08),
     inset -1px -1px 0 rgba(0, 0, 0, 0.6);
 }
 
@@ -61,11 +60,9 @@
 .magmaLantern {
   width: 24px;
   height: 14px;
-  background: #17100b;
-  border: 2px solid #382417;
-  box-shadow: 
-    0 0 10px rgba(234, 88, 12, 0.6),
-    inset 0 0 6px rgba(255, 138, 31, 0.4);
+  background: #11131a;
+  border: 2px solid #282f42;
+  box-shadow: 1px 1px 0px #0e1017;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -75,22 +72,17 @@
 .lanternCore {
   width: 100%;
   height: 100%;
-  background: #ffb84d;
-  box-shadow: 
-    0 0 8px #ff8a1f, 
-    0 0 16px rgba(249, 115, 22, 0.75),
-    inset 1px 1px 0 #fff7ed;
+  background: #d9651e;
+  box-shadow: inset 1px 1px 0 #eae5d8;
   animation: magmaFlicker 3s infinite alternate ease-in-out;
 }
 
 @keyframes magmaFlicker {
   0% {
     filter: brightness(0.9);
-    box-shadow: 0 0 6px #ff8a1f, 0 0 14px rgba(249, 115, 22, 0.5);
   }
   100% {
-    filter: brightness(1.25);
-    box-shadow: 0 0 12px #ffedd5, 0 0 24px rgba(249, 115, 22, 0.9);
+    filter: brightness(1.15);
   }
 }
 
@@ -99,21 +91,20 @@
 .topWingBlockRight {
   width: clamp(30px, 6vw, 70px);
   height: 20px;
-  background: #1a130e;
-  border-bottom: 2px solid #301f14;
+  background: #131620;
+  border-bottom: 2px solid #252b3b;
 }
 
 .topWingBlockLeft {
-  border-right: 2px solid #0d0906;
+  border-right: 2px solid #090b0f;
 }
 
 .topWingBlockRight {
-  border-left: 2px solid #0d0906;
+  border-left: 2px solid #090b0f;
 }
 
 /* ==========================================================================
    SLIM VOXEL A-PILLARS (HUGGING EXTREME EDGES)
-   Width is only ~20-28px, keeping the full windshield wide open!
    ========================================================================== */
 
 .leftVoxelPillar,
@@ -127,32 +118,32 @@
   flex-direction: column;
   justify-content: space-around;
   padding: 70px 3px;
-  background: #211710;
+  background: #151822;
   background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
   background-size: 6px 6px;
 }
 
 .leftVoxelPillar {
   left: 0;
-  border-right: 3px solid #ea580c;
+  border-right: 3px solid #d9651e;
   box-shadow: 
     4px 0 14px rgba(0, 0, 0, 0.8),
-    inset -2px 0 0 #120c08,
-    inset 1px 0 0 rgba(255, 255, 255, 0.1);
+    inset -2px 0 0 #0d0f15,
+    inset 1px 0 0 rgba(255, 255, 255, 0.06);
 }
 
 .rightVoxelPillar {
   right: 0;
-  border-left: 3px solid #ea580c;
+  border-left: 3px solid #d9651e;
   box-shadow: 
     -4px 0 14px rgba(0, 0, 0, 0.8),
-    inset 2px 0 0 #120c08,
-    inset -1px 0 0 rgba(255, 255, 255, 0.1);
+    inset 2px 0 0 #0d0f15,
+    inset -1px 0 0 rgba(255, 255, 255, 0.06);
 }
 
-/* Mini Redstone Status Cubes on pillars */
+/* Mini Status Cubes on pillars */
 .pillarVoxelBlock {
   width: 100%;
   display: flex;
@@ -160,27 +151,25 @@
   align-items: center;
   gap: 4px;
   padding: 5px 1px;
-  background: #140d09;
-  border: 1px solid #332014;
+  background: #101219;
+  border: 1px solid #252b3a;
 }
 
 .voxelLightCore {
   width: 10px;
   height: 10px;
-  background: #f97316;
-  border: 1px solid #ffedd5;
-  box-shadow: 0 0 8px #ea580c;
+  background: #d9651e;
+  border: 1px solid #b24e12;
   animation: voxelLampGlow 2.5s infinite alternate ease-in-out;
 }
 
 @keyframes voxelLampGlow {
-  0% { filter: brightness(0.85); transform: scale(0.95); }
-  100% { filter: brightness(1.25); transform: scale(1.05); }
+  0% { filter: brightness(0.9); transform: scale(0.95); }
+  100% { filter: brightness(1.15); transform: scale(1.05); }
 }
 
 /* ==========================================================================
-   COMPACT STEPPED CORNER BLOCKS (HUGGING EXTREME CORNERS)
-   Stepped block staircase tightly nested in corners to maximize window area!
+   COMPACT STEPPED CORNER BLOCKS
    ========================================================================== */
 
 .steppedCornerTL {
@@ -193,12 +182,12 @@
 
 .cornerStepBlock {
   position: absolute;
-  background: #261b13;
-  border: 2px solid #140d09;
-  border-right: 2px solid #ea580c;
-  border-bottom: 2px solid #ea580c;
+  background: #181c26;
+  border: 2px solid #0e1017;
+  border-right: 2px solid #d9651e;
+  border-bottom: 2px solid #d9651e;
   box-shadow: 
-    inset 1px 1px 0 rgba(255, 255, 255, 0.12),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.08),
     inset -1px -1px 0 rgba(0, 0, 0, 0.6),
     0 2px 8px rgba(0, 0, 0, 0.6);
 }
@@ -213,12 +202,12 @@
 
 .cornerStepBlockTR {
   position: absolute;
-  background: #261b13;
-  border: 2px solid #140d09;
-  border-left: 2px solid #ea580c;
-  border-bottom: 2px solid #ea580c;
+  background: #181c26;
+  border: 2px solid #0e1017;
+  border-left: 2px solid #d9651e;
+  border-bottom: 2px solid #d9651e;
   box-shadow: 
-    inset 1px 1px 0 rgba(255, 255, 255, 0.12),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.08),
     inset -1px -1px 0 rgba(0, 0, 0, 0.6),
     0 2px 8px rgba(0, 0, 0, 0.6);
 }
@@ -233,12 +222,12 @@
 
 .cornerStepBlockBL {
   position: absolute;
-  background: #261b13;
-  border: 2px solid #140d09;
-  border-right: 2px solid #ea580c;
-  border-top: 2px solid #ea580c;
+  background: #181c26;
+  border: 2px solid #0e1017;
+  border-right: 2px solid #d9651e;
+  border-top: 2px solid #d9651e;
   box-shadow: 
-    inset 1px 1px 0 rgba(255, 255, 255, 0.12),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.08),
     inset -1px -1px 0 rgba(0, 0, 0, 0.6);
 }
 
@@ -252,11 +241,11 @@
 
 .cornerStepBlockBR {
   position: absolute;
-  background: #261b13;
-  border: 2px solid #140d09;
-  border-left: 2px solid #ea580c;
-  border-top: 2px solid #ea580c;
+  background: #181c26;
+  border: 2px solid #0e1017;
+  border-left: 2px solid #d9651e;
+  border-top: 2px solid #d9651e;
   box-shadow: 
-    inset 1px 1px 0 rgba(255, 255, 255, 0.12),
+    inset 1px 1px 0 rgba(255, 255, 255, 0.08),
     inset -1px -1px 0 rgba(0, 0, 0, 0.6);
 }
