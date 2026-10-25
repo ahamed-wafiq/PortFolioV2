@@ -1,158 +1,144 @@
 import React from 'react';
 import Planet from './Planet';
 
-
-
-
-
+/**
+ * PlanetSystem
+ * Large, up-close Minecraft voxel survival planets cruising right past the cockpit windshield!
+ * Radii increased significantly (up to 5.4 for gas giant, 3.6 for survival worlds)
+ * and flight corridors brought nearer to the screen (zStart: -72, zEnd: 8) so detailed voxel blocks,
+ * trees, cabins, castles, and cacti are prominently visible at all times!
+ */
 const PlanetSystem = ({ reducedMotion }) => {
   return (
     <group>
       {/* ================================================================= */}
-      {/* PASSING PLANETS FLEET: CONTINUOUS FORWARD PASSING LEFT & RIGHT   */}
-      {/* Corridors are strictly non-overlapping and collision-free:       */}
-      {/* Port Lanes (Left): X <= -8.8 | Starboard Lanes (Right): X >= 8.4  */}
-      {/* Central Corridor (|X| < 4.5) is strictly reserved for spaceship  */}
+      {/* 1. PORT LOW: OVERWORLD SURVIVAL PLANET (CABIN, PINE TREES, RIVER) */}
+      {/* Large & up-close right outside the left windshield!              */}
       {/* ================================================================= */}
+      <Planet
+        type="oceanic"
+        radius={3.6}
+        passingFlight
+        flightSpeed={3.4}
+        baseX={-5.8}
+        baseY={-1.2}
+        lateralDrift={1.4}
+        initialZ={-10}
+        zStart={-72}
+        zEnd={8}
+        rotationSpeed={0.016}
+        emissiveColor="#151b26"
+        emissiveIntensity={0.15}
+        reducedMotion={reducedMotion}
+      />
 
       {/* ================================================================= */}
-      {/* 1. STARBOARD MID: PRIMARY AMBER GAS GIANT (WITH VOXEL RING)       */}
+      {/* 2. STARBOARD MID: GIANT AMBER VOXEL PLANET (WITH ASTEROID RING)   */}
+      {/* Massive Saturn-scale voxel ringed world                          */}
       {/* ================================================================= */}
       <Planet
         type="gasGiant"
-        radius={3.5}
+        radius={5.4}
         passingFlight
-        flightSpeed={3.6}
+        flightSpeed={3.2}
         baseX={6.4}
         baseY={0.6}
-        lateralDrift={1.8}
-        initialZ={-16}
-        zStart={-140}
-        zEnd={10}
+        lateralDrift={1.6}
+        initialZ={-24}
+        zStart={-72}
+        zEnd={8}
         rotationSpeed={0.012}
-        atmosphereColor="#f97316"
-        atmosphereOpacity={0.28}
-        atmosphereScale={1.08}
         hasRings
         ringsConfig={{
-          innerRadius: 4.2,
-          outerRadius: 7.2,
+          innerRadius: 6.8,
+          outerRadius: 11.2,
           rotation: [Math.PI * 0.38, -0.22, 0.42],
         }}
         reducedMotion={reducedMotion}
       />
 
       {/* ================================================================= */}
-      {/* 2. PORT HIGH: VOLCANIC NETHER FORTRESS PLANET                     */}
+      {/* 3. PORT HIGH: VOLCANIC NETHER FORTRESS PLANET (GLOWING LAVA)      */}
+      {/* Towering gothic castle, magma cracks, and soul fire torches       */}
       {/* ================================================================= */}
       <Planet
         type="lava"
-        radius={2.2}
+        radius={3.5}
         passingFlight
-        flightSpeed={3.8}
-        baseX={-10.5}
-        baseY={2.8}
-        lateralDrift={2.8}
-        initialZ={-38}
-        zStart={-140}
-        zEnd={10}
-        rotationSpeed={0.016}
+        flightSpeed={3.5}
+        baseX={-6.8}
+        baseY={2.2}
+        lateralDrift={1.5}
+        initialZ={-36}
+        zStart={-72}
+        zEnd={8}
+        rotationSpeed={0.015}
         emissiveColor="#ff3d00"
         emissiveIntensity={0.25}
-        atmosphereColor="#ef4444"
-        atmosphereOpacity={0.25}
         reducedMotion={reducedMotion}
       />
 
       {/* ================================================================= */}
-      {/* 3. STARBOARD LOW: GOLDEN DESERT SANDSTONE & CACTUS WORLD          */}
+      {/* 4. STARBOARD LOW: GOLDEN DESERT SANDSTONE WORLD (CACTI & PYRAMID) */}
+      {/* Sandstone temple spire, dunes, and green saguaro cacti            */}
       {/* ================================================================= */}
       <Planet
         type="desert"
-        radius={1.8}
+        radius={3.2}
         passingFlight
-        flightSpeed={3.6}
-        baseX={9.4}
-        baseY={-2.8}
-        lateralDrift={2.2}
-        initialZ={-62}
-        zStart={-140}
-        zEnd={10}
+        flightSpeed={3.3}
+        baseX={6.0}
+        baseY={-2.0}
+        lateralDrift={1.4}
+        initialZ={-48}
+        zStart={-72}
+        zEnd={8}
         rotationSpeed={0.014}
         emissiveColor="#3d362c"
         emissiveIntensity={0.15}
-        atmosphereColor="#fbbf24"
-        atmosphereOpacity={0.22}
         reducedMotion={reducedMotion}
       />
 
       {/* ================================================================= */}
-      {/* 4. PORT LOW: OVERWORLD SURVIVAL PLANET (CABIN, TREES, RIVER)      */}
-      {/* ================================================================= */}
-      <Planet
-        type="oceanic"
-        radius={2.0}
-        passingFlight
-        flightSpeed={4.0}
-        baseX={-9.8}
-        baseY={-2.4}
-        lateralDrift={2.5}
-        initialZ={-86}
-        zStart={-140}
-        zEnd={10}
-        rotationSpeed={0.018}
-        emissiveColor="#151b26"
-        emissiveIntensity={0.15}
-        atmosphereColor="#60a5fa"
-        atmosphereOpacity={0.25}
-        reducedMotion={reducedMotion}
-      />
-
-      {/* ================================================================= */}
-      {/* 5. STARBOARD HIGH: END / MOON WORLD (OBSIDIAN PILLARS & CRYSTALS) */}
-      {/* ================================================================= */}
-      <Planet
-        type="moon"
-        radius={1.5}
-        passingFlight
-        flightSpeed={3.8}
-        baseX={10.2}
-        baseY={3.2}
-        lateralDrift={2.4}
-        initialZ={-110}
-        zStart={-140}
-        zEnd={10}
-        rotationSpeed={0.022}
-        emissiveColor="#1a1816"
-        atmosphereColor="#c084fc"
-        atmosphereOpacity={0.22}
-        reducedMotion={reducedMotion}
-      />
-
-      {/* ================================================================= */}
-      {/* 6. PORT MID: TROPICAL JUNGLE ISLAND (GIANT PALM TREES & CLOUDS)   */}
+      {/* 5. PORT MID: TROPICAL JUNGLE ISLAND (GIANT PALM TREES & CLOUDS)   */}
+      {/* Lush canopy, turquoise shores, and spreading palm leaves          */}
       {/* ================================================================= */}
       <Planet
         type="emerald"
-        radius={2.4}
+        radius={3.6}
         passingFlight
-        flightSpeed={4.0}
-        baseX={-11.2}
+        flightSpeed={3.5}
+        baseX={-6.2}
         baseY={0.5}
-        lateralDrift={3.0}
-        initialZ={-134}
-        zStart={-140}
-        zEnd={10}
-        rotationSpeed={0.016}
+        lateralDrift={1.4}
+        initialZ={-60}
+        zStart={-72}
+        zEnd={8}
+        rotationSpeed={0.015}
         emissiveColor="#131c17"
         emissiveIntensity={0.15}
-        atmosphereColor="#34d399"
-        atmosphereOpacity={0.24}
         reducedMotion={reducedMotion}
       />
 
-
-
+      {/* ================================================================= */}
+      {/* 6. STARBOARD HIGH: END / MOON WORLD (OBSIDIAN PILLARS & CRYSTALS) */}
+      {/* Endstone terrain, tall black pillars, glowing purple crystals     */}
+      {/* ================================================================= */}
+      <Planet
+        type="moon"
+        radius={2.8}
+        passingFlight
+        flightSpeed={3.4}
+        baseX={6.6}
+        baseY={2.4}
+        lateralDrift={1.3}
+        initialZ={-72}
+        zStart={-72}
+        zEnd={8}
+        rotationSpeed={0.02}
+        emissiveColor="#1a1816"
+        reducedMotion={reducedMotion}
+      />
     </group>
   );
 };
