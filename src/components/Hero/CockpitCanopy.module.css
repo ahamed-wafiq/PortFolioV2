@@ -1,7 +1,7 @@
 /* ==========================================================================
-   MINECRAFT-INSPIRED VOXEL COCKPIT CANOPY
-   Massive Windshield: ~80%+ of hero viewport is open glass!
-   Slim, chunky voxel ceiling beam & A-pillars hug the extreme edges.
+   MINECRAFT VOXEL COCKPIT CANOPY
+   Authentic Minecraft glass viewport, Redstone Lamps, Deepslate A-pillars,
+   and F3 Debug Telemetry HUD!
    ========================================================================== */
 
 .canopyWrapper {
@@ -14,8 +14,87 @@
 }
 
 /* ==========================================================================
-   TOP CHUNKY VOXEL CANOPY BEAM & COMPACT MAGMA LANTERNS
-   Slim overhead beam (only ~26px high) leaving maximum viewport space
+   MINECRAFT GLASS VIEWPORT REFLECTION STREAKS
+   The classic diagonal stepped pixel reflection streaks of Minecraft glass blocks!
+   ========================================================================== */
+
+.glassReflections {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.glassStreakTL {
+  position: absolute;
+  top: 48px;
+  left: 60px;
+  width: 120px;
+  height: 90px;
+  opacity: 0.35;
+}
+
+.glassStreakTR {
+  position: absolute;
+  top: 56px;
+  right: 80px;
+  width: 100px;
+  height: 70px;
+  opacity: 0.28;
+}
+
+/* Stepped diagonal pixel streak SVGs */
+.pixelStreakSvg {
+  width: 100%;
+  height: 100%;
+  image-rendering: pixelated;
+}
+
+/* ==========================================================================
+   MINECRAFT F3 DEBUG HUD TELEMETRY (TOP-LEFT)
+   Faithfully matching the iconic Minecraft F3 info screen overlay!
+   ========================================================================== */
+
+.f3DebugOverlay {
+  position: absolute;
+  top: 40px;
+  left: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #f1f5f9;
+  text-shadow: 1px 1px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000;
+  pointer-events: none;
+  opacity: 0.88;
+  z-index: 14;
+}
+
+.f3Line {
+  background: rgba(0, 0, 0, 0.45);
+  padding: 1px 6px;
+  width: fit-content;
+  border-left: 2px solid #ea580c;
+  line-height: 1.35;
+}
+
+.f3Highlight {
+  color: #fbbf24;
+}
+
+.f3Green {
+  color: #4ade80;
+}
+
+.f3Cyan {
+  color: #38bdf8;
+}
+
+/* ==========================================================================
+   TOP CHUNKY VOXEL CANOPY BEAM & REDSTONE LAMPS
+   Deepslate block beam with authentic Minecraft Redstone Lamps!
    ========================================================================== */
 
 .topCanopyBar {
@@ -23,7 +102,7 @@
   top: 0;
   left: 0;
   right: 0;
-  height: 28px;
+  height: 34px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -34,77 +113,95 @@
   position: relative;
   display: flex;
   align-items: center;
-  background: #11141c;
-  border-bottom: 3px solid #d9651e;
+  background: #181a20;
+  border-bottom: 3px solid #0f1015;
   box-shadow: 
-    0 4px 16px rgba(0, 0, 0, 0.9),
-    inset 0 2px 0 rgba(255, 255, 255, 0.08),
-    inset 0 -2px 0 #090b0f;
+    0 4px 18px rgba(0, 0, 0, 0.95),
+    inset 0 2px 0 #2e3342,
+    inset 0 -2px 0 #090a0d;
 }
 
 .topCenterConsole {
   display: flex;
   align-items: center;
-  gap: clamp(1rem, 3.5vw, 2.4rem);
-  padding: 4px clamp(1.2rem, 4vw, 3rem) 5px;
-  background: #181c26;
-  border-left: 3px solid #0e1017;
-  border-right: 3px solid #0e1017;
-  border-bottom: 3px solid #d9651e;
+  gap: clamp(12px, 3vw, 28px);
+  padding: 3px clamp(1rem, 3.5vw, 2.5rem) 4px;
+  background: #1e222d;
+  border-left: 3px solid #0d0e12;
+  border-right: 3px solid #0d0e12;
+  border-bottom: 3px solid #ea580c;
   box-shadow: 
-    inset 1px 1px 0 rgba(255, 255, 255, 0.08),
-    inset -1px -1px 0 rgba(0, 0, 0, 0.6);
+    inset 2px 2px 0 #343c4f,
+    inset -2px -2px 0 #090a0d;
 }
 
-/* Compact Block Magma Lanterns */
-.magmaLantern {
-  width: 24px;
-  height: 14px;
-  background: #11131a;
-  border: 2px solid #282f42;
-  box-shadow: 1px 1px 0px #0e1017;
+/* Minecraft Redstone Lamp Block */
+.redstoneLamp {
+  width: 28px;
+  height: 20px;
+  background: #3b1807;
+  border: 2px solid #5a280e;
+  box-shadow: 
+    inset 1px 1px 0 #7c3a17,
+    inset -1px -1px 0 #1c0b03,
+    0 0 8px rgba(234, 88, 12, 0.45);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1px;
+  position: relative;
+  overflow: hidden;
 }
 
-.lanternCore {
+/* Redstone Lamp Criss-Cross Wood Frame */
+.lampLattice {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #230d04;
+  background:
+    linear-gradient(90deg, transparent 40%, #230d04 40%, #230d04 60%, transparent 60%),
+    linear-gradient(0deg, transparent 40%, #230d04 40%, #230d04 60%, transparent 60%);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.lampCore {
   width: 100%;
   height: 100%;
-  background: #d9651e;
-  box-shadow: inset 1px 1px 0 #eae5d8;
-  animation: magmaFlicker 3s infinite alternate ease-in-out;
+  background: radial-gradient(circle, #fde047 15%, #ea580c 60%, #9a3412 100%);
+  animation: redstoneFlicker 3s infinite alternate ease-in-out;
 }
 
-@keyframes magmaFlicker {
+@keyframes redstoneFlicker {
   0% {
-    filter: brightness(0.9);
+    filter: brightness(0.9) saturate(0.95);
+  }
+  50% {
+    filter: brightness(1.1) saturate(1.1);
   }
   100% {
-    filter: brightness(1.15);
+    filter: brightness(1.25) saturate(1.2);
   }
 }
 
-/* Slim wing blocks flanking the top console */
 .topWingBlockLeft,
 .topWingBlockRight {
-  width: clamp(30px, 6vw, 70px);
-  height: 20px;
-  background: #131620;
-  border-bottom: 2px solid #252b3b;
+  width: clamp(30px, 7vw, 90px);
+  height: 24px;
+  background: #141720;
+  border-bottom: 2px solid #282f40;
+  box-shadow: inset 1px 1px 0 #282f40;
 }
 
 .topWingBlockLeft {
-  border-right: 2px solid #090b0f;
+  border-right: 2px solid #090a0d;
 }
 
 .topWingBlockRight {
-  border-left: 2px solid #090b0f;
+  border-left: 2px solid #090a0d;
 }
 
 /* ==========================================================================
-   SLIM VOXEL A-PILLARS (HUGGING EXTREME EDGES)
+   MINECRAFT DEEPSLATE A-PILLARS WITH REDSTONE TORCHES
    ========================================================================== */
 
 .leftVoxelPillar,
@@ -112,140 +209,128 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: clamp(18px, 1.8vw, 28px);
-  z-index: 12;
+  width: 32px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 70px 3px;
-  background: #151822;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 6px 6px;
+  padding: 80px 0;
+  z-index: 11;
 }
 
 .leftVoxelPillar {
   left: 0;
-  border-right: 3px solid #d9651e;
-  box-shadow: 
-    4px 0 14px rgba(0, 0, 0, 0.8),
-    inset -2px 0 0 #0d0f15,
-    inset 1px 0 0 rgba(255, 255, 255, 0.06);
+  background: linear-gradient(90deg, #181a20, #13151b);
+  border-right: 3px solid #090a0d;
+  box-shadow: inset 2px 0 0 #2e3342, 4px 0 16px rgba(0, 0, 0, 0.85);
 }
 
 .rightVoxelPillar {
   right: 0;
-  border-left: 3px solid #d9651e;
-  box-shadow: 
-    -4px 0 14px rgba(0, 0, 0, 0.8),
-    inset 2px 0 0 #0d0f15,
-    inset -1px 0 0 rgba(255, 255, 255, 0.06);
+  background: linear-gradient(-90deg, #181a20, #13151b);
+  border-left: 3px solid #090a0d;
+  box-shadow: inset -2px 0 0 #2e3342, -4px 0 16px rgba(0, 0, 0, 0.85);
 }
 
-/* Mini Status Cubes on pillars */
+/* Chunky Deepslate Block Segments */
 .pillarVoxelBlock {
-  width: 100%;
+  width: 26px;
+  height: 48px;
+  margin: 0 auto;
+  background: #1e222d;
+  border: 2px solid #090a0d;
+  box-shadow: 
+    inset 2px 2px 0 #343c4f,
+    inset -2px -2px 0 #0d0e12,
+    0 2px 6px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Mounted Redstone Torch on Pillar */
+.torchBracket {
+  width: 14px;
+  height: 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  padding: 5px 1px;
-  background: #101219;
-  border: 1px solid #252b3a;
+  justify-content: flex-end;
+  position: relative;
 }
 
-.voxelLightCore {
-  width: 10px;
-  height: 10px;
-  background: #d9651e;
-  border: 1px solid #b24e12;
-  animation: voxelLampGlow 2.5s infinite alternate ease-in-out;
+.torchWoodStick {
+  width: 4px;
+  height: 16px;
+  background: #78350f;
+  border: 1px solid #451a03;
 }
 
-@keyframes voxelLampGlow {
-  0% { filter: brightness(0.9); transform: scale(0.95); }
-  100% { filter: brightness(1.15); transform: scale(1.05); }
+.torchHeadRedstone {
+  width: 8px;
+  height: 8px;
+  background: #dc2626;
+  border: 1px solid #991b1b;
+  box-shadow: 0 0 8px #ef4444, inset 1px 1px 0 #fca5a5;
+  animation: torchSpark 1.6s infinite alternate ease-in-out;
+}
+
+@keyframes torchSpark {
+  0% {
+    transform: scale(0.95);
+    filter: brightness(0.9);
+  }
+  100% {
+    transform: scale(1.1);
+    filter: brightness(1.3);
+  }
 }
 
 /* ==========================================================================
-   COMPACT STEPPED CORNER BLOCKS
+   STEPPED CORNER BLOCKS (TOP-LEFT & TOP-RIGHT)
    ========================================================================== */
 
-.steppedCornerTL {
+.steppedCornerTL,
+.steppedCornerTR {
   position: absolute;
   top: 0;
+  width: 80px;
+  height: 80px;
+  z-index: 12;
+}
+
+.steppedCornerTL {
   left: 0;
-  z-index: 11;
-  pointer-events: none;
+}
+
+.steppedCornerTR {
+  right: 0;
 }
 
 .cornerStepBlock {
   position: absolute;
-  background: #181c26;
-  border: 2px solid #0e1017;
-  border-right: 2px solid #d9651e;
-  border-bottom: 2px solid #d9651e;
+  background: #181a20;
+  border: 2px solid #090a0d;
   box-shadow: 
-    inset 1px 1px 0 rgba(255, 255, 255, 0.08),
-    inset -1px -1px 0 rgba(0, 0, 0, 0.6),
-    0 2px 8px rgba(0, 0, 0, 0.6);
+    inset 2px 2px 0 #2e3342,
+    inset -2px -2px 0 #0d0e12,
+    0 3px 10px rgba(0, 0, 0, 0.7);
 }
 
-.steppedCornerTR {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 11;
-  pointer-events: none;
-}
-
-.cornerStepBlockTR {
-  position: absolute;
-  background: #181c26;
-  border: 2px solid #0e1017;
-  border-left: 2px solid #d9651e;
-  border-bottom: 2px solid #d9651e;
-  box-shadow: 
-    inset 1px 1px 0 rgba(255, 255, 255, 0.08),
-    inset -1px -1px 0 rgba(0, 0, 0, 0.6),
-    0 2px 8px rgba(0, 0, 0, 0.6);
-}
-
-.steppedCornerBL {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 11;
-  pointer-events: none;
-}
-
-.cornerStepBlockBL {
-  position: absolute;
-  background: #181c26;
-  border: 2px solid #0e1017;
-  border-right: 2px solid #d9651e;
-  border-top: 2px solid #d9651e;
-  box-shadow: 
-    inset 1px 1px 0 rgba(255, 255, 255, 0.08),
-    inset -1px -1px 0 rgba(0, 0, 0, 0.6);
-}
-
-.steppedCornerBR {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 11;
-  pointer-events: none;
-}
-
-.cornerStepBlockBR {
-  position: absolute;
-  background: #181c26;
-  border: 2px solid #0e1017;
-  border-left: 2px solid #d9651e;
-  border-top: 2px solid #d9651e;
-  box-shadow: 
-    inset 1px 1px 0 rgba(255, 255, 255, 0.08),
-    inset -1px -1px 0 rgba(0, 0, 0, 0.6);
+@media (max-width: 768px) {
+  .f3DebugOverlay {
+    display: none;
+  }
+  .leftVoxelPillar,
+  .rightVoxelPillar {
+    width: 20px;
+  }
+  .pillarVoxelBlock {
+    width: 16px;
+    height: 32px;
+  }
+  .glassStreakTL,
+  .glassStreakTR {
+    display: none;
+  }
 }

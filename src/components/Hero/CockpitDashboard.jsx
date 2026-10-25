@@ -1,16 +1,26 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from './CockpitDashboard.module.css';
 import voxelSpacecraftImg from '../../assets/voxel_spacecraft.png';
+import {
+  MinecraftHeart,
+  MinecraftArmor,
+  MinecraftFurnaceFlame,
+  MinecraftItem,
+} from './MinecraftCockpitIcons';
 
 /**
  * CockpitDashboard
- * Balanced Minecraft-style voxel flight dashboard occupying approximately 25% of hero height,
- * perfectly balancing the 75% huge cockpit windshield and space vista above!
+ * Authentic Minecraft Flight Deck Dashboard occupying 25% of viewport height.
+ * Features:
+ * 1. Hull Vitality (10 Minecraft Hearts) & Shield Deflectors (10 Minecraft Iron Armor Chestplates) + EXP Level 99
+ * 2. Center Console: Locator Radar & The Iconic Minecraft 9-Slot Hotbar with active weapon/tool selection
+ * 3. Right Console: Blast Furnace Thruster Gauge (burning flame), Stone Buttons & Redstone Wiring Deck
  */
 const CockpitDashboard = ({ isVisible = true }) => {
   const radarSweepRef = useRef();
+  const [activeSlot, setActiveSlot] = useState(2); // Default to Compass/Warp slot
 
-  // Radar sweep animation - only active when cockpit is in view
+  // Radar sweep animation
   useEffect(() => {
     if (!isVisible) return undefined;
     let angle = 0;
@@ -26,19 +36,23 @@ const CockpitDashboard = ({ isVisible = true }) => {
     return () => cancelAnimationFrame(animId);
   }, [isVisible]);
 
-  const diagnosticRows = [
-    { label: 'THRUST', pips: 7, total: 8 },
-    { label: 'SHIELD', pips: 8, total: 8 },
-    { label: 'O2 LEV', pips: 7, total: 8 },
-    { label: 'WARP', pips: 6, total: 8 },
+  // The 9 classic Minecraft hotbar item slots
+  const hotbarItems = [
+    { id: 1, type: 'sword', label: 'Diamond Blade' },
+    { id: 2, type: 'compass', label: 'Nav Compass' },
+    { id: 3, type: 'pearl', label: 'Ender Warp' },
+    { id: 4, type: 'torch', label: 'Redstone Power' },
+    { id: 5, type: 'apple', label: 'Core Reactor' },
+    { id: 6, type: 'clock', label: 'Solar Chrono' },
+    { id: 7, type: 'rocket', label: 'Thruster Boost' },
+    { id: 8, type: 'totem', label: 'Totem Shield' },
+    { id: 9, type: 'sword', label: 'Aux System' },
   ];
-
-  const graphColumns = [3, 5, 7, 9, 6, 8, 10, 7, 9, 10];
 
   return (
     <div className={styles.dashboardContainer} aria-hidden="true">
       {/* ================================================================ */}
-      {/* TOP CONSOLE BLOCK RIDGE & STEPPED CRENELLATIONS                  */}
+      {/* 1. TOP CONSOLE DEEPSLATE CRENELLATIONS & REDSTONE STRIP          */}
       {/* ================================================================ */}
       <div className={styles.consoleRidge}>
         <div className={styles.ridgeBlockTeeth}>
@@ -50,10 +64,10 @@ const CockpitDashboard = ({ isVisible = true }) => {
       </div>
 
       {/* ================================================================ */}
-      {/* BALANCED VOXEL CONSOLE BODY (Occupying the 25% Dashboard tier)   */}
+      {/* 2. MAIN DEEPSLATE FLIGHT DECK BODY                               */}
       {/* ================================================================ */}
       <div className={styles.consoleBody}>
-        {/* === LEFT: VOXEL SHIP SCHEMATIC & DIAGNOSTIC METERS === */}
+        {/* === LEFT: MINECRAFT HEALTH (HEARTS) & SHIELD (ARMOR) VITALITY === */}
         <div className={styles.screenMfdLeft}>
           <div className={styles.shipSchematic}>
             <img
@@ -63,56 +77,101 @@ const CockpitDashboard = ({ isVisible = true }) => {
             />
           </div>
 
-          <div className={styles.diagBars}>
-            {diagnosticRows.map((row) => (
-              <div key={row.label} className={styles.diagRow}>
-                <span className={styles.diagLabel}>{row.label}</span>
-                <div className={styles.diagTrack}>
-                  {Array.from({ length: row.total }).map((_, pipIdx) => (
-                    <div
-                      key={pipIdx}
-                      className={`${styles.diagPip} ${pipIdx < row.pips ? styles.diagPipActive : ''}`}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* === CENTER: ELEVATED SQUARE RADAR TERMINAL === */}
-        <div className={styles.centerRadarScreen}>
-          <div className={styles.radarDisplay}>
-            <div className={`${styles.voxelRadarRing} ${styles.ring1}`} />
-            <div className={`${styles.voxelRadarRing} ${styles.ring2}`} />
-            <div className={`${styles.voxelRadarRing} ${styles.ring3}`} />
-            <div className={styles.radarCrossH} />
-            <div className={styles.radarCrossV} />
-            <div ref={radarSweepRef} className={styles.radarSweep} />
-            <div className={styles.radarShipVector}>
-              <img
-                src={voxelSpacecraftImg}
-                alt="Nav Vessel Vector"
-                className={styles.radarShipImg}
-              />
+          <div className={styles.vitalityBars}>
+            {/* Hull Integrity (10 Minecraft Hearts) */}
+            <div className={styles.barHeaderRow}>
+              <span>HULL INTEGRITY</span>
+              <span className={styles.barHeaderVal}>20 / 20 HP</span>
             </div>
-            <span className={styles.radarHeaderTag}>NAV // SYS</span>
-            <span className={styles.radarSpeedTag}>WARP 0.85c</span>
+            <div className={styles.iconRow}>
+              {Array.from({ length: 10 }).map((_, i) => (
+                <MinecraftHeart key={`heart-${i}`} filled={true} />
+              ))}
+            </div>
+
+            {/* Shield Deflectors (10 Minecraft Armor Chestplates) */}
+            <div className={styles.barHeaderRow} style={{ marginTop: 2 }}>
+              <span>SHIELD DEFLECTOR</span>
+              <span className={styles.barHeaderVal}>100% DEF</span>
+            </div>
+            <div className={styles.iconRow}>
+              {Array.from({ length: 10 }).map((_, i) => (
+                <MinecraftArmor key={`armor-${i}`} filled={true} />
+              ))}
+            </div>
+
+            {/* Minecraft EXP Level Bar */}
+            <div className={styles.xpBarContainer}>
+              <div className={styles.xpTrack}>
+                <div className={styles.xpFill} style={{ width: '92%' }} />
+              </div>
+              <span className={styles.xpLevelNumber}>99</span>
+            </div>
           </div>
         </div>
 
-        {/* === RIGHT: TELEMETRY & 3D ROTATING VOXEL CUBE === */}
-        <div className={styles.screenMfdRight}>
-          <div className={styles.barGraphContainer}>
-            {graphColumns.map((blocks, colIdx) => (
-              <div key={colIdx} className={styles.voxelColBlock}>
-                {Array.from({ length: blocks }).map((_, pIdx) => (
-                  <div key={pIdx} className={styles.voxelSubPip} />
-                ))}
+        {/* === CENTER: LOCATOR RADAR & THE ICONIC MINECRAFT 9-SLOT HOTBAR === */}
+        <div className={styles.centerConsole}>
+          {/* Radar Screen */}
+          <div className={styles.centerRadarScreen}>
+            <div className={styles.radarDisplay}>
+              <div className={`${styles.voxelRadarRing} ${styles.ring1}`} />
+              <div className={`${styles.voxelRadarRing} ${styles.ring2}`} />
+              <div className={`${styles.voxelRadarRing} ${styles.ring3}`} />
+              <div className={styles.radarCrossH} />
+              <div className={styles.radarCrossV} />
+              <div ref={radarSweepRef} className={styles.radarSweep} />
+
+              <span className={styles.radarHeaderTag}>LOCATOR // MAP</span>
+              <span className={styles.radarSpeedTag}>WARP 0.85c</span>
+            </div>
+          </div>
+
+          {/* Minecraft 9-Slot Hotbar */}
+          <div className={styles.minecraftHotbar}>
+            {hotbarItems.map((slot, index) => (
+              <div
+                key={slot.id}
+                className={`${styles.hotbarSlot} ${activeSlot === index ? styles.hotbarSlotActive : ''}`}
+                onClick={() => setActiveSlot(index)}
+                title={slot.label}
+              >
+                <span className={styles.slotKeyNum}>{index + 1}</span>
+                <MinecraftItem type={slot.type} />
               </div>
             ))}
           </div>
+        </div>
 
+        {/* === RIGHT: BLAST FURNACE THRUSTER & REDSTONE DECK === */}
+        <div className={styles.screenMfdRight}>
+          {/* Minecraft Furnace Thruster Gauge */}
+          <div className={styles.furnaceGauge}>
+            <span className={styles.furnaceLabel}>THRUST FUEL</span>
+            <div className={styles.furnaceFlameAnim}>
+              <MinecraftFurnaceFlame />
+            </div>
+            <span className={styles.furnaceArrow}>➔ 100%</span>
+          </div>
+
+          {/* Redstone Buttons & Wiring Deck */}
+          <div className={styles.redstoneDeck}>
+            <div className={styles.redstoneLeverRow}>
+              <div className={styles.stoneButton} title="Stone Button 1">
+                <div className={styles.buttonDot} />
+              </div>
+              <div className={styles.redstoneWire} />
+              <div className={styles.stoneButton} title="Stone Button 2">
+                <div className={styles.buttonDot} />
+              </div>
+            </div>
+            <div className={styles.barHeaderRow}>
+              <span style={{ color: '#ea580c' }}>REDSTONE PWR</span>
+              <span style={{ color: '#ef4444' }}>SIGNAL 15</span>
+            </div>
+          </div>
+
+          {/* 3D Rotating Voxel Core Cube */}
           <div className={styles.cubeContainer}>
             <div className={styles.rotatingVoxelCube}>
               <div className={`${styles.cubeFace} ${styles.faceFront}`} />
@@ -122,12 +181,10 @@ const CockpitDashboard = ({ isVisible = true }) => {
               <div className={`${styles.cubeFace} ${styles.faceTop}`} />
               <div className={`${styles.cubeFace} ${styles.faceBottom}`} />
             </div>
-            <span className={styles.cubeLabel}>CORE: 0x4F</span>
+            <span className={styles.cubeLabel}>CORE: NETHER</span>
           </div>
         </div>
       </div>
-
-      <div className={styles.thrusterGlow} />
     </div>
   );
 };

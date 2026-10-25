@@ -3,15 +3,24 @@ import styles from './TargetingHUD.module.css';
 
 /**
  * TargetingHUD
- * Minecraft-inspired voxel targeting reticle with blocky brackets and stepped reticle square.
+ * Minecraft-inspired voxel targeting reticle featuring the iconic inverted crosshair (+),
+ * XYZ axis markers (Red X, Green Y, Blue Z), and block telemetry.
  */
 const TargetingHUD = () => {
   return (
     <div className={styles.hudContainer} aria-hidden="true">
       <div className={styles.targetingReticle}>
-        {/* Horizontal & Vertical Pixel Crosshairs */}
-        <div className={styles.crosshairH} />
-        <div className={styles.crosshairV} />
+        {/* Minecraft Inverted Crosshair (+) */}
+        <div className={styles.minecraftCrosshair}>
+          <div className={styles.crossArmH} />
+          <div className={styles.crossArmV} />
+          <div className={styles.crossHole} />
+        </div>
+
+        {/* 3D Coordinate Axis Indicators (Minecraft F3 Red X, Green Y, Blue Z) */}
+        <div className={styles.axisX} title="X Axis (East)" />
+        <div className={styles.axisY} title="Y Axis (Up)" />
+        <div className={styles.axisZ} title="Z Axis (South)" />
 
         {/* Stepped Pixel Corner Brackets */}
         <div className={styles.cornerTL} />
@@ -19,14 +28,11 @@ const TargetingHUD = () => {
         <div className={styles.cornerBL} />
         <div className={styles.cornerBR} />
 
-        {/* Rotating Voxel Target Square */}
+        {/* Rotating Voxel Target Box */}
         <div className={styles.targetSquare} />
 
-        {/* Center Voxel Target Dot */}
-        <div className={styles.centerDot} />
-
-        {/* Voxel Telemetry Readout */}
-        <span className={styles.targetTelemetry}>TARGET: LOCKED // 24.8 AU</span>
+        {/* Minecraft Target Telemetry Readout */}
+        <span className={styles.targetTelemetry}>PLANET TARGET: LOCKED // 48 BLOCKS</span>
       </div>
     </div>
   );

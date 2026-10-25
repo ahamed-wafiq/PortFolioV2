@@ -1,6 +1,6 @@
 /* ==========================================================================
-   MINECRAFT-INSPIRED VOXEL TARGETING HUD
-   Chunky pixel brackets, stepped square reticle, and redstone telemetry
+   MINECRAFT VOXEL TARGETING HUD
+   Iconic Minecraft inverted crosshair (+), coordinate axes, and block target brackets
    ========================================================================== */
 
 .hudContainer {
@@ -13,13 +13,12 @@
   justify-content: center;
 }
 
-/* Reticle with gentle scanning motion */
 .targetingReticle {
   position: relative;
-  left: 3%;
-  top: 4%;
-  width: 120px;
-  height: 120px;
+  left: 2%;
+  top: 3%;
+  width: 140px;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,76 +27,121 @@
 
 @keyframes hudHunting {
   0%   { transform: translate(0px, 0px); }
-  25%  { transform: translate(6px, -5px); }
-  50%  { transform: translate(-7px, 4px); }
-  75%  { transform: translate(-4px, -3px); }
-  100% { transform: translate(5px, 6px); }
+  25%  { transform: translate(5px, -4px); }
+  50%  { transform: translate(-6px, 3px); }
+  75%  { transform: translate(-3px, -2px); }
+  100% { transform: translate(4px, 5px); }
 }
 
-/* Pixel Crosshairs */
-.crosshairH {
+/* Minecraft Classic Inverted Crosshair (+) */
+.minecraftCrosshair {
   position: absolute;
-  left: -20px;
-  right: -20px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(1px 1px 0px rgba(0, 0, 0, 0.9));
+}
+
+.crossArmH {
+  position: absolute;
+  width: 16px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #b24e12 25%, #d9651e 50%, #b24e12 75%, transparent);
+  background: #ffffff;
 }
 
-.crosshairV {
+.crossArmV {
   position: absolute;
-  top: -20px;
-  bottom: -20px;
   width: 2px;
-  background: linear-gradient(180deg, transparent, #b24e12 25%, #d9651e 50%, #b24e12 75%, transparent);
+  height: 16px;
+  background: #ffffff;
+}
+
+.crossHole {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: transparent;
+}
+
+/* 3D Coordinate Axis Indicators (Minecraft F3 Crosshair: X Red, Y Green, Z Blue) */
+.axisX {
+  position: absolute;
+  right: -24px;
+  top: 50%;
+  width: 18px;
+  height: 2px;
+  background: #ef4444;
+  box-shadow: 0 0 4px #ef4444;
+}
+
+.axisY {
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  width: 2px;
+  height: 18px;
+  background: #22c55e;
+  box-shadow: 0 0 4px #22c55e;
+}
+
+.axisZ {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  width: 2px;
+  height: 18px;
+  background: #3b82f6;
+  box-shadow: 0 0 4px #3b82f6;
 }
 
 /* Stepped Square Pixel Corner Brackets */
 .cornerTL, .cornerTR, .cornerBL, .cornerBR {
   position: absolute;
-  width: 16px;
-  height: 16px;
-  border-color: #d9651e;
+  width: 18px;
+  height: 18px;
+  border-color: #ea580c;
   border-style: solid;
   border-width: 0;
-  box-shadow: 1px 1px 0px #0e1017;
+  box-shadow: 1px 1px 0px #090a0d;
 }
 
 .cornerTL {
-  top: 8px;
-  left: 8px;
+  top: 16px;
+  left: 16px;
   border-top-width: 3px;
   border-left-width: 3px;
 }
 
 .cornerTR {
-  top: 8px;
-  right: 8px;
+  top: 16px;
+  right: 16px;
   border-top-width: 3px;
   border-right-width: 3px;
 }
 
 .cornerBL {
-  bottom: 8px;
-  left: 8px;
+  bottom: 16px;
+  left: 16px;
   border-bottom-width: 3px;
   border-left-width: 3px;
 }
 
 .cornerBR {
-  bottom: 8px;
-  right: 8px;
+  bottom: 16px;
+  right: 16px;
   border-bottom-width: 3px;
   border-right-width: 3px;
 }
 
-/* Voxel Stepped Target Box */
+/* Rotating Voxel Target Box */
 .targetSquare {
   position: absolute;
-  width: 52px;
-  height: 52px;
-  border: 2px dashed #d9651e;
-  animation: squareSpin 20s linear infinite;
-  box-shadow: inset 0 0 4px rgba(217, 101, 30, 0.2);
+  width: 60px;
+  height: 60px;
+  border: 2px dashed rgba(234, 88, 12, 0.6);
+  animation: squareSpin 24s linear infinite;
 }
 
 @keyframes squareSpin {
@@ -105,29 +149,18 @@
   to   { transform: rotate(360deg); }
 }
 
-/* Center Voxel Target Dot */
-.centerDot {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: #eae5d8;
-  border: 1px solid #d9651e;
-  transform: rotate(45deg);
-}
-
-/* Voxel Rangefinder Readout */
+/* Minecraft Target Telemetry Readout */
 .targetTelemetry {
   position: absolute;
-  bottom: -22px;
-  white-space: nowrap;
-  font-family: var(--font-tech), monospace;
-  font-size: 0.6rem;
+  bottom: -28px;
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.1em;
-  color: #d9651e;
-  background: rgba(18, 20, 28, 0.92);
-  border: 1px solid #d9651e;
-  padding: 1px 6px;
-  border-radius: 0;
-  box-shadow: 2px 2px 0px #0e1017;
+  letter-spacing: 0.5px;
+  color: #fde047;
+  text-shadow: 1px 1px 0px #000, -1px -1px 0px #000;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.55);
+  padding: 2px 6px;
+  border-left: 2px solid #ea580c;
 }
