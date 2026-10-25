@@ -8,7 +8,6 @@ import styles from './CockpitCanopy.module.css';
  */
 const CockpitCanopy = () => {
   const [vibration, setVibration] = useState({ x: 0, y: 0 });
-  const [f3Coords, setF3Coords] = useState({ x: 142.85, y: 64.0, z: -342.12 });
 
   useEffect(() => {
     let animId;
@@ -20,13 +19,6 @@ const CockpitCanopy = () => {
       const vx = Math.sin(elapsed * 18.0) * 0.65 + Math.sin(elapsed * 9.2) * 0.35;
       const vy = Math.cos(elapsed * 22.0) * 0.5 + Math.sin(elapsed * 6.5) * 0.3;
       setVibration({ x: vx, y: vy });
-
-      // Slowly increment F3 Z-coordinate as spacecraft flies forward through voxel space!
-      setF3Coords({
-        x: (142.85 + Math.sin(elapsed * 0.2) * 2.5).toFixed(2),
-        y: (64.0 + Math.cos(elapsed * 0.3) * 0.8).toFixed(2),
-        z: (-342.12 + elapsed * 12.4).toFixed(2),
-      });
 
       animId = requestAnimationFrame(animate);
     };
@@ -68,27 +60,6 @@ const CockpitCanopy = () => {
               fill="rgba(255, 255, 255, 0.35)"
             />
           </svg>
-        </div>
-      </div>
-
-      {/* ================================================================ */}
-      {/* 2. MINECRAFT F3 DEBUG HUD (Top Left)                             */}
-      {/* ================================================================ */}
-      <div className={styles.f3DebugOverlay}>
-        <div className={styles.f3Line}>
-          <span className={styles.f3Highlight}>Minecraft Spacecraft</span> v1.21.4 (Hardcore Survival)
-        </div>
-        <div className={styles.f3Line}>
-          XYZ: <span className={styles.f3Green}>{f3Coords.x}</span> / <span className={styles.f3Green}>{f3Coords.y}</span> / <span className={styles.f3Green}>{f3Coords.z}</span>
-        </div>
-        <div className={styles.f3Line}>
-          Facing: <span className={styles.f3Cyan}>Towards Voxel Planets [Axis -Z]</span>
-        </div>
-        <div className={styles.f3Line}>
-          Biome: <span className={styles.f3Highlight}>minecraft:deep_space_orbit</span>
-        </div>
-        <div className={styles.f3Line}>
-          Speed: <span className={styles.f3Green}>0.85c</span> (Ticks: 20 TPS // Light: 15)
         </div>
       </div>
 

@@ -213,16 +213,6 @@ const Planet = ({
         {glowMesh && <primitive object={glowMesh} />}
       </group>
 
-      {/* Atmospheric rim glow */}
-      <mesh scale={atmosphereScale}>
-        <sphereGeometry args={[radius * 1.08, 32, 32]} />
-        <meshBasicMaterial
-          color={atmosphereColor}
-          transparent
-          opacity={atmosphereOpacity * 0.28}
-          side={THREE.BackSide}
-        />
-      </mesh>
 
       {/* Planetary 3D Voxel Ring */}
       {hasRings && ringMesh && (

@@ -63,16 +63,6 @@ const SpaceEnvironment = () => {
         />
       </mesh>
 
-      {/* Billowing volumetric cloud banks along the bottom horizon */}
-      <mesh position={[8, -6, -35]} scale={[35, 14, 25]}>
-        <sphereGeometry args={[1, 32, 32]} />
-        <meshBasicMaterial
-          color="#ff8a1f"
-          transparent
-          opacity={0.22}
-          side={THREE.BackSide}
-        />
-      </mesh>
 
       {/* Cockpit ambient warm fill */}
       <ambientLight intensity={0.65} color="#ffd8b0" />

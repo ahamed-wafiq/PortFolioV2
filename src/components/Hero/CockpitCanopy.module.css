@@ -49,48 +49,6 @@
   image-rendering: pixelated;
 }
 
-/* ==========================================================================
-   MINECRAFT F3 DEBUG HUD TELEMETRY (TOP-LEFT)
-   Faithfully matching the iconic Minecraft F3 info screen overlay!
-   ========================================================================== */
-
-.f3DebugOverlay {
-  position: absolute;
-  top: 40px;
-  left: 36px;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  font-family: 'Courier New', Courier, monospace;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  color: #f1f5f9;
-  text-shadow: 1px 1px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000;
-  pointer-events: none;
-  opacity: 0.88;
-  z-index: 14;
-}
-
-.f3Line {
-  background: rgba(0, 0, 0, 0.45);
-  padding: 1px 6px;
-  width: fit-content;
-  border-left: 2px solid #ea580c;
-  line-height: 1.35;
-}
-
-.f3Highlight {
-  color: #fbbf24;
-}
-
-.f3Green {
-  color: #4ade80;
-}
-
-.f3Cyan {
-  color: #38bdf8;
-}
 
 /* ==========================================================================
    TOP CHUNKY VOXEL CANOPY BEAM & REDSTONE LAMPS
@@ -318,9 +276,6 @@
 }
 
 @media (max-width: 768px) {
-  .f3DebugOverlay {
-    display: none;
-  }
   .leftVoxelPillar,
   .rightVoxelPillar {
     width: 20px;

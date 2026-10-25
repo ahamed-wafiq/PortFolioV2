@@ -36,8 +36,6 @@ const HeroContainer = () => {
         <SpaceScene isVisible={isVisible} />
       </div>
 
-      {/* Atmospheric Amber Cosmic Glow Overlay */}
-      <div className={styles.atmosphereHaze} aria-hidden="true" />
 
       {/* ================================================================ */}
       {/* LAYER 5: TARGETING HUD RETICLE & TELEMETRY                       */}
