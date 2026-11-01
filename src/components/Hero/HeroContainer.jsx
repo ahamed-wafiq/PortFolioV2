@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import SpaceScene from '../Scene/SpaceScene';
-import TargetingHUD from './TargetingHUD';
 import CockpitCanopy from './CockpitCanopy';
 import CockpitDashboard from './CockpitDashboard';
 import Navbar from './Navbar';
@@ -37,10 +36,6 @@ const HeroContainer = () => {
       </div>
 
 
-      {/* ================================================================ */}
-      {/* LAYER 5: TARGETING HUD RETICLE & TELEMETRY                       */}
-      {/* ================================================================ */}
-      <TargetingHUD />
 
       {/* ================================================================ */}
       {/* LAYER 6: COCKPIT WINDSHIELD CANOPY FRAME & AMBER LAMPS           */}

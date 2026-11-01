@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import styles from './CockpitDashboard.module.css';
 import voxelSpacecraftImg from '../../assets/voxel_spacecraft.png';
+import CoPilotDog from './CoPilotDog';
 import {
   MinecraftHeart,
   MinecraftArmor,
@@ -50,7 +51,7 @@ const CockpitDashboard = ({ isVisible = true }) => {
   ];
 
   return (
-    <div className={styles.dashboardContainer} aria-hidden="true">
+    <div className={styles.dashboardContainer}>
       {/* ================================================================ */}
       {/* 1. TOP CONSOLE DEEPSLATE CRENELLATIONS & REDSTONE STRIP          */}
       {/* ================================================================ */}
@@ -67,46 +68,53 @@ const CockpitDashboard = ({ isVisible = true }) => {
       {/* 2. MAIN DEEPSLATE FLIGHT DECK BODY                               */}
       {/* ================================================================ */}
       <div className={styles.consoleBody}>
-        {/* === LEFT: MINECRAFT HEALTH (HEARTS) & SHIELD (ARMOR) VITALITY === */}
-        <div className={styles.screenMfdLeft}>
-          <div className={styles.shipSchematic}>
-            <img
-              src={voxelSpacecraftImg}
-              alt="Spacecraft Schematic"
-              className={styles.schematicSpacecraftImg}
-            />
+        {/* === LEFT: MINECRAFT HEALTH (HEARTS) & SHIELD DEFLECTOR + CO-PILOT WOLF === */}
+        <div className={styles.leftGroup}>
+          <div className={styles.screenMfdLeft}>
+            <div className={styles.shipSchematic}>
+              <img
+                src={voxelSpacecraftImg}
+                alt="Spacecraft Schematic"
+                className={styles.schematicSpacecraftImg}
+              />
+            </div>
+
+            <div className={styles.vitalityBars}>
+              {/* Hull Integrity (10 Minecraft Hearts) */}
+              <div className={styles.barHeaderRow}>
+                <span>HULL INTEGRITY</span>
+                <span className={styles.barHeaderVal}>20 / 20 HP</span>
+              </div>
+              <div className={styles.iconRow}>
+                {Array.from({ length: 10 }).map((_, i) => (
+                  <MinecraftHeart key={`heart-${i}`} filled={true} />
+                ))}
+              </div>
+
+              {/* Shield Deflectors (10 Minecraft Armor Chestplates) */}
+              <div className={styles.barHeaderRow} style={{ marginTop: 2 }}>
+                <span>SHIELD DEFLECTOR</span>
+                <span className={styles.barHeaderVal}>100% DEF</span>
+              </div>
+              <div className={styles.iconRow}>
+                {Array.from({ length: 10 }).map((_, i) => (
+                  <MinecraftArmor key={`armor-${i}`} filled={true} />
+                ))}
+              </div>
+
+              {/* Minecraft EXP Level Bar */}
+              <div className={styles.xpBarContainer}>
+                <div className={styles.xpTrack}>
+                  <div className={styles.xpFill} style={{ width: '92%' }} />
+                </div>
+                <span className={styles.xpLevelNumber}>99</span>
+              </div>
+            </div>
           </div>
 
-          <div className={styles.vitalityBars}>
-            {/* Hull Integrity (10 Minecraft Hearts) */}
-            <div className={styles.barHeaderRow}>
-              <span>HULL INTEGRITY</span>
-              <span className={styles.barHeaderVal}>20 / 20 HP</span>
-            </div>
-            <div className={styles.iconRow}>
-              {Array.from({ length: 10 }).map((_, i) => (
-                <MinecraftHeart key={`heart-${i}`} filled={true} />
-              ))}
-            </div>
-
-            {/* Shield Deflectors (10 Minecraft Armor Chestplates) */}
-            <div className={styles.barHeaderRow} style={{ marginTop: 2 }}>
-              <span>SHIELD DEFLECTOR</span>
-              <span className={styles.barHeaderVal}>100% DEF</span>
-            </div>
-            <div className={styles.iconRow}>
-              {Array.from({ length: 10 }).map((_, i) => (
-                <MinecraftArmor key={`armor-${i}`} filled={true} />
-              ))}
-            </div>
-
-            {/* Minecraft EXP Level Bar */}
-            <div className={styles.xpBarContainer}>
-              <div className={styles.xpTrack}>
-                <div className={styles.xpFill} style={{ width: '92%' }} />
-              </div>
-              <span className={styles.xpLevelNumber}>99</span>
-            </div>
+          {/* Autonomous Cyber Wolf Co-Pilot docked in the console gap */}
+          <div className={styles.copilotDock}>
+            <CoPilotDog />
           </div>
         </div>
 
@@ -144,44 +152,46 @@ const CockpitDashboard = ({ isVisible = true }) => {
         </div>
 
         {/* === RIGHT: BLAST FURNACE THRUSTER & REDSTONE DECK === */}
-        <div className={styles.screenMfdRight}>
-          {/* Minecraft Furnace Thruster Gauge */}
-          <div className={styles.furnaceGauge}>
-            <span className={styles.furnaceLabel}>THRUST FUEL</span>
-            <div className={styles.furnaceFlameAnim}>
-              <MinecraftFurnaceFlame />
-            </div>
-            <span className={styles.furnaceArrow}>➔ 100%</span>
-          </div>
-
-          {/* Redstone Buttons & Wiring Deck */}
-          <div className={styles.redstoneDeck}>
-            <div className={styles.redstoneLeverRow}>
-              <div className={styles.stoneButton} title="Stone Button 1">
-                <div className={styles.buttonDot} />
+        <div className={styles.rightGroup}>
+          <div className={styles.screenMfdRight}>
+            {/* Minecraft Furnace Thruster Gauge */}
+            <div className={styles.furnaceGauge}>
+              <span className={styles.furnaceLabel}>THRUST FUEL</span>
+              <div className={styles.furnaceFlameAnim}>
+                <MinecraftFurnaceFlame />
               </div>
-              <div className={styles.redstoneWire} />
-              <div className={styles.stoneButton} title="Stone Button 2">
-                <div className={styles.buttonDot} />
+              <span className={styles.furnaceArrow}>➔ 100%</span>
+            </div>
+
+            {/* Redstone Buttons & Wiring Deck */}
+            <div className={styles.redstoneDeck}>
+              <div className={styles.redstoneLeverRow}>
+                <div className={styles.stoneButton} title="Stone Button 1">
+                  <div className={styles.buttonDot} />
+                </div>
+                <div className={styles.redstoneWire} />
+                <div className={styles.stoneButton} title="Stone Button 2">
+                  <div className={styles.buttonDot} />
+                </div>
+              </div>
+              <div className={styles.barHeaderRow}>
+                <span style={{ color: '#ea580c' }}>REDSTONE PWR</span>
+                <span style={{ color: '#ef4444' }}>SIGNAL 15</span>
               </div>
             </div>
-            <div className={styles.barHeaderRow}>
-              <span style={{ color: '#ea580c' }}>REDSTONE PWR</span>
-              <span style={{ color: '#ef4444' }}>SIGNAL 15</span>
-            </div>
-          </div>
 
-          {/* 3D Rotating Voxel Core Cube */}
-          <div className={styles.cubeContainer}>
-            <div className={styles.rotatingVoxelCube}>
-              <div className={`${styles.cubeFace} ${styles.faceFront}`} />
-              <div className={`${styles.cubeFace} ${styles.faceBack}`} />
-              <div className={`${styles.cubeFace} ${styles.faceRight}`} />
-              <div className={`${styles.cubeFace} ${styles.faceLeft}`} />
-              <div className={`${styles.cubeFace} ${styles.faceTop}`} />
-              <div className={`${styles.cubeFace} ${styles.faceBottom}`} />
+            {/* 3D Rotating Voxel Core Cube */}
+            <div className={styles.cubeContainer}>
+              <div className={styles.rotatingVoxelCube}>
+                <div className={`${styles.cubeFace} ${styles.faceFront}`} />
+                <div className={`${styles.cubeFace} ${styles.faceBack}`} />
+                <div className={`${styles.cubeFace} ${styles.faceRight}`} />
+                <div className={`${styles.cubeFace} ${styles.faceLeft}`} />
+                <div className={`${styles.cubeFace} ${styles.faceTop}`} />
+                <div className={`${styles.cubeFace} ${styles.faceBottom}`} />
+              </div>
+              <span className={styles.cubeLabel}>CORE: NETHER</span>
             </div>
-            <span className={styles.cubeLabel}>CORE: NETHER</span>
           </div>
         </div>
       </div>

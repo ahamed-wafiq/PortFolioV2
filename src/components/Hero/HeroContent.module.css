@@ -8,6 +8,7 @@
   gap: clamp(1.5rem, 3vw, 4rem);
   align-items: flex-start;
   justify-content: flex-start;
+  pointer-events: none;
 }
 
 .leftColumn {
@@ -18,6 +19,7 @@
   justify-content: flex-start;
   align-self: flex-start;
   margin-top: clamp(0.25rem, 1.5vh, 1rem);
+  pointer-events: auto;
 }
 
 .rightColumn {

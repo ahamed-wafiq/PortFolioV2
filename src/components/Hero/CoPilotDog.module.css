@@ -1,0 +1,168 @@
+/* Interactive 3D Minecraft Robot Wolf Co-Pilot Container */
+.dogContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 110px;
+  min-height: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  pointer-events: auto;
+  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.75));
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dogContainer:active {
+  cursor: grabbing;
+}
+
+.dogContainer:hover {
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* Floating Minecraft Red Heart Particles (♥) */
+.floatingHeart {
+  position: absolute;
+  bottom: 40%;
+  font-family: var(--font-pixel, monospace);
+  font-size: 1.15rem;
+  color: #ef4444;
+  text-shadow: 1px 1px 0px #000, 0 0 10px rgba(239, 68, 68, 0.9);
+  pointer-events: none;
+  z-index: 50;
+  animation: floatHeart 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes floatHeart {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(0.6) rotate(-8deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-28px) scale(1.15) rotate(8deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-56px) scale(0.85) rotate(-4deg);
+  }
+}
+
+/* Co-Pilot Status Badge Under Dock */
+.copilotBadge {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(14, 17, 24, 0.92);
+  border: 1px solid #282f40;
+  box-shadow: inset 1px 1px 0 #343c4f, 0 2px 4px rgba(0, 0, 0, 0.8);
+  padding: 1px 5px;
+  border-radius: 2px;
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 15;
+}
+
+.statusDot {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 4px #34d399;
+}
+
+.badgeLabel {
+  font-family: 'Courier New', monospace;
+  font-size: 7px;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+}
+
+/* Subtle Interactive Hover Hint */
+.hoverHint {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-pixel, monospace);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  color: rgba(0, 229, 255, 0.95);
+  background: rgba(10, 14, 20, 0.92);
+  border: 1px dashed rgba(0, 229, 255, 0.45);
+  padding: 2px 6px;
+  border-radius: 3px;
+  pointer-events: none;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 35;
+}
+
+.dogContainer:hover .hoverHint {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
+}
+
+/* Minecraft Pixel Speech Bubble when Dog Barks / Petted */
+.speechBubble {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #11131a;
+  border: 2px solid #ff7700;
+  box-shadow: 0 0 16px rgba(255, 119, 0, 0.5), 2px 2px 0px #000;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 45;
+  pointer-events: none;
+  animation: popInBubble 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.bubbleText {
+  font-family: var(--font-pixel, monospace);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #ffaa00;
+  white-space: nowrap;
+}
+
+.bubbleArrow {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #ff7700;
+}
+
+@keyframes popInBubble {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) scale(0.6) translateY(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) scale(1) translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .dogContainer {
+    width: 85px;
+    height: 85px;
+  }
+}

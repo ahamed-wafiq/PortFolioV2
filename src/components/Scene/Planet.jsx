@@ -160,7 +160,7 @@ const Planet = ({
       // Advance continuously forward as spacecraft travels through space
       currentZ.current += delta * flightSpeed;
       if (currentZ.current > zEnd) {
-        currentZ.current = zStart;
+        currentZ.current = zStart + (currentZ.current - zEnd);
       }
 
       // As the planet approaches and passes the cockpit, it smoothly drifts outward to the side
