@@ -1,0 +1,428 @@
+/* ==========================================================================
+   ABOUT THE PILOT - UNIFIED COMMAND DECK & TECH NEXUS
+   Transforms two static boxes into an incredible, cohesive sci-fi flight console!
+   ========================================================================== */
+
+.section {
+  position: relative;
+  width: 100%;
+  padding: clamp(4.5rem, 9vh, 7rem) var(--spacing-safe-x);
+  background: var(--bg-deep, #0b0d12);
+  border-top: 1px solid rgba(217, 101, 30, 0.22);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+/* Background sci-fi ambient grid */
+.gridBackground {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(rgba(217, 101, 30, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(217, 101, 30, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(217, 101, 30, 0.025) 1px, transparent 1px);
+  background-size: 24px 24px, 48px 48px, 48px 48px;
+  opacity: 0.7;
+}
+
+/* Section Header Block */
+.headerBlock {
+  margin-bottom: clamp(2rem, 4vw, 3.2rem);
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+
+.sectionTag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  color: #d9651e;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-pixel), var(--font-display), monospace;
+  font-size: clamp(1.9rem, 3.5vw, 3rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #eae5d8;
+  text-shadow: 2px 2px 0px #0e1017, 4px 4px 0px rgba(178, 78, 18, 0.35);
+  margin-bottom: 0.6rem;
+}
+
+.sectionSubtitle {
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.6;
+  color: #9aa1b2;
+  max-width: 42rem;
+}
+
+/* ==========================================================================
+   MASTER COMMAND DECK CONSOLE FRAME
+   Unifies the Pilot Dossier & Tech Core into one seamless high-tech workstation!
+   ========================================================================== */
+
+.commandDeck {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 80% 30%, rgba(217, 101, 30, 0.08) 0%, transparent 60%),
+    linear-gradient(180deg, #151822 0%, #0e1017 100%);
+  border: 3px solid #282f40;
+  border-radius: 4px;
+  box-shadow:
+    0 0 0 2px #0a0c10,
+    0 0 0 4px #b24e12,
+    0 0 0 6px #d9651e,
+    0 24px 60px rgba(0, 0, 0, 0.95),
+    inset 0 2px 0 rgba(255, 255, 255, 0.08),
+    inset 0 -2px 0 #07080b;
+  overflow: hidden;
+  backdrop-filter: blur(12px);
+  z-index: 5;
+}
+
+/* Master Corner Voxel Accents */
+.deckCornerTL, .deckCornerTR, .deckCornerBL, .deckCornerBR {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.deckCornerTL {
+  top: -4px;
+  left: -4px;
+  background: #d9651e;
+  box-shadow: 4px 0 0 #b24e12, 0 4px 0 #b24e12, -2px -2px 0 #0e1017;
+  clip-path: polygon(0 0, 100% 0, 100% 40%, 40% 40%, 40% 100%, 0 100%);
+}
+
+.deckCornerTR {
+  top: -4px;
+  right: -4px;
+  background: #d9651e;
+  box-shadow: -4px 0 0 #b24e12, 0 4px 0 #b24e12, 2px -2px 0 #0e1017;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 60% 100%, 60% 40%, 0 40%);
+}
+
+.deckCornerBL {
+  bottom: -4px;
+  left: -4px;
+  background: #d9651e;
+  box-shadow: 4px 0 0 #b24e12, 0 -4px 0 #b24e12, -2px 2px 0 #0e1017;
+  clip-path: polygon(0 0, 40% 0, 40% 60%, 100% 60%, 100% 100%, 0 100%);
+}
+
+.deckCornerBR {
+  bottom: -4px;
+  right: -4px;
+  background: #d9651e;
+  box-shadow: -4px 0 0 #b24e12, 0 -4px 0 #b24e12, 2px 2px 0 #0e1017;
+  clip-path: polygon(60% 0, 100% 0, 100% 100%, 0 100%, 0 60%, 60% 60%);
+}
+
+/* ==========================================================================
+   TOP MASTER TELEMETRY BANNER STRIP
+   ========================================================================== */
+
+.deckTopBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px 18px;
+  background: #0d0f15;
+  border-bottom: 2px solid #222736;
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: #eae5d8;
+  position: relative;
+}
+
+.topBarLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.liveIndicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #10b981;
+}
+
+.liveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 8px #34d399;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.8); }
+}
+
+.topBarTitle {
+  color: #eae5d8;
+  font-weight: 700;
+}
+
+.topBarCenter {
+  color: #d9651e;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topBarRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #94a3b8;
+}
+
+.telemetryTag {
+  padding: 2px 6px;
+  background: #181c26;
+  border: 1px solid #2f374c;
+  color: #38bdf8;
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   DECK BODY: INTEGRATED TWO-STATION WORKSPACE WITH DATA BUS
+   ========================================================================== */
+
+.deckBody {
+  display: grid;
+  grid-template-columns: 1.15fr 44px 1fr;
+  align-items: stretch;
+  position: relative;
+}
+
+/* === STATION 1: PILOT DOSSIER HUD === */
+.pilotStation {
+  padding: clamp(1.8rem, 3.2vw, 2.6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    linear-gradient(90deg, rgba(217, 101, 30, 0.015) 0%, transparent 100%);
+  position: relative;
+}
+
+/* Module Header Sub-plate */
+.cardTelemetry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  color: #eae5d8;
+  margin-bottom: 1.4rem;
+  padding: 6px 14px;
+  background: #11131a;
+  border-left: 4px solid #d9651e;
+  border-right: 4px solid #b24e12;
+  border-bottom: 2px solid #202532;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.telemetryStatus {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #d9651e;
+  font-weight: 700;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  background: #d9651e;
+  box-shadow: 0 0 6px #f97316;
+}
+
+/* Pilot Identity Banner */
+.pilotIdentityRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 0.8rem;
+}
+
+.callsignPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  background: rgba(217, 101, 30, 0.12);
+  border: 1px solid rgba(217, 101, 30, 0.45);
+  border-radius: 999px;
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.65rem;
+  color: #f97316;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.roleTag {
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.65rem;
+  color: #94a3b8;
+  letter-spacing: 0.08em;
+}
+
+/* Bio Heading */
+.bioHeading {
+  font-family: var(--font-display), monospace;
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 800;
+  color: #eae5d8;
+  line-height: 1.25;
+  margin-bottom: 1.2rem;
+  text-shadow: 1px 1px 0px #0c0e14;
+}
+
+/* Bio Paragraphs with sci-fi side rail */
+.bioTextContainer {
+  position: relative;
+  padding-left: 14px;
+  border-left: 2px solid rgba(217, 101, 30, 0.35);
+}
+
+.bioText {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: #9aa1b2;
+  margin-bottom: 1.25rem;
+}
+
+.bioText:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   CENTER: QUANTUM DATA BUS CONDUIT
+   An animated glowing conduit linking Pilot Profile directly to Tech Reactor!
+   ========================================================================== */
+
+.dataBusConduit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: #0b0d13;
+  border-left: 2px solid #1c212e;
+  border-right: 2px solid #1c212e;
+  padding: 18px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.busLine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, #d9651e 0%, rgba(217, 101, 30, 0.2) 50%, #00e5ff 100%);
+}
+
+.busPulse {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 6px;
+  height: 32px;
+  transform: translateX(-50%);
+  background: linear-gradient(180deg, transparent, #ff9e3b, #ffffff, transparent);
+  border-radius: 999px;
+  box-shadow: 0 0 12px #ff9e3b;
+  animation: busFlow 3s linear infinite;
+}
+
+@keyframes busFlow {
+  0% { top: -10%; opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { top: 110%; opacity: 0; }
+}
+
+.busNode {
+  width: 14px;
+  height: 14px;
+  background: #171b26;
+  border: 2px solid #d9651e;
+  box-shadow: 0 0 8px rgba(217, 101, 30, 0.6);
+  transform: rotate(45deg);
+  z-index: 5;
+}
+
+.busTextVertical {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-family: var(--font-pixel), monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: rgba(217, 101, 30, 0.7);
+  z-index: 5;
+  user-select: none;
+}
+
+/* ==========================================================================
+   STATION 2: THE QUANTUM TECH REACTOR CORE
+   Houses the 3D rotating core, orbital SVG tracks, and interactive tech satellites
+   ========================================================================== */
+
+.reactorStation {
+  padding: clamp(1.4rem, 2.5vw, 2.2rem);
+  background:
+    radial-gradient(circle at 50% 50%, rgba(217, 101, 30, 0.05) 0%, transparent 70%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT BREAKPOINTS
+   ========================================================================== */
+
+@media (max-width: 1080px) {
+  .deckBody {
+    grid-template-columns: 1fr;
+  }
+  .dataBusConduit {
+    display: none;
+  }
+  .pilotStation {
+    border-bottom: 2px solid #282f40;
+  }
+}
+
+@media (max-width: 720px) {
+  .topBarCenter {
+    display: none;
+  }
+  .topBarRight {
+    display: none;
+  }
+}

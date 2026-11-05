@@ -192,7 +192,7 @@ const CockpitDashboard = ({ isVisible = true }) => {
               </div>
               <span className={styles.cubeLabel}>CORE: NETHER</span>
             </div>
-          </div>
+           </div>
         </div>
       </div>
     </div>

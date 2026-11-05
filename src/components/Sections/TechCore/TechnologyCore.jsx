@@ -53,16 +53,20 @@ const TECH_NODES = [
   },
 ];
 
-export default function TechnologyCore() {
+export default function TechnologyCore({ isEmbedded = false }) {
   const [hoveredTech, setHoveredTech] = useState(null);
 
   return (
-    <div className={styles.techCoreCard}>
+    <div className={`${styles.techCoreCard} ${isEmbedded ? styles.techCoreCardEmbedded : ''}`}>
       {/* Corner Bracket Accents */}
-      <div className={styles.cardCornerTL} />
-      <div className={styles.cardCornerTR} />
-      <div className={styles.cardCornerBL} />
-      <div className={styles.cardCornerBR} />
+      {!isEmbedded && (
+        <>
+          <div className={styles.cardCornerTL} />
+          <div className={styles.cardCornerTR} />
+          <div className={styles.cardCornerBL} />
+          <div className={styles.cardCornerBR} />
+        </>
+      )}
 
       {/* Header Telemetry */}
       <div className={styles.cardTelemetry}>
